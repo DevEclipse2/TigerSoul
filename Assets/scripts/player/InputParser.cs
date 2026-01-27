@@ -78,6 +78,7 @@ public class InputParser : MonoBehaviour
     }
     public void OnJump(InputAction.CallbackContext context)
     {
+        Debug.Log("jump");
         KeepAlive(Input.Jump, context);
     }
     public int QueryInput( List<int> blacklist)

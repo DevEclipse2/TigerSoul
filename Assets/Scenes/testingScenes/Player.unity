@@ -269,8 +269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0a3d05eeba38bc4293e37902cae849d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  health: 1
-  armour: 1
+  health: 0
+  armour: 0
   isBoss: 0
 --- !u!1 &14606557
 GameObject:
@@ -380,7 +380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DealDamage
   isleft: 0
   root: {fileID: 495318746}
-  size: {x: 0, y: 0}
+  size: {x: 1, y: 0.5}
   enemies:
     serializedVersion: 2
     m_Bits: 64
@@ -1047,7 +1047,6 @@ GameObject:
   - component: {fileID: 1560139682}
   - component: {fileID: 1560139684}
   - component: {fileID: 1560139685}
-  - component: {fileID: 1560139686}
   m_Layer: 0
   m_Name: InputController
   m_TagString: Untagged
@@ -1089,8 +1088,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b30d5f104e7eb84aa37d009ee65ca4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputHandler
-  moveSpeed: 12
-  jumpForce: 16
+  moveSpeed: 8
+  jumpForce: 12
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -1251,24 +1250,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &1560139686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1560139680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bee36f646e433c4b93bce8c0513e82f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InputParser
-  recentInput: 
-  timeSinceInput: []
-  ongoing: 
-  cancelled: 
-  pressed: 
-  retainCount: 0
 --- !u!1 &1630043731
 GameObject:
   m_ObjectHideFlags: 0
@@ -1515,9 +1496,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Combat
   grounded: 0
+  tapAttacks: []
+  holdAttacks: []
   tap: {fileID: 0}
   hold: {fileID: 0}
-  InputController: {fileID: 1560139680}
+  InputController: {fileID: 0}
   CurrentAttack: 0
   inputFilter: 06000000
 --- !u!1 &2005395429
@@ -1564,14 +1547,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e13d7a9c5ff0d4292457c2903b2fbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackContainer
-  groundedAttack: 1
-  damage: 1
-  invokeFunction:
-  - {fileID: 495318745}
+  groundedAttack: 0
+  damage: 0
+  invokeFunction: []
   BranchKey: 
   BranchAttack: []
-  cutIn: 0.1
-  hold: 0.1
+  cutIn: 0
+  hold: 0
   cutOut: 0
   args: 
 --- !u!1 &2046227077
