@@ -8,6 +8,7 @@ public static class Input
     public const int Down = 2;
     public const int Jump = 3;
     public const int Dash = 4;
+    public const int Move = 5;
     public const int Attack = 6;
     public const int Interact = 7;
     public const int Exit = 8;

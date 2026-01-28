@@ -7,6 +7,8 @@ public class InputParser : MonoBehaviour
 {
     public List<int> recentInput;
     public List<float> timeSinceInput;
+    public List<float> timeHeld;
+    List<float> StartTime;
     public List<bool> ongoing;
     public List<bool> cancelled;
     public List<bool> pressed;
@@ -34,38 +36,66 @@ public class InputParser : MonoBehaviour
     {
         int recent = 0;
         //check if its alive
+        recent = recentInput.IndexOf(inputid);
+        Debug.Log(inputid);
+        Debug.Log(recent);
         if (context.started)
         {
-            //just pressed
-            recentInput.Add(inputid);
-            timeSinceInput.Add(0);
-            ongoing.Add(true);
-            cancelled.Add(false);
-            pressed.Add(true);
+            if (recent != -1)
+            {
+                ongoing[recent] = true;
+                cancelled[recent] = false;
+                timeSinceInput[recent] = 0;
+            }
+            else { 
+                //new entry
+                recentInput.Add(inputid);
+                timeSinceInput.Add(0);
+                timeHeld.Add(0);
+                ongoing.Add(true);
+                cancelled.Add(false);
+                pressed.Add(true);
+
+            }
+            
         }
         else if (context.canceled)
         {
-            if ((recent = recentInput.IndexOf(inputid)) != -1)
+            if (recent != -1)
             {
                 ongoing[recent] = false;
                 cancelled[recent] = true;
-
+                timeHeld[recent] = 0;
+                pressed[recent] = false;
             }
             else
             {
-                Debug.Log("missing?! how!?");
+                recentInput.Add(inputid);
+                timeSinceInput.Add(0);
+                timeHeld.Add(0);
+                ongoing.Add(true);
+                cancelled.Add(true);
+                pressed.Add(false);
             }
         }
         else if (context.duration > 0.05) {
-            if ((recent = recentInput.IndexOf(inputid)) != -1)
+            Debug.Log("being held");
+            if (recent != -1)
             {
-                ongoing[recent] = false;
-                pressed[recent] = true;
+                ongoing[recent] = true;
+                pressed[recent] = false;
+                timeHeld[recent]= (float)context.duration;
+                timeSinceInput[recent] = 0;
 
             }
             else
             {
-                Debug.Log("how");
+                recentInput.Add(inputid);
+                timeSinceInput.Add(0);
+                timeHeld.Add(0);
+                ongoing.Add(true);
+                cancelled.Add(false);
+                pressed.Add(false);
             }
         }
         //else if ((recent = recentInput.IndexOf(inputid)) != -1 && context.duration > 0.05) 
@@ -76,15 +106,15 @@ public class InputParser : MonoBehaviour
         //    }
         //}
     }
-    public void OnJump(InputAction.CallbackContext context)
+    public void onJump(InputAction.CallbackContext context)
     {
         Debug.Log("jump");
         KeepAlive(Input.Jump, context);
     }
-    public void OnMove(InputAction.CallbackContext context)
+    public void onMove(InputAction.CallbackContext context)
     {
         Debug.Log("move");
-        KeepAlive(Input.Jump, context);
+        KeepAlive(Input.Move, context);
     }
     public int QueryInput( List<int> blacklist)
     {   
@@ -104,7 +134,14 @@ public class InputParser : MonoBehaviour
     private void Update()
     {
         for (int i = 0; i < timeSinceInput.Count; i++) {
-            timeSinceInput[i] += Time.deltaTime;
+            if (!ongoing[i])
+            {
+                timeSinceInput[i] += Time.deltaTime;
+            }
+        }
+        if (recentInput.Count > retainCount) {
+
+            clearInput();
         }
     }
 }
