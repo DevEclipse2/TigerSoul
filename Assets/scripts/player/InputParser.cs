@@ -30,7 +30,7 @@ public class InputParser : MonoBehaviour
             }
         }
     }
-    void KeepAlive( int inputid , InputAction.CallbackContext context)
+    void KeepAlive( int inputid , InputAction.CallbackContext context) 
     {
         int recent = 0;
         //check if its alive
@@ -79,6 +79,11 @@ public class InputParser : MonoBehaviour
     public void OnJump(InputAction.CallbackContext context)
     {
         Debug.Log("jump");
+        KeepAlive(Input.Jump, context);
+    }
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        Debug.Log("move");
         KeepAlive(Input.Jump, context);
     }
     public int QueryInput( List<int> blacklist)

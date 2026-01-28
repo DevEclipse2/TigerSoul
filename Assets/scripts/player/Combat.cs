@@ -21,7 +21,7 @@ public class Combat : MonoBehaviour
     };
     void Start()
     {
-        parser = InputController.GetComponent<InputParser>();
+        parser = InputController.GetComponent<InputParser>(); 
         tapAttacks = tap.GetComponentsInChildren<AttackContainer>();
         holdAttacks = hold.GetComponentsInChildren<AttackContainer>();
         //searches for all 
@@ -32,7 +32,7 @@ public class Combat : MonoBehaviour
     {
         
     }
-    public void onAttack(InputAction.CallbackContext context)
+    public void Attack(InputAction.CallbackContext context)
     {
         buffercontainer = null;
         Debug.Log("attack");
