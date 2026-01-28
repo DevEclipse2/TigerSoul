@@ -37,8 +37,7 @@ public class InputParser : MonoBehaviour
         int recent = 0;
         //check if its alive
         recent = recentInput.IndexOf(inputid);
-        Debug.Log(inputid);
-        Debug.Log(recent);
+        
         if (context.started)
         {
             if (recent != -1)
@@ -108,17 +107,53 @@ public class InputParser : MonoBehaviour
     }
     public void onJump(InputAction.CallbackContext context)
     {
-        Debug.Log("jump");
+        //Debug.Log("jump");
         KeepAlive(Input.Jump, context);
     }
     public void onMove(InputAction.CallbackContext context)
     {
-        Debug.Log("move");
-        KeepAlive(Input.Move, context);
+        //Debug.Log("move");
+        Vector2 val  = context.ReadValue<Vector2>();
+        if (val.x > 0)
+        {
+            KeepAlive(Input.Right, context);
+        }
+        else if (val.x < 0)
+        {
+            KeepAlive(Input.Left, context);
+
+        }
+        else 
+        {
+            KeepAlive(Input.Sleep, context);
+            KeepAlive(Input.Left, context);
+            KeepAlive(Input.Right, context);
+
+        }
+    }
+    public void onAttack(InputAction.CallbackContext context)
+    {
+        //Debug.Log("smack");
+        KeepAlive(Input.Attack, context);
+    }
+    public void onInteract(InputAction.CallbackContext context)
+    {
+        //Debug.Log("talk");
+        KeepAlive(Input.Interact, context);
+    }
+    public void onDash(InputAction.CallbackContext context)
+    {
+        //Debug.Log("zoom");
+        KeepAlive(Input.Dash, context);
+    }
+    public void onCrouch(InputAction.CallbackContext context)
+    {
+        //Debug.Log("zoom");
+        KeepAlive(Input.Down, context);
     }
     public int QueryInput( List<int> blacklist)
     {   
-        for(int i = 0; i < recentInput.Count; i++)
+        for(int i = recentInput.Count - 1; i >= 0; i--)
         {
             
             if (!blacklist.Contains(recentInput[i]))

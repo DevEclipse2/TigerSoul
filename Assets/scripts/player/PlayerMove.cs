@@ -56,12 +56,11 @@ public class PlayerMove : MonoBehaviour
         {
             //left
             damagescript.isleft = true;
-            Debug.Log("left");
         }
         else
         {
             damagescript.isleft = false;
-            Debug.Log("rigth");
+            
 
         }
         //}
@@ -78,7 +77,6 @@ public class PlayerMove : MonoBehaviour
         if (isGrounded)
         {
             lastWall = 0;
-            Debug.Log("jump");
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             //rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         }

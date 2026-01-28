@@ -7,14 +7,14 @@ public class DealDamage : MonoBehaviour
     public Transform root;
     public Vector2 size;
     public LayerMask enemies;
-    public LayerMask Destructibles;
-    List<GameObject> targetedEnemy;
-    List<GameObject> targetedDestructible;
-    public List<GameObject> Invokable;
+    public LayerMask destructibles;
+    List<GameObject> targetedEnemy = new List<GameObject>();
+    List<GameObject> targetedDestructible = new List<GameObject>();
+    public List<GameObject> Invokable = new List<GameObject>();
     public int damage = 0;
     bool isEnabled = false;
     bool candeal = false;
-    float timer = 0;
+    public float timer = 0;
     float maxtimer = 0;
     AttackContainer atkcontainer;
 
@@ -24,10 +24,12 @@ public class DealDamage : MonoBehaviour
     }
     public void deal(AttackContainer container)
     {
+        timer = 0;
         atkcontainer = container;
         isEnabled = true;
         candeal = false;
         damage = atkcontainer.damage;
+        dealDamage();
     }
     public void clear()
     {
@@ -41,21 +43,23 @@ public class DealDamage : MonoBehaviour
         if (isleft)
         {
             hit = Physics2D.BoxCastAll(root.position, size, 0, transform.right * -1 , enemies);
-            hitdes = Physics2D.BoxCastAll(root.position, size , 0 , transform.right * -1, enemies);
+            hitdes = Physics2D.BoxCastAll(root.position, size , 0 , transform.right * -1, destructibles);
         }
         else
         {
             hit = Physics2D.BoxCastAll(root.position, size, 0, transform.right, enemies);
-            hitdes = Physics2D.BoxCastAll(root.position, size, 0, transform.right, enemies);
+            hitdes = Physics2D.BoxCastAll(root.position, size, 0, transform.right, destructibles);
         }
-
-            foreach (RaycastHit2D ray in hit)
-            {
+        
+        foreach (RaycastHit2D ray in hit)
+        {
+            //Debug.Log("iterate");
                 if (!targetedEnemy.Contains(ray.collider.gameObject))
                 {
                     targetedEnemy.Add(ray.collider.gameObject);
                     if (ray.collider.gameObject.TryGetComponent<Health>(out Health health))
                     {
+                        
                         health.takeDamage(damage);
                     }
                     else
@@ -63,7 +67,7 @@ public class DealDamage : MonoBehaviour
                         Debug.Log("object missing valid health script!" + gameObject.name);
                     }
                 }
-            }
+        }
         foreach (RaycastHit2D ray in hitdes)
         {
             if (!targetedDestructible.Contains(ray.collider.gameObject))
@@ -86,7 +90,6 @@ public class DealDamage : MonoBehaviour
     {
         if (isEnabled)
         {
-            timer = 0;
             if (candeal)
             {
                 dealDamage();
