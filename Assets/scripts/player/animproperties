@@ -1,0 +1,19 @@
+overrideAnim properties and functions
+
+functions : start, end
+gameobject : trigger
+float(list) cut in point 
+float(list) exit point
+animation
+anim set properies (list)
+properites (list) : 
+locked - cannot exit using regular interrupt
+looping - this loops 
+one shot - runs and exits normally
+polite - cannot interrupt
+kill - does not allow interlude
+cutin - does this animation allow dynamic cut ins and outs?
+fixedtime - this animation has a fixed rate of execution and always shows x frame at x time
+scriptable - this animation has scriptable component, and can change variables, execute functions and more
+layable - this animation can play in the back, to be used in conjunction with scriptable
+interlude - this animation can be paused by an interrupt, and resumes later
