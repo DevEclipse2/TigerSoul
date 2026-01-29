@@ -8,7 +8,7 @@ public class AnimationController : MonoBehaviour
     InputParser parser;
     public bool isLeft = false;
     public GameObject SpriteRoot;
-    private Animator animator;
+    public Animator animator;
     bool overrideAnim = false; //this one is triggered by specific stuff
     TriggerAnim currentAnim;
     public GameObject triggered;
@@ -114,7 +114,7 @@ public class AnimationController : MonoBehaviour
             //copies recent inputs, sorts them by currently active, then uses ranking
             inputs = parser.recentInput;
             active = parser.ongoing;
-            selectedIndex = -1;
+            selectedIndex = orderTree.IndexOf("sleep");
             for (int i = 0; i < inputs.Count; i++) {
                 if (active[i])
                 {

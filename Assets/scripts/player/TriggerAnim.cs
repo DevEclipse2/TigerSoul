@@ -20,6 +20,12 @@ public class TriggerAnim : MonoBehaviour
     public List<bool> TargetValue;
     public List<bool> TargetExitValue;
     public List<int> properties = new List<int>();
+
+
+    //need to fix linkedactivate
+
+
+
     public TriggerAnim linkedActivate;
     public GameObject reply;
     public bool tree;

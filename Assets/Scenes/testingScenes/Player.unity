@@ -344,6 +344,7 @@ GameObject:
   m_Component:
   - component: {fileID: 108277763}
   - component: {fileID: 108277764}
+  - component: {fileID: 108277765}
   m_Layer: 0
   m_Name: AnimTree
   m_TagString: Untagged
@@ -379,17 +380,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TriggerAnim
   notes: 
-  Entertrigger: {fileID: 1596161954}
+  name: jump
+  Entertrigger: {fileID: 1596161955}
+  size: {x: 1, y: 0.5}
+  mask:
+    serializedVersion: 2
+    m_Bits: 8
+  Exittrigger: {fileID: 0}
+  requireExit: 0
+  cutInPoint: []
+  cutOutPoint: []
+  clip: {fileID: 7400000, guid: c8d156c3d8064fd4b81953f9ad435fe0, type: 2}
+  AnimatorProperties:
+  - Jump
+  TargetValue: 01
+  TargetExitValue: 00
+  properties: 0b000000020000000400000000000000
+  linkedActivate: {fileID: 0}
+  reply: {fileID: 0}
+  tree: 0
+  index: 0
+--- !u!114 &108277765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108277762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 047a925c313359a4882974c108f784c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TriggerAnim
+  notes: 
+  name: sleep
+  Entertrigger: {fileID: 0}
+  size: {x: 0, y: 0}
+  mask:
+    serializedVersion: 2
+    m_Bits: 0
   Exittrigger: {fileID: 0}
   requireExit: 0
   cutInPoint: []
   cutOutPoint: []
   clip: {fileID: 0}
-  AnimatorProperties: []
-  TargetValue: 
-  TargetExitValue: 0
+  AnimatorProperties:
+  - Idle
+  TargetValue: 01
+  TargetExitValue: 00
   properties: 
   linkedActivate: {fileID: 0}
+  reply: {fileID: 0}
+  tree: 0
+  index: 0
 --- !u!1 &495318745
 GameObject:
   m_ObjectHideFlags: 0
@@ -642,15 +685,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 629029169}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.14699996, y: 0.703, z: 0}
+  m_LocalRotation: {x: -0, y: -0.0033296421, z: -0, w: 0.9999945}
+  m_LocalPosition: {x: -0.14698088, y: 0.703, z: -0.0057315934}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1541903964}
-  - {fileID: 1461383023}
   m_Father: {fileID: 600602774}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -0.382, z: 0}
 --- !u!212 &629029171
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -760,11 +802,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1560139681}
+  - {fileID: 2122707083}
   - {fileID: 96413892}
   - {fileID: 1998002720}
   - {fileID: 1088241757}
-  - {fileID: 2122707083}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &845010612
@@ -1358,11 +1399,11 @@ Transform:
   m_GameObject: {fileID: 1461383022}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.66, y: -0.128, z: 0}
+  m_LocalPosition: {x: 2.05, y: -0.06, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 629029170}
+  m_Father: {fileID: 1541903964}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1461383024
 SpriteRenderer:
@@ -1671,10 +1712,11 @@ Transform:
   m_GameObject: {fileID: 1541903963}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.65, y: -0.09, z: 0}
+  m_LocalPosition: {x: 1.21, y: -0.09, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1461383023}
   m_Father: {fileID: 629029170}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1541903965
@@ -1763,7 +1805,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1560139680}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1773,7 +1815,7 @@ Transform:
   - {fileID: 495318746}
   - {fileID: 1387066651}
   - {fileID: 1450652482}
-  m_Father: {fileID: 784262321}
+  m_Father: {fileID: 2122707083}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1560139682
 MonoBehaviour:
@@ -2785,6 +2827,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2122707083}
   - component: {fileID: 2122707084}
+  - component: {fileID: 2122707085}
   m_Layer: 0
   m_Name: AnimationController
   m_TagString: Untagged
@@ -2805,6 +2848,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1560139681}
   - {fileID: 108277763}
   m_Father: {fileID: 784262321}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2822,7 +2866,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AnimationController
   inputParser: {fileID: 1387066650}
   isLeft: 0
-  SpriteRoot: {fileID: 0}
+  SpriteRoot: {fileID: 784262320}
+  animator: {fileID: 2122707085}
+  triggered: {fileID: 0}
+  tree: {fileID: 108277762}
+  orderTriggered: []
+  orderTree:
+  - sleep
+  playingtree: 
+  playingtrig: 
+--- !u!95 &2122707085
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122707082}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1e58b6e6803149a4b971a7ccc46c41fd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
