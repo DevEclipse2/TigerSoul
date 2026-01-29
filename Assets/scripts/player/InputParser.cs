@@ -153,6 +153,11 @@ public class InputParser : MonoBehaviour
     }
     public int QueryInput( List<int> blacklist)
     {   
+        if(blacklist == null)
+        {
+            if(recentInput.Count > 0) return recentInput[recentInput.Count - 1];
+            return -2;
+        }
         for(int i = recentInput.Count - 1; i >= 0; i--)
         {
             

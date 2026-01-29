@@ -44,8 +44,9 @@ public class Combat : MonoBehaviour
             int index = parser.QueryInput(inputFilter);
             int action;
             if (index >= 0) { action = parser.recentInput[index]; }
-            else { action = -1; }
-            Debug.Log(action);
+            else if(index == -1){ action = Input.Sleep; }
+            else { action = Input.Sleep; }
+                Debug.Log(action);
 
             switch (action)
                 {
