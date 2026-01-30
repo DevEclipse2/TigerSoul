@@ -2260,6 +2260,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerRoot
       objectReference: {fileID: 0}
+    - target: {fileID: 5288276304224610095, guid: 1e4310cb8b0cd184ba91e6c49a5cdbb9, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2350,11 +2354,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4035403c335d53948a229110fa4e7cb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelTransition
-  sceneToLoad: []
+  sceneToLoad:
+  - Battlements
   player: {fileID: 1914740305}
-  LoadTriggers:
-  - {fileID: 0}
-  loadPositions: 
+  loadPositions: 00000000
   targetpos: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

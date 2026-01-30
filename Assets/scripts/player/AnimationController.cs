@@ -1,10 +1,12 @@
-using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class AnimationController : MonoBehaviour
 {
     public GameObject inputParser;
+    public GameObject Sprite;
     InputParser parser;
     public bool isLeft = false;
     public GameObject SpriteRoot;
@@ -95,9 +97,28 @@ public class AnimationController : MonoBehaviour
         
     
     }
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        Debug.Log("move");
+        if (context.performed || context.canceled)
+        {
+            isLeft = (context.ReadValue<Vector2>().x < 0);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (isLeft)
+        {
+            Sprite.transform.localScale = new Vector2(-1,1);
+        }
+        else
+        {
+            Sprite.transform.localScale = new Vector2(1, 1);
+        }
+
         input = Input.Sleep;
         if (overrideAnim)
         {

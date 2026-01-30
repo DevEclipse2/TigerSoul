@@ -28,7 +28,7 @@ public class PlayerMove : MonoBehaviour
     private Vector2 movementInput;
     byte lastWall = 0; //no last wall
     float targetSpeed;
-
+    public Vector2 GroundCheckArea;
     void Start()
     {
         //rb = GetComponent<Rigidbody2D>();
@@ -70,6 +70,7 @@ public class PlayerMove : MonoBehaviour
     {
         float basespeed = Mathf.Abs(rb.linearVelocity.x);
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        isGrounded = Physics2D.BoxCast(groundCheck.position, GroundCheckArea , 0 , Vector2.down,0, groundLayer);
         RaycastHit2D leftWallCheck = Physics2D.Raycast(LeftWall.position, Vector2.right * -1, groundCheckRadius + 0.04f * basespeed, groundLayer);
         RaycastHit2D rightWallCheck = Physics2D.Raycast(RightWall.position, Vector2.right , groundCheckRadius + 0.04f * basespeed, groundLayer);
         contactLeft = (leftWallCheck.collider != null);

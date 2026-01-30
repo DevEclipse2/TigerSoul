@@ -1253,7 +1253,7 @@ GameObject:
   - component: {fileID: 3780471389930745574}
   m_Layer: 0
   m_Name: PlayerRoot
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1467,6 +1467,7 @@ MonoBehaviour:
   groundCheckRadius: 0.2
   attackRoot: {fileID: 4059712571621258862}
   rb: {fileID: 3805896817518180224}
+  GroundCheckArea: {x: 2.2, y: 0.5}
 --- !u!50 &3805896817518180224
 Rigidbody2D:
   serializedVersion: 5

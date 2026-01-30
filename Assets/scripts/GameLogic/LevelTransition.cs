@@ -22,10 +22,10 @@ public class LevelTransition : MonoBehaviour
 
     void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
     {
-        GameObject spawnPoint = GameObject.Find("SpawnPoint1"); // Change to your specific spawn point name
-        if (spawnPoint != null && player != null)
+        GameObject Player = GameObject.Find("PlayerRoot"); // Change to your specific spawn point name
+        if (Player != null)
         {
-            player.GetComponent<PlayerLoadPosition>().setPosition(targetpos);
+            Player.GetComponent<PlayerLoadPosition>().setPosition(targetpos);
         }
         SceneManager.sceneLoaded -= OnSceneLoaded; // Unsubscribe to prevent repeated calls
     }
