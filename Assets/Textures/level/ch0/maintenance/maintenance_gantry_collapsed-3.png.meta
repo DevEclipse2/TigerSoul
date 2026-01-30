@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2f84a6cff78c5504b9f0c6fa295a8944
+guid: 438951b13e1151440b15aab1f115683f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5399189596328713226
-    second: parallax back_0
+      213: 6046649787748807293
+    second: maintenance_gantry_collapsed-3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -53,7 +53,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: parallax back_0
+      name: maintenance_gantry_collapsed-3_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 2141
-        height: 1210
+        y: 493
+        width: 1618
+        height: 378
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6f3a7d31ba93215b0800000000000000
-      internalID: -5399189596328713226
+      spriteID: d7275f702f30ae350800000000000000
+      internalID: 6046649787748807293
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      parallax back_0: -5399189596328713226
+      maintenance_gantry_collapsed-3_0: 6046649787748807293
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

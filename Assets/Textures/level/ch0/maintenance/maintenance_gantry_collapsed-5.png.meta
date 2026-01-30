@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e5f5dd3a96bc9844dbd5cb194e6f9481
+guid: 7f8cdb7eb2b02a2469efb5b3461fa875
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4356631731085818632
-    second: parallax middle_0
+      213: -68040103412573080
+    second: maintenance_gantry_collapsed-5_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: parallax middle_0
+      name: maintenance_gantry_collapsed-5_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2141
-        height: 1210
+        x: 1406
+        y: 243
+        width: 136
+        height: 203
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 80bb09c1a7dd57c30800000000000000
-      internalID: 4356631731085818632
+      spriteID: 86cdc9de2e54e0ff0800000000000000
+      internalID: -68040103412573080
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      parallax middle_0: 4356631731085818632
+      maintenance_gantry_collapsed-5_0: -68040103412573080
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
