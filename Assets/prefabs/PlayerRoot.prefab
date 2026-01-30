@@ -176,6 +176,71 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1405593005687799397}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1977595752541191114
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7907319143672845399}
+  - component: {fileID: 6451078847804551513}
+  m_Layer: 0
+  m_Name: Jump
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7907319143672845399
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977595752541191114}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5861996045715200013}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6451078847804551513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977595752541191114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 047a925c313359a4882974c108f784c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TriggerAnim
+  notes: 
+  name: jump
+  Entertrigger: {fileID: 8764978719784724189}
+  size: {x: 1, y: 0.5}
+  mask:
+    serializedVersion: 2
+    m_Bits: 8
+  Exittrigger: {fileID: 0}
+  requireExit: 0
+  cutInPoint: []
+  cutOutPoint: []
+  clip: {fileID: 7400000, guid: c8d156c3d8064fd4b81953f9ad435fe0, type: 2}
+  AnimatorProperties:
+  - Jump
+  TargetValue: 01
+  TargetExitValue: 00
+  properties: 0b000000020000000400000000000000
+  linkedActivate: {fileID: 0}
+  reply: {fileID: 0}
+  tree: 0
+  index: 0
 --- !u!1 &2698240817723246532
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,7 +290,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4703479453253306770
 Transform:
   m_ObjectHideFlags: 0
@@ -973,6 +1038,136 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &4799762826887338834
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4105196419982255406}
+  - component: {fileID: 7972325160424813777}
+  m_Layer: 0
+  m_Name: Sleep
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4105196419982255406
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4799762826887338834}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2410794137798426627}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7972325160424813777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4799762826887338834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 047a925c313359a4882974c108f784c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TriggerAnim
+  notes: 
+  name: sleep
+  Entertrigger: {fileID: 0}
+  size: {x: 0, y: 0}
+  mask:
+    serializedVersion: 2
+    m_Bits: 0
+  Exittrigger: {fileID: 0}
+  requireExit: 0
+  cutInPoint: []
+  cutOutPoint: []
+  clip: {fileID: 0}
+  AnimatorProperties:
+  - Idle
+  TargetValue: 01
+  TargetExitValue: 00
+  properties: 
+  linkedActivate: {fileID: 0}
+  reply: {fileID: 0}
+  tree: 0
+  index: 0
+--- !u!1 &4803583096599548401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4163868588782285598}
+  - component: {fileID: 336608076075126056}
+  m_Layer: 0
+  m_Name: Jump
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4163868588782285598
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4803583096599548401}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2410794137798426627}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &336608076075126056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4803583096599548401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 047a925c313359a4882974c108f784c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TriggerAnim
+  notes: 
+  name: jump
+  Entertrigger: {fileID: 8764978719784724189}
+  size: {x: 1, y: 0.5}
+  mask:
+    serializedVersion: 2
+    m_Bits: 8
+  Exittrigger: {fileID: 0}
+  requireExit: 0
+  cutInPoint: []
+  cutOutPoint: []
+  clip: {fileID: 7400000, guid: c8d156c3d8064fd4b81953f9ad435fe0, type: 2}
+  AnimatorProperties:
+  - Jump
+  TargetValue: 01
+  TargetExitValue: 00
+  properties: 0b000000020000000400000000000000
+  linkedActivate: {fileID: 0}
+  reply: {fileID: 0}
+  tree: 0
+  index: 0
 --- !u!1 &4823283583640514634
 GameObject:
   m_ObjectHideFlags: 0
@@ -1120,8 +1315,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2410794137798426627}
-  - component: {fileID: 5033284016585393421}
-  - component: {fileID: 4695555221846501222}
   m_Layer: 0
   m_Name: AnimTree
   m_TagString: Untagged
@@ -1141,75 +1334,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4163868588782285598}
+  - {fileID: 4105196419982255406}
   m_Father: {fileID: 2949650181394933784}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5033284016585393421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5006407051792355196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 047a925c313359a4882974c108f784c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TriggerAnim
-  notes: 
-  name: jump
-  Entertrigger: {fileID: 8764978719784724189}
-  size: {x: 1, y: 0.5}
-  mask:
-    serializedVersion: 2
-    m_Bits: 8
-  Exittrigger: {fileID: 0}
-  requireExit: 0
-  cutInPoint: []
-  cutOutPoint: []
-  clip: {fileID: 7400000, guid: c8d156c3d8064fd4b81953f9ad435fe0, type: 2}
-  AnimatorProperties:
-  - Jump
-  TargetValue: 01
-  TargetExitValue: 00
-  properties: 0b000000020000000400000000000000
-  linkedActivate: {fileID: 0}
-  reply: {fileID: 0}
-  tree: 0
-  index: 0
---- !u!114 &4695555221846501222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5006407051792355196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 047a925c313359a4882974c108f784c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TriggerAnim
-  notes: 
-  name: sleep
-  Entertrigger: {fileID: 0}
-  size: {x: 0, y: 0}
-  mask:
-    serializedVersion: 2
-    m_Bits: 0
-  Exittrigger: {fileID: 0}
-  requireExit: 0
-  cutInPoint: []
-  cutOutPoint: []
-  clip: {fileID: 0}
-  AnimatorProperties:
-  - Idle
-  TargetValue: 01
-  TargetExitValue: 00
-  properties: 
-  linkedActivate: {fileID: 0}
-  reply: {fileID: 0}
-  tree: 0
-  index: 0
 --- !u!1 &5212672951483320152
 GameObject:
   m_ObjectHideFlags: 0
@@ -1507,7 +1636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
-  m_Actions: {fileID: -944628639613478452, guid: c64ef7a5e7010454c822a21faaca7ea3, type: 3}
+  m_Actions: {fileID: 0}
   m_NotificationBehavior: 1
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -1658,6 +1787,71 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8697860331393192542}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7771418214693849137
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7496919247833099252}
+  - component: {fileID: 4891547798356987587}
+  m_Layer: 0
+  m_Name: Sleep
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7496919247833099252
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7771418214693849137}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5861996045715200013}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4891547798356987587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7771418214693849137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 047a925c313359a4882974c108f784c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TriggerAnim
+  notes: 
+  name: sleep
+  Entertrigger: {fileID: 0}
+  size: {x: 0, y: 0}
+  mask:
+    serializedVersion: 2
+    m_Bits: 0
+  Exittrigger: {fileID: 0}
+  requireExit: 0
+  cutInPoint: []
+  cutOutPoint: []
+  clip: {fileID: 0}
+  AnimatorProperties:
+  - Idle
+  TargetValue: 01
+  TargetExitValue: 00
+  properties: 
+  linkedActivate: {fileID: 0}
+  reply: {fileID: 0}
+  tree: 0
+  index: 0
 --- !u!1 &7785197404487986941
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,6 +1895,7 @@ GameObject:
   - component: {fileID: 2949650181394933784}
   - component: {fileID: 1572771488479999623}
   - component: {fileID: 2959546877090752486}
+  - component: {fileID: 8244942955392775140}
   m_Layer: 0
   m_Name: AnimationController
   m_TagString: Untagged
@@ -1723,6 +1918,7 @@ Transform:
   m_Children:
   - {fileID: 3071364352525126777}
   - {fileID: 2410794137798426627}
+  - {fileID: 5861996045715200013}
   m_Father: {fileID: 1405593005687799397}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1572771488479999623
@@ -1738,11 +1934,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnimationController
   inputParser: {fileID: 4518979163348515901}
+  Sprite: {fileID: 8675440874931419897}
   isLeft: 0
   SpriteRoot: {fileID: 5288276304224610095}
   animator: {fileID: 2959546877090752486}
-  triggered: {fileID: 0}
+  triggered: {fileID: 8922045639046870227}
   tree: {fileID: 5006407051792355196}
+  TreeNames: []
   orderTriggered: []
   orderTree:
   - sleep
@@ -1770,6 +1968,36 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8244942955392775140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7937106128782689292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+  m_Actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  m_NotificationBehavior: 1
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &8675440874931419897
 GameObject:
   m_ObjectHideFlags: 0
@@ -1802,4 +2030,37 @@ Transform:
   - {fileID: 2344532896490846094}
   - {fileID: 4779135723651054393}
   m_Father: {fileID: 3071364352525126777}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8922045639046870227
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5861996045715200013}
+  m_Layer: 0
+  m_Name: Triggered
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5861996045715200013
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8922045639046870227}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7907319143672845399}
+  - {fileID: 7496919247833099252}
+  m_Father: {fileID: 2949650181394933784}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

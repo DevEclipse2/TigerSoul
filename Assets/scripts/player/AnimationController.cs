@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,7 +20,8 @@ public class AnimationController : MonoBehaviour
     TriggerAnim[] triggeredAnimations;
     TriggerAnim[] triggeredArranged;
     TriggerAnim[] AnimTree;
-    TriggerAnim[] AnimTreeArranged;
+    public List<string> TreeNames;
+    public TriggerAnim[] AnimTreeArranged;
     
     public List<string> orderTriggered;
     public List<string> orderTree;
@@ -34,6 +36,7 @@ public class AnimationController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Debug.Log("start");
         parser = inputParser.GetComponent<InputParser>();
         triggeredAnimations = triggered.GetComponents<TriggerAnim>();
         AnimTree = tree.GetComponents<TriggerAnim>();
@@ -56,6 +59,7 @@ public class AnimationController : MonoBehaviour
         objectDictionary = AnimTree.ToDictionary(o => o.name);
 
         // Create a new array based on the order list
+        Debug.Log("ordertree count" + orderTree.Count);
         AnimTreeArranged = new TriggerAnim[orderTree.Count];
 
         for (int i = 0; i < orderTree.Count; i++)
@@ -98,12 +102,20 @@ public class AnimationController : MonoBehaviour
     
     }
 
-    public void OnMove(InputAction.CallbackContext context)
+    public void OnMove(InputValue value)
     {
-        Debug.Log("move");
-        if (context.performed || context.canceled)
+        if (value.Get<Vector2>().x == 0)
         {
-            isLeft = (context.ReadValue<Vector2>().x < 0);
+            return;
+        }
+        if (value.Get<Vector2>().x < 0)
+        {
+            //left
+            isLeft = true;
+        }
+        else
+        {
+            isLeft = false;
         }
     }
 
@@ -137,6 +149,7 @@ public class AnimationController : MonoBehaviour
             active = parser.ongoing;
             selectedIndex = orderTree.IndexOf("sleep");
             for (int i = 0; i < inputs.Count; i++) {
+                Debug.Log("inputs" + i);
                 if (active[i])
                 {
                     int input = inputs[i];
@@ -156,6 +169,10 @@ public class AnimationController : MonoBehaviour
                     }
                 }
             }
+            //while (playingtree.Length > selectedIndex)
+            //{ 
+            //    playingtree.Add(false)
+            //}
             if (!playingtree[selectedIndex])
             {
                 playingtree[selectedIndex] = true;
@@ -164,6 +181,8 @@ public class AnimationController : MonoBehaviour
                 AnimTreeArranged[selectedIndex].tree = false;
                 AnimTreeArranged[selectedIndex].runAnim(animator , false);
             }
+
+           
 
         }
     }
