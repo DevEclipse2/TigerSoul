@@ -2,6 +2,7 @@ using System.Net;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.Rendering.DebugUI;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -37,6 +38,7 @@ public class PlayerMove : MonoBehaviour
     bool dashing = true;
     bool isLeft = false;
     public Vector2 DashTarget;
+    Vector2 moveDir;
     void Start()
     {
         //rb = GetComponent<Rigidbody2D>();
@@ -57,6 +59,34 @@ public class PlayerMove : MonoBehaviour
 
             }
 
+        }
+        if (canMove && GroundCheck())
+        {
+            rb.linearVelocity = new Vector2(moveSpeed * moveDir.x, rb.linearVelocity.y);
+        }
+        else
+        {
+            Debug.Log(moveDir.x);
+            if (moveDir.x != 0)
+            {
+                rb.linearVelocity = new Vector2(moveSpeed * moveDir.x, rb.linearVelocity.y);
+            }
+                
+        }
+        if (moveDir.x == 0)
+        {
+            return;
+        }
+        if (moveDir.x < 0)
+        {
+            //left
+            isLeft = true;
+            damagescript.isleft = true;
+        }
+        else
+        {
+            isLeft = true;
+            damagescript.isleft = false;
         }
     }
     public bool GroundCheck()
@@ -92,27 +122,7 @@ public class PlayerMove : MonoBehaviour
 
         //if (value.isPressed)
         //{
-        if (canMove)
-        {
-            rb.linearVelocity = new Vector2(moveSpeed * ((Vector2)value.Get<Vector2>()).x, rb.linearVelocity.y);
-            if(value.Get<Vector2>().x == 0)
-            {
-                return;
-            }
-            if(value.Get<Vector2>().x < 0)
-            {
-                //left
-                isLeft = true;
-                damagescript.isleft = true;
-            }
-            else
-            {
-                isLeft = true;
-                damagescript.isleft = false;
-            
-
-            }
-        }
+        moveDir = value.Get<Vector2>();
        
         //}
     }

@@ -1475,6 +1475,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerLoadPosition
   Spawns: []
   Input: {fileID: 6385074731725750393}
+  saveContainer: {fileID: 0}
 --- !u!1 &5389566003887807455
 GameObject:
   m_ObjectHideFlags: 0

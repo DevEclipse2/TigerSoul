@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Rendering;
 public class DealDamage : MonoBehaviour
 {
     public bool isleft = false;
@@ -17,7 +18,6 @@ public class DealDamage : MonoBehaviour
     public float timer = 0;
     float maxtimer = 0;
     AttackContainer atkcontainer;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -42,13 +42,14 @@ public class DealDamage : MonoBehaviour
         RaycastHit2D[] hitdes;
         if (isleft)
         {
-            hit = Physics2D.BoxCastAll(root.position, size, 0, transform.right * -1 ,0, enemies);
-            hitdes = Physics2D.BoxCastAll(root.position, size , 0 , transform.right * -1,0, destructibles);
+            hit = Physics2D.BoxCastAll(root.position, size, 0, Vector2.right ,-size.x - 2, enemies);
+            hitdes = Physics2D.BoxCastAll(root.position, size , 0 , Vector2.right, -size.x - 2, destructibles);
         }
         else
         {
-            hit = Physics2D.BoxCastAll(root.position, size, 0, transform.right, enemies);
-            hitdes = Physics2D.BoxCastAll(root.position, size, 0, transform.right, destructibles);
+
+            hit = Physics2D.BoxCastAll(root.position, size, 0, Vector2.right, enemies);
+            hitdes = Physics2D.BoxCastAll(root.position, size, 0, Vector2.right, destructibles);
         }
         
         foreach (RaycastHit2D ray in hit)

@@ -90,15 +90,17 @@ public class SimpleAnimation : MonoBehaviour
         inputs = parser.recentInput;
         active = parser.ongoing;
         selectedIndex = Priorities.IndexOf(Input.Sleep);
+        //if (inputs.IndexOf(Input.Move) != -1 && !active[inputs.IndexOf(Input.Move)]) {
+        //    animator.SetBool("Idle", true);
+        //    animator.SetInteger("Action", 0);
+        //    //Debug.Log("stop");
+
+        //}
         if (!move.GroundCheck())
         {
             animator.SetBool("Falling", true);
             falling = true;
             animator.SetBool("Sliding", false);
-
-        }
-        else
-        {
 
         }
 
@@ -134,6 +136,7 @@ public class SimpleAnimation : MonoBehaviour
         if (falling && falltimer >= 0.3)
         {
             animator.SetBool("FallInterp", true);
+            animator.SetBool("Sliding", false);
 
         }
         switch (Priorities[selectedIndex]) {
@@ -146,6 +149,8 @@ public class SimpleAnimation : MonoBehaviour
                         landingcloud.transform.position = move.transform.position + LandingCloudOffset;
                         //Debug.Log("Groundcontact");
                         Landtick = tick;
+                        animator.SetBool("Sliding", false);
+
                     }
                     else
                     {
@@ -174,8 +179,14 @@ public class SimpleAnimation : MonoBehaviour
             case Input.Move: /* any additional checks*/
                 if (move.GroundCheck()) 
                 {
+                    if (falling)
+                    {
+                        animator.SetBool("GroundContact", true);
+                        landingcloud.transform.position = move.transform.position + LandingCloudOffset;
+                        //Debug.Log("Groundcontact");
+                        Landtick = tick;
+                    }
                     animator.SetBool("Sliding", false);
-        
                     animator.SetBool("Idle", false);
                     animator.SetInteger("Action", 1);
                 }
@@ -187,7 +198,7 @@ public class SimpleAnimation : MonoBehaviour
                 }
                     break;
             case Input.Attack: /* any additional checks*/ 
-                AttackIn = !AttackIn;
+                AttackIn = !animator.GetBool("AttackIn");
                 animator.SetBool("AttackIn", AttackIn);
                 animator.SetBool("Attack", true);
                 Hittick = tick;
