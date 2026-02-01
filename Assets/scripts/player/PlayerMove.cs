@@ -1,3 +1,4 @@
+using System.Net;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -29,6 +30,13 @@ public class PlayerMove : MonoBehaviour
     byte lastWall = 0; //no last wall
     float targetSpeed;
     public Vector2 GroundCheckArea;
+    public float DashAmt = 3.0f;
+    public float DashTime = 0.3f;
+    float timer;
+    bool canMove = true;
+    bool dashing = true;
+    bool isLeft = false;
+    public Vector2 DashTarget;
     void Start()
     {
         //rb = GetComponent<Rigidbody2D>();
@@ -37,13 +45,46 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+        timer += Time.deltaTime;
+        if (!canMove && dashing) {
+            if (timer >= DashTime)
+            {
+                dashing = false;
+                canMove = true;
+            }
+            else
+            {
 
+            }
+
+        }
     }
     public bool GroundCheck()
     {
         return Physics2D.BoxCast(groundCheck.position, GroundCheckArea , 0 , Vector2.down,0, groundLayer);
     }
-
+    public void OnDash()
+    {
+        timer = 0;
+        canMove = false;
+        dashing = true;
+        RaycastHit2D geometry;
+        if (isLeft)
+        {
+            if(!(geometry = Physics2D.BoxCast(this.gameObject.transform.position, new Vector2(2.16f,1.18f), 0, Vector2.left , DashAmt)))
+            {
+                DashTarget = this.gameObject.transform.position + new Vector3(-DashAmt, 0, 0);
+            }
+            else
+            {
+                DashTarget = geometry.collider.ClosestPoint(this.gameObject.transform.position);
+            }
+            
+        }
+        else{
+            DashTarget = this.gameObject.transform.position + new Vector3(DashAmt, 0, 0);
+        }
+    }
     public void OnMove(InputValue value)
     {
         //Debug.Log("move");
@@ -51,29 +92,35 @@ public class PlayerMove : MonoBehaviour
 
         //if (value.isPressed)
         //{
-        rb.linearVelocity = new Vector2(moveSpeed * ((Vector2)value.Get<Vector2>()).x, rb.linearVelocity.y);
-        if(value.Get<Vector2>().x == 0)
+        if (canMove)
         {
-            return;
-        }
-        if(value.Get<Vector2>().x < 0)
-        {
-            //left
-            damagescript.isleft = true;
-        }
-        else
-        {
-            damagescript.isleft = false;
+            rb.linearVelocity = new Vector2(moveSpeed * ((Vector2)value.Get<Vector2>()).x, rb.linearVelocity.y);
+            if(value.Get<Vector2>().x == 0)
+            {
+                return;
+            }
+            if(value.Get<Vector2>().x < 0)
+            {
+                //left
+                isLeft = true;
+                damagescript.isleft = true;
+            }
+            else
+            {
+                isLeft = true;
+                damagescript.isleft = false;
             
 
+            }
         }
+       
         //}
     }
 
     public void OnJump(InputValue value)
     {
         float basespeed = Mathf.Abs(rb.linearVelocity.x);
-        isGrounded = Physics2D.BoxCast(groundCheck.position, GroundCheckArea , 0 , Vector2.down,0, groundLayer);
+        isGrounded = GroundCheck();
         RaycastHit2D leftWallCheck = Physics2D.Raycast(LeftWall.position, Vector2.right * -1, groundCheckRadius + 0.04f * basespeed, groundLayer);
         RaycastHit2D rightWallCheck = Physics2D.Raycast(RightWall.position, Vector2.right , groundCheckRadius + 0.04f * basespeed, groundLayer);
         contactLeft = (leftWallCheck.collider != null);

@@ -7,7 +7,7 @@ public class TriggerAnim : MonoBehaviour
 {
     Animator animator;
     public string notes;
-    public string name;
+    public string Animname;
     public Transform Entertrigger;
     public Vector2 size;
     public LayerMask mask;

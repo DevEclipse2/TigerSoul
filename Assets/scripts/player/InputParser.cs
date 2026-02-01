@@ -113,7 +113,8 @@ public class InputParser : MonoBehaviour
     public void onMove(InputAction.CallbackContext context)
     {
         //Debug.Log("move");
-        Vector2 val  = context.ReadValue<Vector2>();
+        Vector2 val = context.ReadValue<Vector2>();
+        KeepAlive (Input.Move, context);
         if (val.x > 0)
         {
             KeepAlive(Input.Right, context);
@@ -133,7 +134,7 @@ public class InputParser : MonoBehaviour
     }
     public void onAttack(InputAction.CallbackContext context)
     {
-        //Debug.Log("smack");
+        Debug.Log("smack");
         KeepAlive(Input.Attack, context);
     }
     public void onInteract(InputAction.CallbackContext context)
