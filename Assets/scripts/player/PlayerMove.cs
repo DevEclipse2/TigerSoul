@@ -60,19 +60,10 @@ public class PlayerMove : MonoBehaviour
             }
 
         }
-        if (canMove && GroundCheck())
-        {
-            rb.linearVelocity = new Vector2(moveSpeed * moveDir.x, rb.linearVelocity.y);
-        }
-        else
-        {
-            Debug.Log(moveDir.x);
-            if (moveDir.x != 0)
-            {
-                rb.linearVelocity = new Vector2(moveSpeed * moveDir.x, rb.linearVelocity.y);
-            }
-                
-        }
+
+ 
+        rb.linearVelocity = new Vector2(moveSpeed * moveDir.x, rb.linearVelocity.y);
+        
         if (moveDir.x == 0)
         {
             return;
