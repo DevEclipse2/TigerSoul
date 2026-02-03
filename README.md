@@ -32,3 +32,16 @@ eclipse has a background in animation and art , as well as a mind for logic and 
 
 
 Controls (in case you forget)
+
+Run using A/D
+
+Jump using W
+
+Attack using Space
+
+Interact with E
+
+and have fun using Brain
+
+
+
