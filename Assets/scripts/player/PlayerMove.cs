@@ -39,9 +39,13 @@ public class PlayerMove : MonoBehaviour
     bool isLeft = false;
     public Vector2 DashTarget;
     Vector2 moveDir;
+    bool moving = true;
+    public GameObject InputController;
+    InputParser parser;
     void Start()
     {
         //rb = GetComponent<Rigidbody2D>();
+        parser = InputController.GetComponent<InputParser>();
         damagescript = attackRoot.GetComponent<DealDamage>();
     }
 
@@ -61,13 +65,18 @@ public class PlayerMove : MonoBehaviour
 
         }
 
- 
-        rb.linearVelocity = new Vector2(moveSpeed * moveDir.x, rb.linearVelocity.y);
+        if (parser.recentInput.IndexOf(Input.Move) != -1) {
+            if (!parser.ongoing[parser.recentInput.IndexOf(Input.Move)])
+            {
+                if (GroundCheck())
+                {
+
+                    rb.linearVelocity = new Vector2(rb.linearVelocity.x * 0.95f, rb.linearVelocity.y);
+                }
+            }
         
-        if (moveDir.x == 0)
-        {
-            return;
-        }
+        
+        }  
         if (moveDir.x < 0)
         {
             //left
@@ -114,7 +123,8 @@ public class PlayerMove : MonoBehaviour
         //if (value.isPressed)
         //{
         moveDir = value.Get<Vector2>();
-       
+         rb.linearVelocity = new Vector2(moveDir.x * moveSpeed, rb.linearVelocity.y);
+
         //}
     }
 
@@ -155,11 +165,17 @@ public class PlayerMove : MonoBehaviour
             }
         }
     }
-    public void OnMove(InputAction.CallbackContext context)
-    {
-        if (context.performed || context.canceled)
-        {
-            movementInput = context.ReadValue<Vector2>();
-        }
-    }
+    //public void OnMove(InputAction.CallbackContext context)
+    //{
+    //    rb.linearVelocity = new Vector2(moveDir.x * moveSpeed, rb.linearVelocity.y);
+
+    //    if (context.performed)
+    //    {
+    //        moving = true;
+    //    }
+    //    if (context.canceled )
+    //    {
+    //        moving = false;
+    //    }
+    //}
 }

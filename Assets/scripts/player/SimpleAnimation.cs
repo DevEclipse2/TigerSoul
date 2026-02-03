@@ -155,7 +155,7 @@ public class SimpleAnimation : MonoBehaviour
                     else
                     {
 
-                        if (velocity == 0)
+                        if (velocity <= 0.2)
                         {
                             animator.SetBool("Idle", true);
                             animator.SetInteger("Action", 0);
