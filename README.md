@@ -40,7 +40,7 @@ from then on out, whatever happens is not under warranty , and if the game fails
 
 
 Filler to reach requirements :
-Tigersoul is a metroidvania about walking tanks, complete with walking, talking, fullyy animated, and (mostly) historically accurate characters.
+Tigersoul is a metroidvania about walking tanks, complete with walking, talking, fully animated, and (mostly) historically accurate characters.
 you play as a Tiger H1 tank , and you explore the remnants of a war torn civilisation, meeting interesting , hostile and different varieties of esoteric along the way. run , jump , run harder , wall jump , and beat things down through this hastily crafted adventure. 
 
 about the team : 
