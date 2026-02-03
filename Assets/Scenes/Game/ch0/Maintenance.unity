@@ -856,6 +856,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4057525182310392563, guid: 1e4310cb8b0cd184ba91e6c49a5cdbb9, type: 3}
   m_PrefabInstance: {fileID: 410715622}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &410715624 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2950353028653128814, guid: 1e4310cb8b0cd184ba91e6c49a5cdbb9, type: 3}
+  m_PrefabInstance: {fileID: 410715622}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &553555478
 GameObject:
   m_ObjectHideFlags: 0
@@ -2513,6 +2518,7 @@ MonoBehaviour:
   - Battlements
   player: {fileID: 116427709}
   loadPositions: 00000000
+  fade: {fileID: 410715624}
   targetpos: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

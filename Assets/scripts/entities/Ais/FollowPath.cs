@@ -38,11 +38,10 @@ public class FollowPath : MonoBehaviour
     private Vector3 GetClosestPointBelow(Transform targetTransform)
     {
         // Define a ray pointing downwards from the transform's position
-        Ray downRay = new Ray(targetTransform.position, Vector3.down);
-        RaycastHit hit;
-
         // Perform the raycast
-        if (Physics.Raycast(downRay, out hit))
+        Vector3 rayOrigin = targetTransform.position;
+        RaycastHit hit;
+        if (Physics.Raycast(rayOrigin, Vector3.down, out hit, 99, groundlayer))
         {
             // If the ray hits a collider, calculate the closest point on that collider
             Vector3 closestPoint = hit.collider.ClosestPoint(targetTransform.position);
@@ -84,7 +83,7 @@ public class FollowPath : MonoBehaviour
             Vector2 direction = (pointvec[target] - current).normalized;
 
             // Move the Rigidbody towards the target
-            Debug.Log(direction);
+            //Debug.Log(direction);
             rb.linearVelocity = direction * patrolspeed;
         }
     }

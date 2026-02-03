@@ -1,4 +1,5 @@
 using System.Net;
+using Unity.Jobs;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -34,11 +35,11 @@ public class PlayerMove : MonoBehaviour
     public float DashAmt = 3.0f;
     public float DashTime = 0.3f;
     float timer;
-    bool canMove = true;
+    public bool canMove = true;
     bool dashing = true;
     bool isLeft = false;
     public Vector2 DashTarget;
-    Vector2 moveDir;
+    public Vector2 moveDir;
     bool moving = true;
     public GameObject InputController;
     InputParser parser;
@@ -83,9 +84,9 @@ public class PlayerMove : MonoBehaviour
             isLeft = true;
             damagescript.isleft = true;
         }
-        else
+        else if( moveDir.x > 0)
         {
-            isLeft = true;
+            isLeft = false;
             damagescript.isleft = false;
         }
     }
@@ -122,8 +123,12 @@ public class PlayerMove : MonoBehaviour
 
         //if (value.isPressed)
         //{
-        moveDir = value.Get<Vector2>();
-         rb.linearVelocity = new Vector2(moveDir.x * moveSpeed, rb.linearVelocity.y);
+        if (canMove)
+        {
+            moveDir = value.Get<Vector2>();
+            rb.linearVelocity = new Vector2(moveDir.x * moveSpeed, rb.linearVelocity.y);
+        }
+
 
         //}
     }

@@ -9,6 +9,8 @@ public class Destructible : MonoBehaviour
     }
     public void destroyThis()
     {
+        Debug.Log("destroy");
+        Destroy(gameObject);
         // cool stuff here later
         Destroy( this );
     }

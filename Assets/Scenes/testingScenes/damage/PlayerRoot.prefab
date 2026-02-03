@@ -944,7 +944,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DealDamage
   isleft: 0
   root: {fileID: 3622823229223484773}
-  size: {x: 1, y: 0.5}
+  size: {x: 3, y: 2}
   enemies:
     serializedVersion: 2
     m_Bits: 64
@@ -1692,6 +1692,8 @@ MonoBehaviour:
   savepointObject: {fileID: 0}
   neardeath: 0
   refreshneardeathTime: 18
+  iFrames: 1.2
+  invulnerable: 0
 --- !u!1 &5389566003887807455
 GameObject:
   m_ObjectHideFlags: 0
@@ -1962,7 +1964,7 @@ MonoBehaviour:
   DashAmt: 3
   DashTime: 0.3
   DashTarget: {x: 0, y: 0}
-  InputController: {fileID: 0}
+  InputController: {fileID: 4518979163348515901}
 --- !u!50 &3805896817518180224
 Rigidbody2D:
   serializedVersion: 5
@@ -2126,7 +2128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

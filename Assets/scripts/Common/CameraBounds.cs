@@ -8,11 +8,11 @@ public class CameraBounds : MonoBehaviour
        // Maximum boundary for camera movement
     public Transform[] CameraDimensions;
     public GameObject colliderObject;
-    PolygonCollider2D Collider;
+    Collider2D Collider;
     bool Valid;
     private void Start()
     {
-        Collider = colliderObject.GetComponent<PolygonCollider2D>();
+        Collider = colliderObject.GetComponent<Collider2D>();
     }
     void LateUpdate()
     {

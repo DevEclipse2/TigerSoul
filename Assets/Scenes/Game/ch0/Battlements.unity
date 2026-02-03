@@ -2495,6 +2495,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5288276304224610095, guid: 1e4310cb8b0cd184ba91e6c49a5cdbb9, type: 3}
   m_PrefabInstance: {fileID: 2107957646}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2107957649 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2950353028653128814, guid: 1e4310cb8b0cd184ba91e6c49a5cdbb9, type: 3}
+  m_PrefabInstance: {fileID: 2107957646}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2108590803
 GameObject:
   m_ObjectHideFlags: 0
@@ -2546,6 +2551,7 @@ MonoBehaviour:
   - Chasm
   player: {fileID: 2107957648}
   loadPositions: 0000000000000000
+  fade: {fileID: 2107957649}
   targetpos: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

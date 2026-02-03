@@ -12,6 +12,9 @@ public class PlayerHealth : MonoBehaviour
     public bool neardeath;
      float cleantimer;
     public float refreshneardeathTime = 18f;
+    public float iFrames = 1.2f;
+    float iframeTimer;
+    public bool invulnerable;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,6 +26,18 @@ public class PlayerHealth : MonoBehaviour
     }
     void Update()
     {
+        if (!Inputcontroller.GetComponent<PlayerMove>().canMove && Inputcontroller.GetComponent<PlayerMove>().GroundCheck())
+        {
+            Inputcontroller.GetComponent<PlayerMove>().canMove = true;
+        }
+        if (invulnerable)
+        {
+            if(iframeTimer > iFrames)
+            {
+                invulnerable = false;
+            }
+            iframeTimer += Time.deltaTime;
+        }
         if (neardeath) { 
             cleantimer += Time.deltaTime;
             if (cleantimer > refreshneardeathTime) { 
@@ -43,6 +58,13 @@ public class PlayerHealth : MonoBehaviour
     }
     public void DamageTaken(int amount)
     {
+        if (invulnerable)
+        {
+            Debug.Log("Player is invulnerable");
+            return;
+        }
+        invulnerable = true;
+        iframeTimer = 0;
         health -= amount;
         if(health < 0)
         {
@@ -53,7 +75,8 @@ public class PlayerHealth : MonoBehaviour
             }
             else
             {
-                health = basehealth; neardeath = false;
+                health = basehealth; 
+                neardeath = false;
                 savepointObject.RecoverSave();
                 //dies
             }
@@ -64,6 +87,9 @@ public class PlayerHealth : MonoBehaviour
     }
     public void Pitfall( Transform recoverPoint , int damagetaken)
     {
+        Inputcontroller.GetComponent<PlayerMove>().canMove = false;
+        Inputcontroller.GetComponent<PlayerMove>().moveDir = Vector2.zero;
+        Inputcontroller.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
         DamageTaken(damagetaken);
         Inputcontroller.transform.position = recoverPoint.position;
     }
