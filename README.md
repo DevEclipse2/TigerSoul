@@ -1,6 +1,23 @@
 # TigerSoul
 The source code for Tigersoul. for the hack club campfire flagship game jam. 
 
+checklist : 
+
+presentable : X
+
+looks good : X
+
+has a story : X
+
+is fun : X
+
+is ready for playing : X
+
+is on the epstein files : X 
+
+overall : not in the epstein files 
+9/10
+
 current development time :  ~55 hours
 
 This project is currently undergoing ACTIVE DEVELOPMENT
