@@ -38,7 +38,7 @@ public class CheckCartridge : MonoBehaviour
     void Start()
     {
         linerenderer = lineObject.GetComponent<LineRenderer>();
-        groundedTrigger.GetComponent<Collider2D>().OnTriggerEnter2D += onCounterbalanceGrounded();
+        groundedTrigger.GetComponent<Collider2D>().triggerEnter += onCounterbalanceGrounded();
         linerenderer.startColor = linecolor;
         linerenderer.endColor = linecolor;
     }
