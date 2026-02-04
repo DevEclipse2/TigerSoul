@@ -39,6 +39,7 @@ public class CheckCartridge : MonoBehaviour
     {
         linerenderer = lineObject.GetComponent<LineRenderer>();
         groundedTrigger.GetComponent<Collider2D>().triggerEnter += onCounterbalanceGrounded();
+        groundedTrigger.GetComponent<Collider2D>().platformTrigger += onWeightMove();
         linerenderer.startColor = linecolor;
         linerenderer.endColor = linecolor;
     }
@@ -68,6 +69,18 @@ public class CheckCartridge : MonoBehaviour
             //unfreezes the thing
         }
     }
+    void onWeightMove(UnityEngine.Collider2D collision)
+    {
+        if(collider.CompareTag("Box")
+        {
+            Debug.Log("box landed");
+            RigidBody2D rb = platform.GetComponent<RigidBody2D>();  
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+            rb.constraints &= ~RigidbodyConstraints2D.FreezePositionY
+            //unfreezes the thing
+        }
+    }
+    
     void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
         if(collider.CompareTag("Box")
