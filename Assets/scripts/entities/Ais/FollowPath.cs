@@ -12,15 +12,24 @@ public class FollowPath : MonoBehaviour
     public float patrolspeed;
     Rigidbody2D rb;
     public bool random; // randomly goes to any node
+    public GameObject Rigidbodycontainer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         pointvec = new Vector2[Point.Length];
-        rb = this.gameObject.GetComponent<Rigidbody2D>();
+        if(Rigidbodycontainer == null)
+        {
+            rb = GetComponent<Rigidbody2D>();
+
+        }
+        else
+        {
+            rb = Rigidbodycontainer.GetComponent<Rigidbody2D>();
+        }
 
         if (gravity)
         {
-            for(int i = 0; i < pointvec.Length; i++)
+            for (int i = 0; i < pointvec.Length; i++)
             {
                 pointvec[i] = GetClosestPointBelow(Point[i]);
             }
