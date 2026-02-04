@@ -29,17 +29,18 @@ public class CheckCartridge : MonoBehaviour
     public GameObject lineObject;
     private LineRenderer linerenderer;
     public bool updateDraw = false;
-    public List<Transform> pointA;
-    public List<Transform> pointB;
+    public Transform[] pointA;
+    public Transform[] pointB;
+    LineRenderer[] lines;
     public Color linecolor;
 
     public Transform HighPosition;
     bool part1;
     bool part1complete;
     bool part2;
+    public LineRenderer linePrefab;
 
-    
-    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -66,21 +67,24 @@ public class CheckCartridge : MonoBehaviour
         part2 = false;
         part1 = false;
     }
-    public void drawline()
+    public void drawline(int index)
     {
-        
+
+        LineRenderer lineRenderer = Instantiate(linePrefab, transform);
+        lineRenderer.positionCount = 2; // 2 points for the line
+
+        // Set start and end points of the line
+        lineRenderer.SetPosition(0, p1);
+        lineRenderer.SetPosition(1, p2);
     }
     // Update is called once per frame
     void Update()
     {
         if(updateDraw)
         {
-            for(int i = 0; i < pointA.Count; i++)
+            for(int i = 0; i < pointA.Length; i++)
             {
-                linerenderer.positionCount = 2;
-                linerenderer.SetPosition(0, pointA[i].position);
-                linerenderer.SetPosition(1, pointB[i].position);
-                
+                drawline(i);
             }
         }
         if (!part1 && !part1complete && !AirTrigger.GetComponent<CollisionHandle>().IsTriggered) {
