@@ -7,18 +7,23 @@ public class CheckCartridge : MonoBehaviour
 
     
     public GameObject groundedTrigger;
+    public GameObject AirTrigger;
     public GameObject platformTrigger;
     public GameObject counterbalanceDeactivationTrigger;
     
     
     public Transform part1Weight1Range1;
     public Transform part1Weight1Range2;
+    Vector2 p1w1Original;
+    float distance1;
     public Transform part1Weight2Range1;
+    Vector2 p1w2Original;
     public Transform part1Weight2Range2;
+    float distance2;
+
+
     public Transform part2Weight1Range1;
-    public Transform part2Weight1Range2;
     public Transform part2Weight2Range1;
-    public Transform part2Weight2Range2;
     float percentage;
 
     public GameObject lineObject;
@@ -30,6 +35,7 @@ public class CheckCartridge : MonoBehaviour
 
     public Transform HighPosition;
     bool part1;
+    bool part1complete;
     bool part2;
 
     
@@ -38,10 +44,12 @@ public class CheckCartridge : MonoBehaviour
     void Start()
     {
         linerenderer = lineObject.GetComponent<LineRenderer>();
-        groundedTrigger.GetComponent<Collider2D>().triggerEnter += onCounterbalanceGrounded();
-        groundedTrigger.GetComponent<Collider2D>().platformTrigger += onWeightMove();
         linerenderer.startColor = linecolor;
         linerenderer.endColor = linecolor;
+        distance1 = Mathf.Abs(part1Weight1Range1.position.y - part1Weight1Range2.position.y);
+        distance2 = Mathf.Abs(part1Weight2Range1.position.y - part1Weight2Range2.position.y);
+        p1w1Original = part1Weight1Range1.position;
+        p1w2Original = part1Weight2Range1.position;
     }
     public void CounterbalanceDown()
     {
@@ -58,39 +66,9 @@ public class CheckCartridge : MonoBehaviour
         part2 = false;
         part1 = false;
     }
-    void onCounterbalanceGrounded(UnityEngine.Collider2D collision)
+    public void drawline()
     {
-        if(collider.CompareTag("Box")
-        {
-            Debug.Log("box landed");
-            RigidBody2D rb = platform.GetComponent<RigidBody2D>();  
-            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-            rb.constraints &= ~RigidbodyConstraints2D.FreezePositionY
-            //unfreezes the thing
-        }
-    }
-    void onWeightMove(UnityEngine.Collider2D collision)
-    {
-        if(collider.CompareTag("Box")
-        {
-            Debug.Log("box landed");
-            RigidBody2D rb = platform.GetComponent<RigidBody2D>();  
-            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-            rb.constraints &= ~RigidbodyConstraints2D.FreezePositionY
-            //unfreezes the thing
-        }
-    }
-    
-    void OnTriggerEnter2D(UnityEngine.Collider2D collision)
-    {
-        if(collider.CompareTag("Box")
-        {
-            Debug.Log("box landed");
-            RigidBody2D rb = platform.GetComponent<RigidBody2D>();  
-            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-            rb.constraints &= ~RigidbodyConstraints2D.FreezePositionY
-            //unfreezes the thing
-        }
+        
     }
     // Update is called once per frame
     void Update()
@@ -99,13 +77,27 @@ public class CheckCartridge : MonoBehaviour
         {
             for(int i = 0; i < pointA.Count; i++)
             {
-                lineRenderer.positionCount = 2;
-                lineRenderer.SetPosition(0, pointA[i]);
-                lineRenderer.SetPosition(1, pointB[i]);
+                linerenderer.positionCount = 2;
+                linerenderer.SetPosition(0, pointA[i].position);
+                linerenderer.SetPosition(1, pointB[i].position);
+                
             }
+        }
+        if (!part1 && !part1complete && !AirTrigger.GetComponent<CollisionHandle>().IsTriggered) {
+            part1 = true;
+            
         }
         if(part1)
         {
+            Debug.Log(percentage);
+            percentage =  Mathf.Abs(p1w2Original.y - part1Weight2Range1.position.y) / distance2;
+            platform.transform.position = new Vector2(platform.transform.position.x, p1w1Original.y + distance1 * percentage);
+            if (groundedTrigger.GetComponent<CollisionHandle>().IsTriggered)
+            {
+                part1 = false;
+                part1complete = true;
+                //platform.transform.position = Vector2.Lerp(part1Weight1Range1.position, part1Weight1Range2.position , 0.4f);
+            }
         }
     }
 }

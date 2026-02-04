@@ -1,0 +1,520 @@
+fileFormatVersion: 2
+guid: c479a53457c0c06419afed9ee0d09fd7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8082760157516108941
+    second: universe-4_0
+  - first:
+      213: 8535550174561052843
+    second: universe-4_1
+  - first:
+      213: -7779170559371294566
+    second: universe-4_2
+  - first:
+      213: -6790265896750911526
+    second: universe-4_3
+  - first:
+      213: 653346919817754071
+    second: universe-4_4
+  - first:
+      213: 2764279844394334021
+    second: universe-4_5
+  - first:
+      213: -5914921436852099817
+    second: universe-4_6
+  - first:
+      213: -6034363299189011582
+    second: universe-4_7
+  - first:
+      213: 5395025267059550667
+    second: universe-4_8
+  - first:
+      213: -6760365115018976342
+    second: universe-4_9
+  - first:
+      213: 5592669865921082708
+    second: universe-4_10
+  - first:
+      213: -2745957054798873624
+    second: universe-4_11
+  - first:
+      213: 1718023855377733593
+    second: universe-4_12
+  - first:
+      213: -188192737941433320
+    second: universe-4_13
+  - first:
+      213: -2322526872352304993
+    second: universe-4_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: universe-4_0
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1026
+        width: 1723
+        height: 2205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d849d69f98bbb2070800000000000000
+      internalID: 8082760157516108941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: universe-4_1
+      rect:
+        serializedVersion: 2
+        x: 1010
+        y: 3194
+        width: 247
+        height: 536
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba82c3519ad547670800000000000000
+      internalID: 8535550174561052843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: universe-4_2
+      rect:
+        serializedVersion: 2
+        x: 1268
+        y: 3143
+        width: 3302
+        height: 995
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a984f719795da0490800000000000000
+      internalID: -7779170559371294566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: universe-4_3
+      rect:
+        serializedVersion: 2
+        x: 3074
+        y: 1004
+        width: 2393
+        height: 2246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adf66bda42124c1a0800000000000000
+      internalID: -6790265896750911526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: universe-4_4
+      rect:
+        serializedVersion: 2
+        x: 5665
+        y: 2640
+        width: 519
+        height: 1057
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d535dedf87211900800000000000000
+      internalID: 653346919817754071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: universe-4_5
+      rect:
+        serializedVersion: 2
+        x: 6029
+        y: 527
+        width: 1602
+        height: 3158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54775e86fd1bc5620800000000000000
+      internalID: 2764279844394334021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: universe-4_6
+      rect:
+        serializedVersion: 2
+        x: 1921
+        y: 2436
+        width: 321
+        height: 524
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7156612ba4af9eda0800000000000000
+      internalID: -5914921436852099817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: universe-4_7
+      rect:
+        serializedVersion: 2
+        x: 5467
+        y: 579
+        width: 556
+        height: 2105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28b4f220d82a14ca0800000000000000
+      internalID: -6034363299189011582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: universe-4_8
+      rect:
+        serializedVersion: 2
+        x: 1392
+        y: 323
+        width: 1352
+        height: 1446
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc9675575eafeda40800000000000000
+      internalID: 5395025267059550667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: universe-4_9
+      rect:
+        serializedVersion: 2
+        x: 2980
+        y: 1716
+        width: 55
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa3e95feebb5e22a0800000000000000
+      internalID: -6760365115018976342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: universe-4_10
+      rect:
+        serializedVersion: 2
+        x: 2749
+        y: 0
+        width: 606
+        height: 1082
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 455f140ac972d9d40800000000000000
+      internalID: 5592669865921082708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: universe-4_11
+      rect:
+        serializedVersion: 2
+        x: 3385
+        y: 589
+        width: 229
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8eb3c3c7b9664e9d0800000000000000
+      internalID: -2745957054798873624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: universe-4_12
+      rect:
+        serializedVersion: 2
+        x: 5372
+        y: 719
+        width: 98
+        height: 228
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d7df6f0895a7d710800000000000000
+      internalID: 1718023855377733593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: universe-4_13
+      rect:
+        serializedVersion: 2
+        x: 3334
+        y: 0
+        width: 631
+        height: 634
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81451b1b3b7636df0800000000000000
+      internalID: -188192737941433320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: universe-4_14
+      rect:
+        serializedVersion: 2
+        x: 3996
+        y: 0
+        width: 281
+        height: 472
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9054286d1ab4cfd0800000000000000
+      internalID: -2322526872352304993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      universe-4_0: 8082760157516108941
+      universe-4_1: 8535550174561052843
+      universe-4_10: 5592669865921082708
+      universe-4_11: -2745957054798873624
+      universe-4_12: 1718023855377733593
+      universe-4_13: -188192737941433320
+      universe-4_14: -2322526872352304993
+      universe-4_2: -7779170559371294566
+      universe-4_3: -6790265896750911526
+      universe-4_4: 653346919817754071
+      universe-4_5: 2764279844394334021
+      universe-4_6: -5914921436852099817
+      universe-4_7: -6034363299189011582
+      universe-4_8: 5395025267059550667
+      universe-4_9: -6760365115018976342
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

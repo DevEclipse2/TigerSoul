@@ -2,16 +2,23 @@ using UnityEngine;
 
 public class CollisionHandle : MonoBehaviour
 {
-    public delegate void MultiTriggerHandle(UnityEngine.Collider2D collision)
-    public event MultiTriggerHandle triggerEnter;
     Collider2D collider;
-    protected virtual void triggerEnter( UnityEngine.Collider2d collision)
-    {
-        triggerEnter?.Invoke(collision);
-    }
+    public bool IsTriggered;
+    public string filter;
     void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
-        triggerEnter(collision);
+        if (collision.CompareTag(filter))
+        {
+            IsTriggered = true;
+            Debug.Log("enter");
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag(filter)) {
+            IsTriggered = false;
+        }
+
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

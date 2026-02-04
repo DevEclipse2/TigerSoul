@@ -42,13 +42,13 @@ public class DealDamage : MonoBehaviour
         RaycastHit2D[] hitdes;
         if (isleft)
         {
-            Debug.Log("left");
+            //Debug.Log("left");
             hit = Physics2D.BoxCastAll(root.position, size, 0, Vector2.right ,-size.x - 2, enemies);
             hitdes = Physics2D.BoxCastAll(root.position, size , 0 , Vector2.right, -size.x - 2, destructibles);
         }
         else
         {
-            Debug.Log("rigth");
+            //Debug.Log("rigth");
             hit = Physics2D.BoxCastAll(root.position, size, 0, Vector2.right, 2, enemies);
             hitdes = Physics2D.BoxCastAll(root.position, size, 0, Vector2.right, 2 , destructibles);
         }
