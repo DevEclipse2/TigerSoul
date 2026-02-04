@@ -1740,6 +1740,78 @@ Transform:
   - {fileID: 1246268324}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1080132039
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1370101222079356225, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370101222079356225, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -4.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419958882341115510, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      propertyPath: m_text
+      value: Ready?
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517667585398160133, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      propertyPath: m_Name
+      value: Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936809144945658518, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 17.76773
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936809144945658518, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.29666
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936809144945658518, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936809144945658518, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936809144945658518, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936809144945658518, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936809144945658518, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936809144945658518, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936809144945658518, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936809144945658518, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5462426894466125374, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+  m_SourcePrefab: {fileID: 100100000, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
 --- !u!1 &1086803836
 GameObject:
   m_ObjectHideFlags: 0
@@ -3419,6 +3491,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5288276304224610095, guid: 1e4310cb8b0cd184ba91e6c49a5cdbb9, type: 3}
   m_PrefabInstance: {fileID: 2107957646}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2107957649 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2950353028653128814, guid: 1e4310cb8b0cd184ba91e6c49a5cdbb9, type: 3}
+  m_PrefabInstance: {fileID: 2107957646}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2108590803
 GameObject:
   m_ObjectHideFlags: 0
@@ -3465,9 +3542,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelTransition
   sceneToLoad:
-  - Chasm
+  - Spiral
   player: {fileID: 2107957648}
   loadPositions: 01000000
+  fade: {fileID: 2107957649}
   targetpos: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -3478,3 +3556,4 @@ SceneRoots:
   - {fileID: 654700706}
   - {fileID: 118772719}
   - {fileID: 5856845}
+  - {fileID: 1080132039}

@@ -48,5 +48,8 @@ TagManager:
   - name: TitleTop
     uniqueID: 698245563
     locked: 0
+  - name: UIText
+    uniqueID: 2673555299
+    locked: 0
   m_RenderingLayers:
   - Default
