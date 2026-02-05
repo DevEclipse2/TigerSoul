@@ -148,6 +148,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1260811121}
   - {fileID: 259834708}
   m_Father: {fileID: 1075399715}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -435,6 +436,7 @@ GameObject:
   - component: {fileID: 259834708}
   - component: {fileID: 259834709}
   - component: {fileID: 259834710}
+  - component: {fileID: 259834711}
   m_Layer: 0
   m_Name: mk-v_0
   m_TagString: Untagged
@@ -527,6 +529,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de58b5f9ea225fe40b1c403d47086750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
+  dialogue: []
+  dialogue1: []
+  dialogue2: []
+  repeating: []
+  characterRate: 0
+--- !u!114 &259834711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259834707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+  m_Actions: {fileID: -944628639613478452, guid: c64ef7a5e7010454c822a21faaca7ea3, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: 
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &286088870
 GameObject:
   m_ObjectHideFlags: 0
@@ -1743,6 +1780,99 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CameraShake
   Shake: {fileID: 649688638}
   offset: {x: 0, y: 0, z: 0}
+--- !u!1001 &1260811120
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 17373969}
+    m_Modifications:
+    - target: {fileID: 1370101222079356225, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370101222079356225, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.3199999
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370101222079356225, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -3.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419958882341115510, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      propertyPath: m_fontSize
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419958882341115510, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517667585398160133, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      propertyPath: m_Name
+      value: Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936809144945658518, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.0869565
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936809144945658518, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.0869565
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936809144945658518, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.552112
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936809144945658518, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.3810732
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936809144945658518, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936809144945658518, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936809144945658518, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936809144945658518, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936809144945658518, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936809144945658518, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936809144945658518, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936809144945658518, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5462426894466125374, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+  m_SourcePrefab: {fileID: 100100000, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+--- !u!4 &1260811121 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8936809144945658518, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
+  m_PrefabInstance: {fileID: 1260811120}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1456644278
 GameObject:
   m_ObjectHideFlags: 0
