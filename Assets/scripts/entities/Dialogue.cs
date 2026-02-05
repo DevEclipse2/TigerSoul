@@ -23,7 +23,14 @@ public class Dialogue : MonoBehaviour
     int stringlength;
     [SerializeField] private TMP_Text textMeshPro;
 
-    public void UpdateTextMeshPro(char character)
+    public void UpdateTMP(char character)
+    {
+        if (textMeshPro != null)
+        {
+            textMeshPro.text = buffer + character; // Update the text
+        }
+    }
+    public void ClearTMP(char character)
     {
         if (textMeshPro != null)
         {
@@ -78,8 +85,9 @@ public class Dialogue : MonoBehaviour
             timer += Time.deltaTime;
             if (timer > chartimer)
             {
+                currentchar++;
                 timer = 0;
-                UpdateTextMeshPro( 's');
+                UpdateTMP( 's');
             }
 
         }
