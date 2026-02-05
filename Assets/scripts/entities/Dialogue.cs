@@ -21,7 +21,7 @@ public class Dialogue : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            inrange = true;
+            inrange = false;
         }
     }
     // Update is called once per frame
