@@ -26,6 +26,10 @@ public class PlayerHealth : MonoBehaviour
     }
     void Update()
     {
+        if(Inputcontroller.GetComponent<PlayerMove>() == null)
+        {
+            return;
+        }
         if (!Inputcontroller.GetComponent<PlayerMove>().canMove && Inputcontroller.GetComponent<PlayerMove>().GroundCheck())
         {
             Inputcontroller.GetComponent<PlayerMove>().canMove = true;

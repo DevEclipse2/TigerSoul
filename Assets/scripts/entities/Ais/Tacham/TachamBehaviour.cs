@@ -9,7 +9,7 @@ public class TachamBehaviour : MonoBehaviour
     public GameObject entity;
     public float chasespeed;
     bool chasing;
-    public transform scanbox;
+    public Transform scanbox;
     float Scanheight;
     bool targetground;
     // Start is called once before the first execution of Update after the MonoBehaviour is created

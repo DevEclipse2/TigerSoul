@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game/ch0/Spiral.unity
     guid: 3590c8b28c6314c4db491e0370ee31eb
+  - enabled: 1
+    path: Assets/Scenes/Game/catacombs/Crevice.unity
+    guid: f4057cad6bdee924d9940527d13d0cb6
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 631571f1d2e06324ca07f1e762818260, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: c64ef7a5e7010454c822a21faaca7ea3, type: 3}

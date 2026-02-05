@@ -23,7 +23,7 @@ public class LevelFade : MonoBehaviour
     }
     void Start()
     {
-
+        timer = 0;
         fadeColor = fadeImage.color;
         fadeIn = true;
 

@@ -50,6 +50,7 @@ public class SimpleAnimation : MonoBehaviour
     int Hittick;
     public GameObject landingcloud;
     public Vector3 LandingCloudOffset;
+    public bool ovveride;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -61,48 +62,51 @@ public class SimpleAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float velocity = Controller.GetComponent<Rigidbody2D>().linearVelocity.x;
-
-        if (velocity > 0)
+        if (!ovveride)
         {
-            isLeft = false;
-        }
-        else if (velocity < 0) {
+            float velocity = Controller.GetComponent<Rigidbody2D>().linearVelocity.x;
 
-            isLeft = true;
-        }
+            if (velocity > 0)
+            {
+                isLeft = false;
+            }
+            else if (velocity < 0)
+            {
+
+                isLeft = true;
+            }
             tick++;
-        if (falling) falltimer += Time.deltaTime;
-        Externals = false;
-        if (isLeft)
-        {
-            Sprite.transform.localScale = new Vector2(-1, 1);
-        }
-        else
-        {
-            Sprite.transform.localScale = new Vector2(1, 1);
-        }
+            if (falling) falltimer += Time.deltaTime;
+            Externals = false;
+            if (isLeft)
+            {
+                Sprite.transform.localScale = new Vector2(-1, 1);
+            }
+            else
+            {
+                Sprite.transform.localScale = new Vector2(1, 1);
+            }
 
-        input = Input.Sleep;
-       
-        //regular animation loop
-        //copies recent inputs, sorts them by currently active, then uses ranking
-        inputs = parser.recentInput;
-        active = parser.ongoing;
-        selectedIndex = Priorities.IndexOf(Input.Sleep);
-        //if (inputs.IndexOf(Input.Move) != -1 && !active[inputs.IndexOf(Input.Move)]) {
-        //    animator.SetBool("Idle", true);
-        //    animator.SetInteger("Action", 0);
-        //    //Debug.Log("stop");
+            input = Input.Sleep;
 
-        //}
-        if (!move.GroundCheck())
-        {
-            animator.SetBool("Falling", true);
-            falling = true;
-            animator.SetBool("Sliding", false);
+            //regular animation loop
+            //copies recent inputs, sorts them by currently active, then uses ranking
+            inputs = parser.recentInput;
+            active = parser.ongoing;
+            selectedIndex = Priorities.IndexOf(Input.Sleep);
+            //if (inputs.IndexOf(Input.Move) != -1 && !active[inputs.IndexOf(Input.Move)]) {
+            //    animator.SetBool("Idle", true);
+            //    animator.SetInteger("Action", 0);
+            //    //Debug.Log("stop");
 
-        }
+            //}
+            if (!move.GroundCheck())
+            {
+                animator.SetBool("Falling", true);
+                falling = true;
+                animator.SetBool("Sliding", false);
+
+            }
 
             for (int i = 0; i < inputs.Count; i++)
             {
@@ -130,115 +134,128 @@ public class SimpleAnimation : MonoBehaviour
 
                 }
             }
-        
-            
+
+
             //Debug.Log(selectedIndex);
-        if (falling && falltimer >= 0.3)
-        {
-            animator.SetBool("FallInterp", true);
-            animator.SetBool("Sliding", false);
+            if (falling && falltimer >= 0.3)
+            {
+                animator.SetBool("FallInterp", true);
+                animator.SetBool("Sliding", false);
 
-        }
-        switch (Priorities[selectedIndex]) {
-            case Input.Sleep:
-                if (move.GroundCheck())
-                {
-                    if (falling)
+            }
+            switch (Priorities[selectedIndex])
+            {
+                case Input.Sleep:
+                    if (move.GroundCheck())
                     {
-                        animator.SetBool("GroundContact", true);
-                        landingcloud.transform.position = move.transform.position + LandingCloudOffset;
-                        //Debug.Log("Groundcontact");
-                        Landtick = tick;
-                        animator.SetBool("Sliding", false);
-
-                    }
-                    else
-                    {
-
-                        if (velocity <= 0.2)
+                        if (falling)
                         {
-                            animator.SetBool("Idle", true);
-                            animator.SetInteger("Action", 0);
+                            animator.SetBool("GroundContact", true);
+                            landingcloud.transform.position = move.transform.position + LandingCloudOffset;
+                            //Debug.Log("Groundcontact");
+                            Landtick = tick;
                             animator.SetBool("Sliding", false);
 
-                            break;
                         }
-                        //Debug.Log("sliding");
-                        animator.SetInteger("Action", 3);
+                        else
+                        {
+
+                            if (velocity <= 0.2)
+                            {
+                                animator.SetBool("Idle", true);
+                                animator.SetInteger("Action", 0);
+                                animator.SetBool("Sliding", false);
+
+                                break;
+                            }
+                            //Debug.Log("sliding");
+                            animator.SetInteger("Action", 3);
+
+                        }
 
                     }
-
-                }
-                else if (!falling)
-                {
-                    //Debug.Log("falling");
-                    animator.SetBool("Falling", true);
-                    falling = true;
-                }
-                    break;
-            case Input.Move: /* any additional checks*/
-                if (move.GroundCheck()) 
-                {
-                    if (falling)
+                    else if (!falling)
                     {
-                        animator.SetBool("GroundContact", true);
-                        landingcloud.transform.position = move.transform.position + LandingCloudOffset;
-                        //Debug.Log("Groundcontact");
-                        Landtick = tick;
+                        //Debug.Log("falling");
+                        animator.SetBool("Falling", true);
+                        falling = true;
                     }
-                    animator.SetBool("Sliding", false);
-                    animator.SetBool("Idle", false);
-                    animator.SetInteger("Action", 1);
-                }
-                else if(!falling)
-                {
-                    Debug.Log("falling");
-                    animator.SetBool("Falling", true);
-                    falling = true;
-                }
                     break;
-            case Input.Attack: /* any additional checks*/ 
-                AttackIn = !animator.GetBool("AttackIn");
-                animator.SetBool("AttackIn", AttackIn);
-                animator.SetBool("Attack", true);
-                Hittick = tick;
-                break;
-            //case Input.Dash: /* any additional checks*/ AttackIn = !AttackIn; animator.SetBool("AttackIn", AttackIn); animator.SetBool("Attack", true);  break;
-            case Input.Jump: /* any additional checks*/ 
-                if (move.GroundCheck()) 
-                {
-                    //Debug.Log("jump");
-                    animator.SetBool("Idle", false); 
-                    animator.SetInteger("Action", 2); 
-                } break;
-            default: animator.SetBool("Idle", true); animator.SetInteger("Action", 0); break;
-        }
-        if (!falling && animator.GetBool("GroundContact") && tick > (Landtick + 40))
-        {
-            animator.SetBool("GroundContact", false);
+                case Input.Move: /* any additional checks*/
+                    if (move.GroundCheck())
+                    {
+                        if (falling)
+                        {
+                            animator.SetBool("GroundContact", true);
+                            landingcloud.transform.position = move.transform.position + LandingCloudOffset;
+                            //Debug.Log("Groundcontact");
+                            Landtick = tick;
+                        }
+                        animator.SetBool("Sliding", false);
+                        animator.SetBool("Idle", false);
+                        animator.SetInteger("Action", 1);
+                    }
+                    else if (!falling)
+                    {
+                        Debug.Log("falling");
+                        animator.SetBool("Falling", true);
+                        falling = true;
+                    }
+                    break;
+                case Input.Attack: /* any additional checks*/
+                    AttackIn = !animator.GetBool("AttackIn");
+                    animator.SetBool("AttackIn", AttackIn);
+                    animator.SetBool("Attack", true);
+                    Hittick = tick;
+                    break;
+                //case Input.Dash: /* any additional checks*/ AttackIn = !AttackIn; animator.SetBool("AttackIn", AttackIn); animator.SetBool("Attack", true);  break;
+                case Input.Jump: /* any additional checks*/
+                    if (move.GroundCheck())
+                    {
+                        //Debug.Log("jump");
+                        animator.SetBool("Idle", false);
+                        animator.SetInteger("Action", 2);
+                    }
+                    break;
+                default: animator.SetBool("Idle", true); animator.SetInteger("Action", 0); break;
+            }
+            if (!falling && animator.GetBool("GroundContact") && tick > (Landtick + 40))
+            {
+                animator.SetBool("GroundContact", false);
 
-        }
-        if (animator.GetBool("Attack") && tick > (Hittick + 20))
-        {
-            animator.SetBool("Attack", false);
+            }
+            if (animator.GetBool("Attack") && tick > (Hittick + 20))
+            {
+                animator.SetBool("Attack", false);
 
-        }
-        if (move.GroundCheck())
-        {
-            if (falling)
-                falltimer = 0;
-            falling = false;
-            animator.SetBool("FallInterp", false);
-            animator.SetBool("Falling", false);
-            animator.SetBool("Grounded", true);
+            }
+            if (move.GroundCheck())
+            {
+                if (falling)
+                    falltimer = 0;
+                falling = false;
+                animator.SetBool("FallInterp", false);
+                animator.SetBool("Falling", false);
+                animator.SetBool("Grounded", true);
 
+            }
+            else
+            {
+                animator.SetBool("Grounded", false);
+
+            }
+
+            //check for falling 
         }
         else
         {
-            animator.SetBool("Grounded", false);
-
+            //Debug.Log("override");
+            animator.SetBool("Falling", false);
+            animator.SetBool("Idle", true);
+            animator.SetBool("Sliding", true);
+            animator.SetBool("Grounded", true);
+            animator.SetInteger("Action", 0 ) ;
+            falling = false;
         }
-        
-        //check for falling 
     }
 }
