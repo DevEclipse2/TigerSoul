@@ -721,7 +721,7 @@ MonoBehaviour:
   - 0.9
   - 0.15
   - 0.2
-  - 0.2
+  - 0.15
   cameraTransform: {fileID: 868160840}
 --- !u!1 &553555478
 GameObject:
@@ -1767,11 +1767,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8936809144945658518, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5612718
+      value: -0.69
       objectReference: {fileID: 0}
     - target: {fileID: 8936809144945658518, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.3461413
+      value: -4.92
       objectReference: {fileID: 0}
     - target: {fileID: 8936809144945658518, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
       propertyPath: m_LocalPosition.z
