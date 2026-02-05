@@ -1038,7 +1038,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DealDamage
   isleft: 0
   root: {fileID: 3622823229223484773}
-  size: {x: 1, y: 0.5}
+  size: {x: 1.3, y: 2}
   enemies:
     serializedVersion: 2
     m_Bits: 64
@@ -1722,6 +1722,8 @@ GameObject:
   - component: {fileID: 1405593005687799397}
   - component: {fileID: 3780471389930745574}
   - component: {fileID: 7806220438278823817}
+  - component: {fileID: 6083185426742014271}
+  - component: {fileID: 1825435962026216784}
   m_Layer: 0
   m_Name: PlayerRoot
   m_TagString: Player
@@ -1788,6 +1790,48 @@ MonoBehaviour:
   refreshneardeathTime: 18
   iFrames: 1.2
   invulnerable: 0
+  flashhull: {fileID: 6083185426742014271}
+  flashturret: {fileID: 1825435962026216784}
+--- !u!114 &6083185426742014271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5288276304224610095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 497eddbfed2a0154d82cc4264d98c06d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Flash
+  renderer:
+  - {fileID: 3272714850423461590}
+  - {fileID: 2327063927046498948}
+  - {fileID: 4812061153227907989}
+  flash: 0
+  flashtime: 0
+  flashrate: 6
+  flashcolor: {r: 0.3529412, g: 0.37254903, b: 0.6313726, a: 1}
+  defaultcolor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &1825435962026216784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5288276304224610095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 497eddbfed2a0154d82cc4264d98c06d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Flash
+  renderer:
+  - {fileID: 8183841823409516607}
+  flash: 0
+  flashtime: 0
+  flashrate: 6
+  flashcolor: {r: 0.3529412, g: 0.37254903, b: 0.6313726, a: 1}
+  defaultcolor: {r: 0.9411765, g: 1, b: 0.8784314, a: 1}
 --- !u!1 &5389566003887807455
 GameObject:
   m_ObjectHideFlags: 0
@@ -2479,6 +2523,7 @@ MonoBehaviour:
   Controller: {fileID: 6385074731725750393}
   landingcloud: {fileID: 5967747621295555774}
   LandingCloudOffset: {x: 0, y: 0, z: 0}
+  ovveride: 0
 --- !u!82 &1185777070647321405
 AudioSource:
   m_ObjectHideFlags: 0

@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 7369205333885910354}
   - component: {fileID: 7827724612541925537}
   - component: {fileID: 7038898857013976729}
+  - component: {fileID: 2066757698240016210}
   m_Layer: 6
   m_Name: Vickers
   m_TagString: Untagged
@@ -169,6 +170,8 @@ MonoBehaviour:
   health: 1
   armour: 1
   isBoss: 0
+  spriteflash: {fileID: 0}
+  flashtime: 0.8
 --- !u!50 &5606714293841398963
 Rigidbody2D:
   serializedVersion: 5
@@ -230,7 +233,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.22180176, y: 0.24749875}
+  m_Offset: {x: 0.093999624, y: 0.24749875}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -240,7 +243,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.28142738, y: 0.21259397}
+  m_Size: {x: 2.066887, y: 0.21259397}
   m_EdgeRadius: 0
 --- !u!114 &7369205333885910354
 MonoBehaviour:
@@ -278,6 +281,7 @@ MonoBehaviour:
   distance: 0.2
   patrolspeed: 3
   random: 0
+  Rigidbodycontainer: {fileID: 0}
 --- !u!114 &7038898857013976729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,6 +298,27 @@ MonoBehaviour:
   damage: 1
   pushBack: {x: 2, y: 1}
   force: 4
+--- !u!114 &2066757698240016210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3071282530666839225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 497eddbfed2a0154d82cc4264d98c06d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Flash
+  renderer:
+  - {fileID: 2877481514729789004}
+  - {fileID: 8324908268446354757}
+  - {fileID: 6405175851548289096}
+  flash: 0
+  flashtime: 0
+  flashrate: 5
+  flashcolor: {r: 1, g: 0, b: 0, a: 1}
+  defaultcolor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &3286608280707481966
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,7 +385,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.2278412, y: 0.89364386}
+  m_Offset: {x: 0.22784114, y: 1.273452}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -370,7 +395,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.095481, y: 1.5048842}
+  m_Size: {x: 3.095481, y: 2.2645006}
   m_EdgeRadius: 0
 --- !u!1 &3479362632324509388
 GameObject:

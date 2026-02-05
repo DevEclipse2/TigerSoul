@@ -59,7 +59,7 @@ public class TachamBehaviour : MonoBehaviour
     void MoveTowardsPlayer(){
         if(targetground)
         {
-            float left = Mathf.Clamp(player.transform.position.x - entity.transform.position , -1 ,1 );
+            //float left = Mathf.Clamp(player.transform.position.x - entity.transform.position , -1 ,1 );
             
         }
     
