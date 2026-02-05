@@ -18,7 +18,7 @@ is on the epstein files : X
 overall : not in the epstein files 
 9/10
 
-current development time :  ~55 hours
+current development time :  ~67 hours
 
 This project is currently undergoing ACTIVE DEVELOPMENT
 
