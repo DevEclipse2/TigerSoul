@@ -104,7 +104,7 @@ public class CheckCartridge : MonoBehaviour
         }
         if(part1)
         {
-            Debug.Log(percentage);
+            //Debug.Log(percentage);
             percentage =  Mathf.Abs(p1w2Original.y - part1Weight2Range1.position.y) / distance2;
             platform.transform.position = new Vector2(platform.transform.position.x, p1w1Original.y + distance1 * percentage);
             if (groundedTrigger.GetComponent<CollisionHandle>().IsTriggered)

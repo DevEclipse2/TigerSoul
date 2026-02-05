@@ -7,9 +7,11 @@ public class Health : MonoBehaviour
     public int health = 1;
     public int armour = 1;
     public bool isBoss = false;
+    public Flash spriteflash;
+    public float flashtime = 0.8f;
     void Start()
     {
-        
+        spriteflash = GetComponent<Flash>();
     }
     public void takeDamage(int damage)
     {
@@ -22,6 +24,7 @@ public class Health : MonoBehaviour
         else
         {
             armour -= damage;
+            spriteflash.Damageflash(flashtime);
         }
     }
     // Update is called once per frame

@@ -63,7 +63,7 @@ public class FollowPath : MonoBehaviour
     public void patrol()
     {
         //Debug.Log(this.gameObject.name + Vector2.Distance(this.gameObject.transform.position, pointvec[target]));
-        if (Vector2.Distance(this.gameObject.transform.position, pointvec[target]) < distance)
+        if (Vector2.Distance(this.gameObject.transform.position, pointvec[target]) < distance || Mathf.Abs(this.gameObject.transform.position.x - pointvec[target].x) < distance)
         {
             if (!random)
             {

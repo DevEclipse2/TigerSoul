@@ -15,6 +15,8 @@ public class PlayerHealth : MonoBehaviour
     public float iFrames = 1.2f;
     float iframeTimer;
     public bool invulnerable;
+    public Flash flashhull;
+    public Flash flashturret;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -36,8 +38,12 @@ public class PlayerHealth : MonoBehaviour
         }
         if (invulnerable)
         {
-            if(iframeTimer > iFrames)
+            flashhull.flash = true;
+            flashturret.flash = true;
+            if (iframeTimer > iFrames)
             {
+                flashhull.flash = false;
+                flashturret.flash = false;
                 invulnerable = false;
             }
             iframeTimer += Time.deltaTime;
