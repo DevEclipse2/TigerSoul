@@ -6,7 +6,8 @@ public class TachamBehaviour : MonoBehaviour
     FollowPath basic;
     Collider2D DetectionArea;
     GameObject player;
-    
+    public float chasespeed;
+    bool chasing
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
