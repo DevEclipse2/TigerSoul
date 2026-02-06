@@ -63,7 +63,7 @@ public class TachamBehaviour : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(transform.position, direction.normalized, out hit))
             {
-                if (hit.collider.CompareTag("Player") && Mathf.Abs(hit.transform.position.y - entity.transform.position.y) < Scanheight)
+                if (hit.collider.CompareTag("Player"))
                 {
                     //within line of sight
                     Chase();
