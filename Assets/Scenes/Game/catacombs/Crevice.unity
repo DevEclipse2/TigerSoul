@@ -583,7 +583,7 @@ MonoBehaviour:
   - and made
   - and atoned for
   currentbranch: []
-  characterRate: 12
+  characterRate: 24
   inrange: 0
   buffer: 
   textMeshPro: {fileID: 1260811122}

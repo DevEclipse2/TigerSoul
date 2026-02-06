@@ -1608,8 +1608,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelTransition
   sceneToLoad:
   - crossroads
+  - Grand Chamber
   player: {fileID: 2107957648}
-  loadPositions: 01000000
+  loadPositions: 0100000000000000
   fade: {fileID: 2107957649}
   targetpos: 0
 --- !u!1660057539 &9223372036854775807

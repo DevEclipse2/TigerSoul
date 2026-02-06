@@ -19,9 +19,11 @@ public class DealDamage : MonoBehaviour
     float maxtimer = 0;
     AttackContainer atkcontainer;
     float slowtimer;
+    PlayerHealth PlayerHealth;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        PlayerHealth = GetComponentInParent<PlayerHealth>();
     }
     public void deal(AttackContainer container)
     {
@@ -65,6 +67,7 @@ public class DealDamage : MonoBehaviour
                         
                         health.takeDamage(damage);
                         Time.timeScale = 0.9f;
+                        PlayerHealth.IncreaseHealth(Random.Range(6, 8));
                     }
                     else
                     {
@@ -79,6 +82,8 @@ public class DealDamage : MonoBehaviour
                 targetedDestructible.Add(ray.collider.gameObject);
                 if (ray.collider.gameObject.TryGetComponent<Destructible>(out Destructible destructible)) {
                     destructible.destroyThis();
+                    PlayerHealth.IncreaseHealth(Random.Range(2, 4));
+
                 }
                 else
                 {

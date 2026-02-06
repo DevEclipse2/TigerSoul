@@ -12,8 +12,6 @@ public class TachamBehaviour : MonoBehaviour
     public float chasespeed;
     public float Dashspeed;
     bool chasing;
-    public Transform scanbox;
-    float Scanheight;
     bool targetground;
     public float DashCd;
     public float AttackCd;
@@ -49,20 +47,21 @@ public class TachamBehaviour : MonoBehaviour
         {
             rb = GetComponent<Rigidbody2D>();
         }
-        Scanheight = scanbox.localScale.y;
         DetectionArea = GetComponent<Collider2D>();
         basic = GetComponent<FollowPath>();
         triggerenter = Attacktrigger.GetComponent<CollisionHandle>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         if (collision.CompareTag("Player"))
         {
+            Debug.Log("player");
             Vector3 direction = player.transform.position - transform.position;
 
             // Perform the raycast
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, direction.normalized, out hit))
+            if (Physics.Raycast(transform.position, direction.normalized, out hit , 12))
             {
                 if (hit.collider.CompareTag("Player"))
                 {
