@@ -534,6 +534,7 @@ MonoBehaviour:
   dialogue2: []
   repeating: []
   characterRate: 0
+  textMeshPro: {fileID: 0}
 --- !u!114 &259834711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1798,7 +1799,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1370101222079356225, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -3.44
+      value: -3.61
       objectReference: {fileID: 0}
     - target: {fileID: 1419958882341115510, guid: ea62f62277c348a4895df1d373c386b0, type: 3}
       propertyPath: m_fontSize
