@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1420821536168514155}
   - component: {fileID: 2747022494450145139}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: exhaust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,7 +304,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6507787056123373929}
   - component: {fileID: 2327063927046498948}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: breech
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -521,7 +521,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8764978719784724189}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: groundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -752,7 +752,7 @@ GameObject:
   - component: {fileID: 3599974227051727691}
   - component: {fileID: 1918622145252169202}
   - component: {fileID: 2159131861852087963}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -887,7 +887,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3450831885345943907}
   - component: {fileID: 4812061153227907989}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -978,7 +978,7 @@ GameObject:
   - component: {fileID: 4779135723651054393}
   - component: {fileID: 8183841823409516607}
   - component: {fileID: 1980538743585798491}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1090,7 +1090,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3565919803840042022}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftWallbang
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1153,7 +1153,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3622823229223484773}
   - component: {fileID: 4776064850296089805}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttackRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1210,7 +1210,7 @@ GameObject:
   - component: {fileID: 4544285255571934902}
   - component: {fileID: 813145318770195547}
   - component: {fileID: 5755754148162445331}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Parser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1428,7 +1428,7 @@ GameObject:
   - component: {fileID: 2344532896490846094}
   - component: {fileID: 3272714850423461590}
   - component: {fileID: 8494195378326128900}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hull Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1808,7 +1808,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4247599798865614339}
   - component: {fileID: 2129429326871114465}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: death
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1930,7 +1930,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2565339625829316867}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RightWallbang
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2081,7 +2081,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8697860331393192542}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Checks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2242,7 +2242,7 @@ GameObject:
   - component: {fileID: 6144104877183687936}
   - component: {fileID: 3805896817518180224}
   - component: {fileID: 5130661819376807686}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: InputController
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2346,6 +2346,7 @@ MonoBehaviour:
   DashTarget: {x: 0, y: 0}
   moveDir: {x: 0, y: 0}
   InputController: {fileID: 4518979163348515901}
+  permforce: 0
 --- !u!50 &3805896817518180224
 Rigidbody2D:
   serializedVersion: 5
@@ -2647,7 +2648,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2181609746320903883}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GroundingCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2985,7 +2986,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4429243983477946456}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

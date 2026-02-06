@@ -43,6 +43,7 @@ public class PlayerMove : MonoBehaviour
     bool moving = true;
     public GameObject InputController;
     InputParser parser;
+    public bool permforce;
     void Start()
     {
         //rb = GetComponent<Rigidbody2D>();
@@ -75,7 +76,7 @@ public class PlayerMove : MonoBehaviour
                     rb.linearVelocity = new Vector2(rb.linearVelocity.x * 0.95f, rb.linearVelocity.y);
                 }
             }
-            else
+            else if (permforce)
             {
                 rb.linearVelocity = new Vector2(moveDir.x * moveSpeed, rb.linearVelocity.y);
 

@@ -41,13 +41,19 @@ public class PlayerHealth : MonoBehaviour
         }
         if (invulnerable)
         {
+            Time.timeScale = 0.9f;
             flashhull.flash = true;
             flashturret.flash = true;
+            if (iframeTimer < 0.3f)
+            {
+                Time.timeScale = 0.6f;
+            }
             if (iframeTimer > iFrames)
             {
                 flashhull.flash = false;
                 flashturret.flash = false;
                 invulnerable = false;
+                Time.timeScale = 1.0f;
             }
             iframeTimer += Time.deltaTime;
         }

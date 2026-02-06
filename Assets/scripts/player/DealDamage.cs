@@ -18,6 +18,7 @@ public class DealDamage : MonoBehaviour
     public float timer = 0;
     float maxtimer = 0;
     AttackContainer atkcontainer;
+    float slowtimer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -63,6 +64,7 @@ public class DealDamage : MonoBehaviour
                     {
                         
                         health.takeDamage(damage);
+                        Time.timeScale = 0.9f;
                     }
                     else
                     {
@@ -90,6 +92,15 @@ public class DealDamage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Time.timeScale < 1.0f)
+        {
+            slowtimer += Time.deltaTime;
+            if(slowtimer > 0.3f)
+            {
+                slowtimer = 0;
+                Time.timeScale = 1.0f;
+            }
+        }
         if (isEnabled)
         {
             if (candeal)

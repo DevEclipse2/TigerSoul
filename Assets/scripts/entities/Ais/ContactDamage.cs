@@ -25,7 +25,10 @@ public class ContactDamage : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Debug.Log("Player hit");
-            collision.gameObject.transform.position = collision.gameObject.transform.position  + new Vector3((force * pushBack.normalized * transform.localScale.normalized).x , (force * pushBack.normalized * transform.localScale.normalized).y);
+            if (collision.GetComponentInParent<PlayerHealth>() != null && !collision.GetComponentInParent<PlayerHealth>().invulnerable)
+            { 
+                collision.gameObject.transform.position = collision.gameObject.transform.position  + new Vector3((force * pushBack.normalized * transform.localScale.normalized).x , (force * pushBack.normalized * transform.localScale.normalized).y);
+            }
             collision.gameObject.GetComponentInParent<PlayerHealth>().DamageTaken(damage);
 
         }
