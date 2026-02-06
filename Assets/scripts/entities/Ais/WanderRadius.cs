@@ -7,7 +7,7 @@ public class FollowPath : MonoBehaviour
     public Vector2 target;
     public float distance;
     public float patrolspeed;
-    public LayerMask groundLayer;
+    public Colldier2D walkablearea;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,18 +15,24 @@ public class FollowPath : MonoBehaviour
     }
     void selectrandomPoint()
     {
+        if(!walkablearea.OverlapPoint(transform.position))
+        {
+            target = walkablearea.ClosestPoint(transform.position);
+        }
+    
       bool possible = false;
       do
       {
           float dist = Random.Range(radius * 0.3f , radius);
           float dir = Random.Range(0 , 2 * Mathf.PI);
           Vector2 direction = new Vector2(Mathf.Cos(dir) , Mathf.Sin(dir));
-          target = direction * dist + home.position;
+          target = direction * dist + transform.position;
           Vector3 directionToTarget = target.position - transform.position;
-              // Optional: Add raycast for further line-of-sight checking
-              RaycastHit hit;
-              RaycastHit2D hit = Physics.Raycast(transform.position, directionToTarget, dist )  
-              possible = hit.collider == null || hit.collider.isTrigger;
+          // Optional: Add raycast for further line-of-sight checking
+          if(walkablearea.OverlapPoint(target))
+          {
+              possible = true;
+          }
         } while (!possible)
       }
     
@@ -38,8 +44,11 @@ public class FollowPath : MonoBehaviour
             Vector3 direction = (target - transform.position).normalized;
             direction *= patrolspeed;
             transform.position = transform.position + direction; 
-             
-            if(Vector2.Distance(this.gameObject.transform.position, target) < distance )
+            if(!walkablearea.OverlapPoint(transform.position))
+            {
+                target = walkablearea.ClosestPoint(transform.position);
+            }    
+            else if(Vector2.Distance(this.gameObject.transform.position, target) < distance )
             {
               selectRandomPoint();
             }
