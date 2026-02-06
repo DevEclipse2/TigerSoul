@@ -25,14 +25,8 @@ public class FollowPath : MonoBehaviour
           Vector3 directionToTarget = target.position - transform.position;
               // Optional: Add raycast for further line-of-sight checking
               RaycastHit hit;
-              if (Physics.Raycast(transform.position, directionToTarget, out hit, dist ,groundLayer))
-              {
-                 possible = false; // Check if the ray hit the target
-              }
-              else
-              {
-                possible = true;
-              }            
+              RaycastHit2D hit = Physics.Raycast(transform.position, directionToTarget, dist )  
+              possible = hit.collider == null || hit.collider.isTrigger;
         } while (!possible)
       }
     
