@@ -37,7 +37,7 @@ public class PlayerMove : MonoBehaviour
     float timer;
     public bool canMove = true;
     bool dashing = true;
-    bool isLeft = false;
+    public bool isLeft = false;
     public Vector2 DashTarget;
     public Vector2 moveDir;
     bool moving = true;
@@ -75,8 +75,13 @@ public class PlayerMove : MonoBehaviour
                     rb.linearVelocity = new Vector2(rb.linearVelocity.x * 0.95f, rb.linearVelocity.y);
                 }
             }
-        
-        
+            else
+            {
+                rb.linearVelocity = new Vector2(moveDir.x * moveSpeed, rb.linearVelocity.y);
+
+            }
+
+
         }  
         if (moveDir.x < 0)
         {

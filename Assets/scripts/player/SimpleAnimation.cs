@@ -17,6 +17,7 @@ public class SimpleAnimation : MonoBehaviour
     int selectedIndex;
     public GameObject Controller;
     bool AttackIn = false;
+    SavePoint savepointObject;
     PlayerMove move; // used for ground check
     List<int> Priorities = new List<int>
     {
@@ -51,30 +52,41 @@ public class SimpleAnimation : MonoBehaviour
     public GameObject landingcloud;
     public Vector3 LandingCloudOffset;
     public bool ovveride;
+    bool dying;
+    public bool deathanimcompleted;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    public void Reload()
+    {
+        if (!dying)
+        {
+            dying = true;
+            animator.SetBool("Dying", true);
+            animator.SetBool("Idle", false);
+            ovveride = true;
+            Controller.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
+        }
+        
+    }
+
     void Start()
     {
         animator.SetBool("Attack", false);
-
+        savepointObject = new SavePoint();
         move = Controller.GetComponent<PlayerMove>();
         parser = inputParser.GetComponent<InputParser>();
     }
     // Update is called once per frame
     void Update()
     {
+        if (dying && deathanimcompleted)
+        {
+            savepointObject.RecoverSave();
+        }
         if (!ovveride)
         {
             float velocity = Controller.GetComponent<Rigidbody2D>().linearVelocity.x;
-
-            if (velocity > 0)
-            {
-                isLeft = false;
-            }
-            else if (velocity < 0)
-            {
-
-                isLeft = true;
-            }
+            isLeft = Controller.GetComponent<PlayerMove>().isLeft;
             tick++;
             if (falling) falltimer += Time.deltaTime;
             Externals = false;
@@ -251,11 +263,19 @@ public class SimpleAnimation : MonoBehaviour
         {
             //Debug.Log("override");
             animator.SetBool("Falling", false);
-            animator.SetBool("Idle", true);
-            animator.SetBool("Sliding", true);
+            animator.SetBool("FallInterp", false);
+            animator.SetBool("Sliding", false);
             animator.SetBool("Grounded", true);
             animator.SetInteger("Action", 0 ) ;
             falling = false;
+            if (dying)
+            {
+                animator.SetBool("Idle", false);
+            }
+            else
+            {
+                animator.SetBool("Idle", true);
+            }
         }
     }
 }

@@ -7,8 +7,9 @@ public class PlayerHealth : MonoBehaviour
     public int health;
     public int basehealth = 75;
     public GameObject Inputcontroller;
-    public GameObject SavepointContainer;
-    public SavePoint savepointObject;
+    
+    public GameObject AnimationController;
+    SimpleAnimation animation;
     public bool neardeath;
      float cleantimer;
     public float refreshneardeathTime = 18f;
@@ -24,7 +25,9 @@ public class PlayerHealth : MonoBehaviour
             health = basehealth;
         }
         
-        savepointObject = SavepointContainer.GetComponent<SavePoint>();
+        health = Datapersistence.playerhealth;
+        animation = AnimationController.GetComponent<SimpleAnimation>();
+
     }
     void Update()
     {
@@ -56,15 +59,24 @@ public class PlayerHealth : MonoBehaviour
             }
         }
     }
-    public void loadHealth(int loaded)
+    private void OnDestroy()
     {
-        health = loaded;
+        Datapersistence.FerryHealth(health);
+    }
+    //public void loadHealth(int loaded)
+    //{
+    //    health = loaded;
 
-        if (loaded < basehealth)
-        {
-            health = basehealth;
+    //    if (loaded < basehealth)
+    //    {
+    //        health = basehealth;
 
-        }
+    //    }
+    //    health = Datapersistence.playerhealth;
+    //}
+    public void IncreaseHealth(int amount)
+    {
+        health += amount;
     }
     public void DamageTaken(int amount)
     {
@@ -87,7 +99,7 @@ public class PlayerHealth : MonoBehaviour
             {
                 health = basehealth; 
                 neardeath = false;
-                savepointObject.RecoverSave();
+                animation.Reload();
                 //dies
             }
 

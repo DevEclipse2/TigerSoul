@@ -39,7 +39,7 @@ public class Flash : MonoBehaviour
             {
                 intervaltimer = 0;
                 flashcol = !flashcol;
-                Debug.Log( flashcol);
+                //Debug.Log( flashcol);
                 Color targetcolor = defaultcolor;
                 if (flashcol) 
                 { 

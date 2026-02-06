@@ -19,13 +19,6 @@ public class PlayerLoadPosition : MonoBehaviour
     {
         
     }
-    public void PassSaveData( SavePoint save)
-    {
-        Debug.Log("parseincoming");
-        saveContainer.GetComponent<SavePoint>().LoadData(save);
-
-
-    }
     public void setPosition(int index)
     {
         Input.GetComponent<Transform>().position = new Vector3(Spawns[index].position.x , Spawns[index].position.y , Input.GetComponent<Transform>().position.z);

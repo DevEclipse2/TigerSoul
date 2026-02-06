@@ -3,7 +3,7 @@ using UnityEngine;
 public class autoFlip : MonoBehaviour
 {
 
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     public float baseScale = 1;
     Transform transform;
     Vector3 scale;
@@ -13,7 +13,10 @@ public class autoFlip : MonoBehaviour
         transform = this.gameObject.transform;
         scale = transform.localScale;
         // Get the Rigidbody component
-        rb = GetComponent<Rigidbody2D>();
+        if(rb == null)
+        {
+            rb = GetComponent<Rigidbody2D>();
+        }
     }
 
     void Update()
