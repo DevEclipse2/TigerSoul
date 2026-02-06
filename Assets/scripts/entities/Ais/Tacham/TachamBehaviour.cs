@@ -38,7 +38,7 @@ public class TachamBehaviour : MonoBehaviour
     bool predash;
     float breakouttime = 1.8f;
     public bool AnimatorSetAttackComplete;
-
+    public Collider2D moveArea;
 
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -113,6 +113,10 @@ public class TachamBehaviour : MonoBehaviour
                 attacking = false;
                 if(dashtimer > DashCd){
                     Destination = Retreatpoint.position;
+                    if(!moveArea.OverlapPoint(Destination))
+                    {
+                        Destination = moveArea.ClosestPoint(Destination);
+                    }
                     dash = true;
                     dashtimer = 0;
                     float left = Mathf.Clamp(player.transform.position.x - entity.transform.position.x , -1 ,1 );
@@ -151,6 +155,10 @@ public class TachamBehaviour : MonoBehaviour
                     {
                         predash = false;
                         Destination = Dashpoint.transform.position;
+                        if(!moveArea.OverlapPoint(Destination))
+                        {
+                            Destination = moveArea.ClosestPoint(Destination);
+                        }
                         dashtimer = 0;
                         dashleft = false;
                         rb.linearVelocity = new Vector2(Dashspeed , 0);
