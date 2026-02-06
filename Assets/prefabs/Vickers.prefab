@@ -257,6 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0517906900d2c5b4f83235f5c0c0523b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::autoFlip
+  rb: {fileID: 0}
   baseScale: -1
 --- !u!114 &7827724612541925537
 MonoBehaviour:
@@ -295,7 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ContactDamage
   contactcollider: {fileID: 3286608280707481966}
-  damage: 1
+  damage: 25
   pushBack: {x: 2, y: 1}
   force: 4
 --- !u!114 &2066757698240016210

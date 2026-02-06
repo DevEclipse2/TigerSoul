@@ -9,17 +9,17 @@ public class Dialogue : MonoBehaviour
     public string[] dialogue1;
     public string[] dialogue2;
     public string[] repeating;
-    string[] currentbranch;
+    public string[] currentbranch;
     public float characterRate; //amount of characters to spew per second
-    int currentline;
+    int currentline = -1;
     int currentchar;
     int currentbranchid;
-    bool advance;
+    bool advance = true;
     float chartimer;
     int count;
-    bool inrange;
+    public bool inrange;
     bool spew;
-    string buffer;
+    public string buffer;
     float timer;
     int stringlength;
     [SerializeField] private TMP_Text textMeshPro;
@@ -29,7 +29,8 @@ public class Dialogue : MonoBehaviour
     {
         if (textMeshPro != null)
         {
-            textMeshPro.text = buffer + character; // Update the text
+            buffer += character;
+            textMeshPro.text = buffer; // Update the text
         }
     }
     public void ScrubTMP(string val)
@@ -72,62 +73,68 @@ public class Dialogue : MonoBehaviour
         }
     }
     
-    public void OnInteract(InputValue value)
+    public void OnInteract()
     {
-        if(exit)
-        {
-            exit = false;
-            spew = true;
-        }
-        
-        if (inrange) {
-            if (advance)
+
+            if (exit)
             {
-                //this switches to the next line
-                currentline++;
-                curretchar = 0;
-                buffer = " ";
-                ClearTMP();
-                if(currentline == currentbranch.Length){
-                    currentbranchid++;
-                    currentline = 0;
-                    switch(currentbranchid)
+                exit = false;
+                spew = true;
+            }
+            if (inrange)
+            {
+                if (advance)
+                {
+                    //this switches to the next line
+                    currentline++;
+                    Debug.Log(currentline);
+                    spew = true;
+                    currentchar = 0;
+                    buffer = " ";
+                    ClearTMP();
+                    if (currentline == currentbranch.Length)
                     {
-                        case 0:
-                            currentbranch = dialogue;
-                        break;
-                        case 1:
-                            currentbranch = dialogue1;
-                        break;
-                        case 2:
-                            currentbranch = dialogue2;
-                        break;
-                        default :
-                            currentbranch = repeating;
-                        break;
+                        currentbranchid++;
+                        currentline = -1;
+                        switch (currentbranchid)
+                        {
+                            case 0:
+                                currentbranch = dialogue;
+                                break;
+                            case 1:
+                                currentbranch = dialogue1;
+                                break;
+                            case 2:
+                                currentbranch = dialogue2;
+                                break;
+                            default:
+                                currentbranch = repeating;
+                                break;
+                        }
+                        exit = true;
+                        return;
                     }
-                    exit = true;
-                    return;
+                }
+                else
+                {
+                    // this makes the entire thing show up
+                    advance = true;
+                    spew = false;
+                    if (buffer.Length < currentbranch[currentline].Length)
+                    {
+                        buffer = currentbranch[currentline];
+                        ScrubTMP(buffer);
+                    }   
                 }
             }
-            
-            else
-            {
-                // this makes the entire thing show up
-                advance = true;
-                spew = false;
-                if(buffer.Length < currentbranch[currentline]){
-                    buffer = currentbranch[currentline];
-                    ScrubTMP(buffer);
-                }
-            }
-        }
+        
     }
     // Update is called once per frame
     void Update()
     {
         if (spew)
         {
+            //Debug.Log("spew");
             timer += Time.deltaTime;
             if (timer > chartimer && currentline <= (currentbranch.Length - 1))
             {

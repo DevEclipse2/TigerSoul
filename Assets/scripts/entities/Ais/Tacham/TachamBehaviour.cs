@@ -25,7 +25,7 @@ public class TachamBehaviour : MonoBehaviour
     private CollisionHandle triggerenter;
     public GameObject Dashpoint;
     private CollisionHandle Dashtrigger;
-    public transform Retreatpoint;
+    public Transform Retreatpoint;
     Vector2 Destination;
     bool dashleft;
     bool dash = false;
@@ -34,6 +34,7 @@ public class TachamBehaviour : MonoBehaviour
     public Sprite Anticipate;
     public Vector2 Anticipateoff;
     public Sprite Back;
+    public Sprite Clean;
     public Vector2 Backoff;
     bool predash;
     float breakouttime = 1.8f;
@@ -122,7 +123,7 @@ public class TachamBehaviour : MonoBehaviour
                     float left = Mathf.Clamp(player.transform.position.x - entity.transform.position.x , -1 ,1 );
                     rb.linearVelocity = new Vector2(chasespeed * left * -1 * 0.8f , 0);
                     dashleft = (entity.transform.position.x < Destination.x);
-                    spriteobj.GetComponent<SpriteRenderer>().Sprite = Back;
+                    spriteobj.GetComponent<SpriteRenderer>().sprite = Back;
                     spriteobj.transform.position = Backoff;
                     animator.SetBool("Hide", true);
                 }
@@ -147,7 +148,7 @@ public class TachamBehaviour : MonoBehaviour
                     {
                         predash = true;
                         dashtimer = DashCd - 0.4f;
-                        spriteobj.GetComponent<SpriteRenderer>().Sprite = Anticipate;
+                        spriteobj.GetComponent<SpriteRenderer>().sprite = Anticipate;
                         spriteobj.transform.position = Anticipateoff;
                         animator.SetBool("Hide", true);
                     }
@@ -168,7 +169,7 @@ public class TachamBehaviour : MonoBehaviour
                             dashleft = true;
                         }
                         dash = true;
-                        spriteobj.GetComponent<SpriteRenderer>().Sprite = Jab;
+                        spriteobj.GetComponent<SpriteRenderer>().sprite = Jab;
                         spriteobj.transform.position = Jaboff;
                         animator.SetBool("Hide" , true);
                     }
@@ -181,7 +182,7 @@ public class TachamBehaviour : MonoBehaviour
                 {
                     breakouttime = 1.8f;
                     dash = false;
-                    spriteobj.GetComponent<SpriteRenderer>().Sprite = Clean;
+                    spriteobj.GetComponent<SpriteRenderer>().sprite = Clean;
                     animator.SetBool("Hide" , false);
                     
                 }
@@ -191,7 +192,7 @@ public class TachamBehaviour : MonoBehaviour
                     {
                         rb.linearVelocity = Vector2.zero;
                         dash = false;
-                        spriteobj.GetComponent<SpriteRenderer>().Sprite = Clean;
+                        spriteobj.GetComponent<SpriteRenderer>().sprite = Clean;
                         animator.SetBool("Hide" , false);
                     }
                 }
@@ -201,7 +202,7 @@ public class TachamBehaviour : MonoBehaviour
                     {
                         rb.linearVelocity = Vector2.zero;
                         dash = false;
-                        spriteobj.GetComponent<SpriteRenderer>().Sprite = Clean;
+                        spriteobj.GetComponent<SpriteRenderer>().sprite = Clean;
                         animator.SetBool("Hide" , false);
                     }
                 }
@@ -214,7 +215,7 @@ public class TachamBehaviour : MonoBehaviour
                 {
                     attacktimer = 0;
                     attacking =  true;
-                    animator.SetInt("Attacking" , Random.Range(0,2));
+                    animator.SetInteger("Attacking" , Random.Range(0,2));
                 }
             }
         }

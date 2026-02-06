@@ -32,6 +32,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game/catacombs/crossroads.unity
     guid: fb26f92fe348b6a46ae2b34b0bf12c62
+  - enabled: 1
+    path: Assets/Scenes/Game/catacombs/Antechamber.unity
+    guid: 897fe2783bb0e6d4398d7f891d2b7775
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 631571f1d2e06324ca07f1e762818260, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: c64ef7a5e7010454c822a21faaca7ea3, type: 3}
