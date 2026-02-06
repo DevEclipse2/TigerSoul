@@ -4,6 +4,7 @@ public class autoFlip : MonoBehaviour
 {
 
     public Rigidbody2D rb;
+    public GameObject target;
     public float baseScale = 1;
     Transform transform;
     Vector3 scale;
@@ -17,6 +18,10 @@ public class autoFlip : MonoBehaviour
         {
             rb = GetComponent<Rigidbody2D>();
         }
+        if(target == null)
+        {
+            target = this.gameObject;
+        }
     }
 
     void Update()
@@ -28,10 +33,10 @@ public class autoFlip : MonoBehaviour
             Vector2 velocity = rb.linearVelocity;
             if (velocity.x < 0)
             {
-                transform.localScale = new Vector3(scale.x * -1 * baseScale,  scale.y , scale.z);
+                target.transform.localScale = new Vector3(scale.x * -1 * baseScale,  scale.y , scale.z);
             }else if (velocity.x > 0)
             {
-                transform.localScale = new Vector3(scale.x * baseScale, scale.y, scale.z);
+                target.transform.localScale = new Vector3(scale.x * baseScale, scale.y, scale.z);
             }
         }
         else

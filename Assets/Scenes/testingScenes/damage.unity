@@ -1865,6 +1865,10 @@ PrefabInstance:
       value: Tacham (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1323886985470847416, guid: 026323e334f37254ab6db6d609aaf6cf, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1323886985470847416, guid: 026323e334f37254ab6db6d609aaf6cf, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 2107957648}
@@ -1928,6 +1932,30 @@ PrefabInstance:
       propertyPath: 'Point.Array.data[1]'
       value: 
       objectReference: {fileID: 1885643584}
+    - target: {fileID: 6363277034954862162, guid: 026323e334f37254ab6db6d609aaf6cf, type: 3}
+      propertyPath: m_Size.y
+      value: 1.7154502
+      objectReference: {fileID: 0}
+    - target: {fileID: 6363277034954862162, guid: 026323e334f37254ab6db6d609aaf6cf, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.35772508
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315788699641190334, guid: 026323e334f37254ab6db6d609aaf6cf, type: 3}
+      propertyPath: Point.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315788699641190334, guid: 026323e334f37254ab6db6d609aaf6cf, type: 3}
+      propertyPath: 'Point.Array.data[0]'
+      value: 
+      objectReference: {fileID: 376272180}
+    - target: {fileID: 7315788699641190334, guid: 026323e334f37254ab6db6d609aaf6cf, type: 3}
+      propertyPath: 'Point.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1885643584}
+    - target: {fileID: 8111917046242045731, guid: 026323e334f37254ab6db6d609aaf6cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
