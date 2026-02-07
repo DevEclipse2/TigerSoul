@@ -42,6 +42,8 @@ public class PlayerHealth : MonoBehaviour
         if (invulnerable)
         {
             Time.timeScale = 0.9f;
+            flashhull.Damageflash(1.2f);
+            flashturret.Damageflash(1.2f);
             flashhull.flash = true;
             flashturret.flash = true;
             if (iframeTimer < 0.3f)

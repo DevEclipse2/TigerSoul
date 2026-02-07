@@ -9,8 +9,13 @@ public class Health : MonoBehaviour
     public bool isBoss = false;
     public Flash spriteflash;
     public float flashtime = 0.8f;
+    public GameObject target;
     void Start()
     {
+        if(target == null)
+        {
+            target = gameObject;
+        }
         spriteflash = GetComponent<Flash>();
     }
     public void takeDamage(int damage)
@@ -18,7 +23,12 @@ public class Health : MonoBehaviour
         if (armour <= 0 )
         {
             if ((health -= damage) <= 0) { 
-                Destroy(this.gameObject);
+                Destroy(target);
+            }
+            else
+            {
+                spriteflash.Damageflash(flashtime);
+
             }
         }
         else

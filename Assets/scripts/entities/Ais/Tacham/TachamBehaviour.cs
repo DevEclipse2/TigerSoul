@@ -12,21 +12,21 @@ public class TachamBehaviour : MonoBehaviour
     public float chasespeed;
     public float Dashspeed;
     bool chasing;
-    bool targetground;
     public float DashCd;
     public float AttackCd;
     float attacktimer;
     bool attacking;
-    float dashtimer;
+    public float dashtimer;
     public Rigidbody2D rb;
     public GameObject Attacktrigger;
+    public GameObject Hurtbox;
     private CollisionHandle triggerenter;
     public GameObject Dashpoint;
     private CollisionHandle Dashtrigger;
     public Transform Retreatpoint;
     Vector2 Destination;
-    bool dashleft;
-    bool dash = false;
+    public bool dashleft;
+    public bool dash = false;
     public Sprite Jab;
     public Vector2 Jaboff;
     public Sprite Anticipate;
@@ -34,12 +34,13 @@ public class TachamBehaviour : MonoBehaviour
     public Sprite Back;
     public Sprite Clean;
     public Vector2 Backoff;
-    bool predash;
+    public bool predash;
     float breakouttime = 1.8f;
     public bool AnimatorSetAttackComplete;
     public Collider2D moveArea;
-
-    
+    public GameObject superstructure;
+    public bool backpedal;
+    public Vector2 Jump;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -50,25 +51,20 @@ public class TachamBehaviour : MonoBehaviour
         DetectionArea = GetComponent<Collider2D>();
         basic = GetComponent<FollowPath>();
         triggerenter = Attacktrigger.GetComponent<CollisionHandle>();
+        Dashtrigger = Dashpoint.GetComponent<CollisionHandle>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("player");
-            Vector3 direction = player.transform.position - transform.position;
-
-            // Perform the raycast
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, direction.normalized, out hit , 12))
+            if(player == null)
             {
-                if (hit.collider.CompareTag("Player"))
-                {
-                    //within line of sight
-                    Chase();
-                }
+                player = collision.gameObject;
             }
+            Debug.Log("player");
+            Chase();
+            // Perform the raycast
 
         }
     }
@@ -82,20 +78,32 @@ public class TachamBehaviour : MonoBehaviour
     }
     void Disengage()
     {
-        basic.enabled = true;
+        basic.disable = false;
         chasing = false;
+        animator.speed = 1;
+
     }
     void Chase()
     {
-        basic.enabled = false;
+        basic.disable = true;
         chasing = true;
-        
+        if(!(predash || dash))
+        {
+            rb.linearVelocity = new Vector2(chasespeed * CheckDir(), 0);
+        }
     }
     void MoveTowardsPlayer()
     {
-        float left = Mathf.Clamp(player.transform.position.x - entity.transform.position.x , -1 ,1 );
-        rb.linearVelocity = new Vector2(chasespeed * left , 0);
+        rb.linearVelocity = new Vector2(chasespeed * CheckDir() , rb.linearVelocityY);
         
+    }
+    public float CheckDir()
+    {
+        if (player.transform.position.x - entity.transform.position.x < 0)
+        {
+            return -1;
+        }
+            return 1;
     }
     void Engage()
     {
@@ -105,118 +113,190 @@ public class TachamBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!attacking){attacktimer += Time.deltaTime;}
-        else
+
+        if (!attacking){attacktimer += Time.deltaTime;}
+        else if (AnimatorSetAttackComplete)
         {    
-            if(AnimatorSetAttackComplete)
+                animator.SetInteger("Attacking", 0);
+
+            if (triggerenter.IsTriggered && Hurtbox.GetComponent<ContactDamage>().success)
+            {
+                attacktimer = 0;
+                attacking = true;
+                animator.SetInteger("Attacking", Random.Range(0, 2));
+            }
+            else
             {
                 attacking = false;
-                if(dashtimer > DashCd){
-                    Destination = Retreatpoint.position;
-                    if(!moveArea.OverlapPoint(Destination))
-                    {
-                        Destination = moveArea.ClosestPoint(Destination);
-                    }
-                    dash = true;
-                    dashtimer = 0;
-                    float left = Mathf.Clamp(player.transform.position.x - entity.transform.position.x , -1 ,1 );
-                    rb.linearVelocity = new Vector2(chasespeed * left * -1 * 0.8f , 0);
-                    dashleft = (entity.transform.position.x < Destination.x);
-                    spriteobj.GetComponent<SpriteRenderer>().sprite = Back;
-                    spriteobj.transform.position = Backoff;
-                    animator.SetBool("Hide", true);
+                superstructure.SetActive(true);
+
+                if (dashtimer > DashCd - 1)
+                {
+                    dashtimer = DashCd - 1;
+                    backpedal = true;
+                    rb.linearVelocity = Jump;
                 }
             }
+            
+            
         }
-        if(!dash || predash) {dashtimer += Time.deltaTime;}
-        if(chasing)
+        if(backpedal)
         {
-            if(!dash)
+            dashtimer += Time.deltaTime;
+            if(dashtimer > DashCd)
             {
-                if(!predash){
-                    MoveTowardsPlayer();
+                dashtimer = 0;
+                backpedal = false;
+            }
+            
+        }
+        
+        if (predash || dash)
+        {
+            Chase();
+        }
+        if(!dash) {dashtimer += Time.deltaTime; } else
+        {
+            spriteobj.GetComponent<SpriteRenderer>().sprite = Jab;
+
+        }
+        if (!attacking)
+        {
+            superstructure.SetActive(true);
+
+        }
+        else
+        {
+            superstructure.SetActive(false);
+
+        }
+        if (chasing)
+        {
+            if (!dash)
+            {
+                if (!predash)
+                {
+                    //Debug.Log("move");
+                    if (!attacking && !backpedal)
+                    {
+                        MoveTowardsPlayer();
+                    }
+
+
                 }
-                else{
-                    float left = Mathf.Clamp(player.transform.position.x - entity.transform.position.x , -1 ,1 );
-                    rb.linearVelocity = new Vector2(chasespeed * left * -1 * 0.3f , 0); 
+                else
+                {
+
+                    rb.linearVelocity = new Vector2(chasespeed * CheckDir() * -1 * 0.3f, 0);
+                    dashtimer += Time.deltaTime;
+                    Debug.Log("adding time to charge");
+
+                }
+                if (!backpedal)
+                {
+                    if ((Dashtrigger.IsTriggered && dashtimer > DashCd) || predash)
+                    {
+                    
+                        Debug.Log("Inrange");
+                        if (!predash && !dash)
+                        {
+                            Debug.Log("predash");
+                            predash = true;
+                            Destination = (Vector2)Dashpoint.transform.position;
+
+                            if (!moveArea.OverlapPoint(Destination))
+                            {
+                                Destination = moveArea.ClosestPoint(Destination);
+                            }
+                            dashtimer = DashCd - 0.8f;
+                            spriteobj.GetComponent<SpriteRenderer>().sprite = Anticipate;
+                            spriteobj.transform.localPosition = Anticipateoff;
+                            animator.SetBool("Hide", true);
+                        }
+                        else if (predash)
+                        {
+                            if (dashtimer > DashCd)
+                            {
+                                superstructure.SetActive(true);
+                                Debug.Log("dash");
+                                predash = false;
+                                dashtimer = 0;
+                                dashleft = false;
+                                rb.linearVelocity = new Vector2(Dashspeed, 0);
+                                if (player.transform.position.x < entity.transform.position.x)
+                                {
+                                    rb.linearVelocity = new Vector2(Dashspeed * -1, 0);
+                                    dashleft = true;
+                                }
+                                dash = true;
+                                spriteobj.GetComponent<SpriteRenderer>().sprite = Jab;
+                                spriteobj.transform.localPosition = Jaboff;
+                                animator.SetBool("Hide", true);
+                            }
+
+                        }
+                    }
                 }
                 
-                if(Dashtrigger.IsTriggered && dashtimer > DashCd)
-                {
-                    if(!predash)
-                    {
-                        predash = true;
-                        dashtimer = DashCd - 0.4f;
-                        spriteobj.GetComponent<SpriteRenderer>().sprite = Anticipate;
-                        spriteobj.transform.position = Anticipateoff;
-                        animator.SetBool("Hide", true);
-                    }
-                    else 
-                    {
-                        predash = false;
-                        Destination = Dashpoint.transform.position;
-                        if(!moveArea.OverlapPoint(Destination))
-                        {
-                            Destination = moveArea.ClosestPoint(Destination);
-                        }
-                        dashtimer = 0;
-                        dashleft = false;
-                        rb.linearVelocity = new Vector2(Dashspeed , 0);
-                        if(player.transform.position.x < entity.transform.position.x)
-                        {
-                            rb.linearVelocity = new Vector2(Dashspeed * -1, 0);
-                            dashleft = true;
-                        }
-                        dash = true;
-                        spriteobj.GetComponent<SpriteRenderer>().sprite = Jab;
-                        spriteobj.transform.position = Jaboff;
-                        animator.SetBool("Hide" , true);
-                    }
-                }
             }
             else
             {
                 breakouttime -= Time.deltaTime;
-                if(breakouttime < 0)
+                if (breakouttime < 0)
                 {
+
+                    Debug.Log("breakout");
                     breakouttime = 1.8f;
                     dash = false;
                     spriteobj.GetComponent<SpriteRenderer>().sprite = Clean;
-                    animator.SetBool("Hide" , false);
-                    
+                    animator.SetBool("Hide", false);
+
                 }
-                if(dashleft)
+                if (dashleft)
                 {
-                    if(transform.position.x < Destination.x)
+                    if (entity.transform.position.x < Destination.x)
                     {
                         rb.linearVelocity = Vector2.zero;
                         dash = false;
+                        Debug.Log("exit");
+                        dashtimer = 0;
+                        predash = false;
                         spriteobj.GetComponent<SpriteRenderer>().sprite = Clean;
-                        animator.SetBool("Hide" , false);
+                        animator.SetBool("Hide", false);
                     }
                 }
                 else
                 {
-                    if(transform.position.x > Destination.x)
+                    if (entity.transform.position.x > Destination.x)
                     {
                         rb.linearVelocity = Vector2.zero;
                         dash = false;
+                        Debug.Log("exit");
+                        dashtimer = 0;
+                        predash = false;
                         spriteobj.GetComponent<SpriteRenderer>().sprite = Clean;
-                        animator.SetBool("Hide" , false);
+                        animator.SetBool("Hide", false);
                     }
                 }
             }
-            
-            if(triggerenter.IsTriggered)
+
+            if (triggerenter.IsTriggered && !dash && !predash)
             {
                 //in attack range
-                if(attacktimer > AttackCd)
+                if (attacktimer > AttackCd)
                 {
+                    Debug.Log("attack");
                     attacktimer = 0;
-                    attacking =  true;
-                    animator.SetInteger("Attacking" , Random.Range(0,2));
+                    attacking = true;
+                    animator.SetBool("Hide", false);
+                    superstructure.SetActive(false);
+                    animator.speed = 1;
+
+                    animator.SetInteger("Attacking", Random.Range(1, 2));
                 }
             }
         }
+        
+        
     }
 }

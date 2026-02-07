@@ -1,43 +1,12 @@
 fileFormatVersion: 2
-<<<<<<< Updated upstream
 guid: 59826db80a2b95d439754b18f27a88c3
-=======
-guid: 95fb1563dd89a744abc8271bdc732a5e
->>>>>>> Stashed changes
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -121708760726820474
-    second: enemy_idle-8_0
-  - first:
-      213: 1237742125813373235
-    second: enemy_idle-8_1
-  - first:
-      213: -3775677667718478810
-    second: enemy_idle-8_2
-  - first:
-      213: 2185881430155859772
-    second: enemy_idle-8_3
-  - first:
-      213: 855635238775051556
-    second: enemy_idle-8_4
-  - first:
-      213: 7782996019736770972
-    second: enemy_idle-8_5
-  - first:
-      213: -5021477954091094842
-    second: enemy_idle-8_6
-  - first:
-      213: 4763815996151641281
-    second: enemy_idle-8_7
-  - first:
-      213: -566947097731397772
-    second: enemy_idle-8_8
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -68,13 +37,13 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
-  nPOTScale: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 1
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 0
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -83,9 +52,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 1
+  alphaIsTransparency: 0
   spriteTessellationDetail: -1
-  textureType: 8
+  textureType: 0
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -94,16 +63,16 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 0
+  applyGammaDecoding: 1
   swizzle: 50462976
-  cookieLightType: 0
+  cookieLightType: 2
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -116,7 +85,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -129,7 +98,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -139,205 +108,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: enemy_idle-8_0
-      rect:
-        serializedVersion: 2
-        x: 947
-        y: 226
-        width: 32
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 68923d6e68a9f4ef0800000000000000
-      internalID: -121708760726820474
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy_idle-8_1
-      rect:
-        serializedVersion: 2
-        x: 1004
-        y: 220
-        width: 50
-        height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 33994a4d7e75d2110800000000000000
-      internalID: 1237742125813373235
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy_idle-8_2
-      rect:
-        serializedVersion: 2
-        x: 1075
-        y: 191
-        width: 72
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 624c3456a291a9bc0800000000000000
-      internalID: -3775677667718478810
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy_idle-8_3
-      rect:
-        serializedVersion: 2
-        x: 853
-        y: 110
-        width: 63
-        height: 45
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c371095549fc55e10800000000000000
-      internalID: 2185881430155859772
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy_idle-8_4
-      rect:
-        serializedVersion: 2
-        x: 905
-        y: 78
-        width: 97
-        height: 95
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4255e7067b3dfdb00800000000000000
-      internalID: 855635238775051556
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy_idle-8_5
-      rect:
-        serializedVersion: 2
-        x: 922
-        y: 155
-        width: 45
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c9970b4d4a1c20c60800000000000000
-      internalID: 7782996019736770972
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy_idle-8_6
-      rect:
-        serializedVersion: 2
-        x: 979
-        y: 146
-        width: 53
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6cce1fad760205ab0800000000000000
-      internalID: -5021477954091094842
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy_idle-8_7
-      rect:
-        serializedVersion: 2
-        x: 1008
-        y: 102
-        width: 48
-        height: 65
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1c431f1a8697c1240800000000000000
-      internalID: 4763815996151641281
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy_idle-8_8
-      rect:
-        serializedVersion: 2
-        x: 1053
-        y: 121
-        width: 59
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 47708415e9cc128f0800000000000000
-      internalID: -566947097731397772
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     customData: 
     physicsShape: []
@@ -351,16 +122,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      enemy_idle-8_0: -121708760726820474
-      enemy_idle-8_1: 1237742125813373235
-      enemy_idle-8_2: -3775677667718478810
-      enemy_idle-8_3: 2185881430155859772
-      enemy_idle-8_4: 855635238775051556
-      enemy_idle-8_5: 7782996019736770972
-      enemy_idle-8_6: -5021477954091094842
-      enemy_idle-8_7: 4763815996151641281
-      enemy_idle-8_8: -566947097731397772
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

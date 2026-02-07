@@ -39,8 +39,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Game/catacombs/Grand Chamber.unity
     guid: c75281fc8b2a64943ab14e4e122c8302
   - enabled: 1
+    path: Assets/Scenes/Game/catacombs/clearedGrandChamber.unity
+    guid: de829818e44217848b8340c0e9ff17e9
+  - enabled: 1
     path: Assets/Scenes/terminator.unity
     guid: 4e4544f6198dece478addc8068dbd837
+  - enabled: 1
+    path: Assets/Scenes/Game/catacombs/Trial.unity
+    guid: 84183d345368cdc4f9c0143d2e0de82d
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 631571f1d2e06324ca07f1e762818260, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: c64ef7a5e7010454c822a21faaca7ea3, type: 3}

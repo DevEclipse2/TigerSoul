@@ -172,6 +172,7 @@ MonoBehaviour:
   isBoss: 0
   spriteflash: {fileID: 0}
   flashtime: 0.8
+  target: {fileID: 0}
 --- !u!50 &5606714293841398963
 Rigidbody2D:
   serializedVersion: 5
@@ -184,7 +185,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1000
+  m_Mass: 20
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 4
@@ -215,7 +216,7 @@ BoxCollider2D:
     m_Bits: 255
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 320
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -258,6 +259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::autoFlip
   rb: {fileID: 0}
+  target: {fileID: 0}
   baseScale: -1
 --- !u!114 &7827724612541925537
 MonoBehaviour:
@@ -299,6 +301,7 @@ MonoBehaviour:
   damage: 25
   pushBack: {x: 2, y: 1}
   force: 4
+  success: 0
 --- !u!114 &2066757698240016210
 MonoBehaviour:
   m_ObjectHideFlags: 0

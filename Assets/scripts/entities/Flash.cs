@@ -12,6 +12,7 @@ public class Flash : MonoBehaviour
     public Color flashcolor = Color.red;
     public Color defaultcolor = Color.white;
     bool flashcol;
+    bool flashing;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,26 +24,37 @@ public class Flash : MonoBehaviour
     }
     public void Damageflash( float flashtime)
     {
-        timer = flashtime;
+        if (timer <= 0)
+        {
+            timer = flashtime;
         intervaltimer = 0;
         Debug.Log(pulsetime);
+        }
+        
     }
     // Update is called once per frame
     void Update()
     {
+
         intervaltimer += Time.deltaTime;
         timer -= Time.deltaTime;
-
-        if (flash || timer > 0)
+        if (timer > 0) {
+            flash = true;
+        }
+        else
         {
-            if (intervaltimer > pulsetime) 
+            flash = false;
+        }
+        if (flash)
+        {
+            if (intervaltimer > pulsetime)
             {
                 intervaltimer = 0;
                 flashcol = !flashcol;
                 //Debug.Log( flashcol);
                 Color targetcolor = defaultcolor;
-                if (flashcol) 
-                { 
+                if (flashcol)
+                {
                     targetcolor = flashcolor;
                 }
                 foreach (SpriteRenderer component in renderer)
@@ -51,12 +63,14 @@ public class Flash : MonoBehaviour
                 }
             }
         }
-        if (!flash && timer < 0) {
+        if (!flash) {
             foreach (SpriteRenderer component in renderer)
             {
                 component.color = defaultcolor;
             }
-
+            flashing = false;
+            timer = 0;
+            intervaltimer = 0;
         }
     }
 }

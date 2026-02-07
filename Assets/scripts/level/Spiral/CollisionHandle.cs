@@ -10,7 +10,7 @@ public class CollisionHandle : MonoBehaviour
         if (collision.CompareTag(filter))
         {
             IsTriggered = true;
-            Debug.Log("enter");
+            //Debug.Log("enter");
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

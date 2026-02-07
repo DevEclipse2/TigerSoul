@@ -93,7 +93,7 @@ public class FollowPath : MonoBehaviour
 
             // Move the Rigidbody towards the target
             //Debug.Log(direction);
-            rb.linearVelocity = direction * patrolspeed;
+            rb.linearVelocity = new Vector2 (direction.x * patrolspeed , rb.linearVelocityY);
         }
     }
     // Update is called once per frame
