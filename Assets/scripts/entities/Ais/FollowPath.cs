@@ -85,7 +85,7 @@ public class FollowPath : MonoBehaviour
             Vector2 newVelocity = new Vector2(direction, 0).normalized * patrolspeed;
 
             // Set the Rigidbody2D's velocity
-            rb.linearVelocity = newVelocity;
+            rb.linearVelocity = new Vector2(newVelocity.x, rb.linearVelocityY);
         }
         else
         {
@@ -93,7 +93,7 @@ public class FollowPath : MonoBehaviour
 
             // Move the Rigidbody towards the target
             //Debug.Log(direction);
-            rb.linearVelocity = new Vector2 (direction.x * patrolspeed , rb.linearVelocityY);
+            rb.linearVelocity = direction *patrolspeed;
         }
     }
     // Update is called once per frame

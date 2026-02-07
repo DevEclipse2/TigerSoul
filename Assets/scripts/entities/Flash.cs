@@ -28,7 +28,7 @@ public class Flash : MonoBehaviour
         {
             timer = flashtime;
         intervaltimer = 0;
-        Debug.Log(pulsetime);
+        //Debug.Log(pulsetime);
         }
         
     }

@@ -251,9 +251,9 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 5606714293841398963, guid: e7280828c0e99434c8bc2c65aead1418, type: 3}
-      propertyPath: m_GravityScale
-      value: 40
+    - target: {fileID: 7827724612541925537, guid: e7280828c0e99434c8bc2c65aead1418, type: 3}
+      propertyPath: patrolspeed
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7827724612541925537, guid: e7280828c0e99434c8bc2c65aead1418, type: 3}
       propertyPath: Point.Array.size

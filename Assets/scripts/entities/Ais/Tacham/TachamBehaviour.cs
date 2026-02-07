@@ -41,6 +41,7 @@ public class TachamBehaviour : MonoBehaviour
     public GameObject superstructure;
     public bool backpedal;
     public Vector2 Jump;
+    bool attackin;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -116,14 +117,27 @@ public class TachamBehaviour : MonoBehaviour
 
         if (!attacking){attacktimer += Time.deltaTime;}
         else if (AnimatorSetAttackComplete)
-        {    
-                animator.SetInteger("Attacking", 0);
+        {
+            Debug.Log("stopAttack");
 
-            if (triggerenter.IsTriggered && Hurtbox.GetComponent<ContactDamage>().success)
+            animator.SetInteger("Attacking", 0);
+
+            if (triggerenter.IsTriggered)
             {
+                Debug.Log("followup");
                 attacktimer = 0;
                 attacking = true;
-                animator.SetInteger("Attacking", Random.Range(0, 2));
+                attackin = !attackin;
+                if (attackin)
+                {
+                    animator.SetInteger("Attacking", 1);
+
+                }
+                else
+                {
+                    animator.SetInteger("Attacking", 2);
+
+                }
             }
             else
             {
@@ -142,13 +156,15 @@ public class TachamBehaviour : MonoBehaviour
         }
         if(backpedal)
         {
+            //Debug.Log(backpedal);
             dashtimer += Time.deltaTime;
             if(dashtimer > DashCd)
             {
                 dashtimer = 0;
                 backpedal = false;
             }
-            
+            rb.linearVelocity = Jump;
+
         }
         
         if (predash || dash)
@@ -187,9 +203,9 @@ public class TachamBehaviour : MonoBehaviour
                 else
                 {
 
-                    rb.linearVelocity = new Vector2(chasespeed * CheckDir() * -1 * 0.3f, 0);
+                    rb.linearVelocity = new Vector2(chasespeed * CheckDir() * -1 * 0.3f, rb.linearVelocityY);
                     dashtimer += Time.deltaTime;
-                    Debug.Log("adding time to charge");
+                    //Debug.Log("adding time to charge");
 
                 }
                 if (!backpedal)
@@ -225,7 +241,7 @@ public class TachamBehaviour : MonoBehaviour
                                 rb.linearVelocity = new Vector2(Dashspeed, 0);
                                 if (player.transform.position.x < entity.transform.position.x)
                                 {
-                                    rb.linearVelocity = new Vector2(Dashspeed * -1, 0);
+                                    rb.linearVelocity = new Vector2(Dashspeed * -1, rb.linearVelocityY);
                                     dashleft = true;
                                 }
                                 dash = true;
@@ -291,8 +307,17 @@ public class TachamBehaviour : MonoBehaviour
                     animator.SetBool("Hide", false);
                     superstructure.SetActive(false);
                     animator.speed = 1;
+                    attackin = !attackin;
+                    if (attackin)
+                    {
+                        animator.SetInteger("Attacking", 1);
 
-                    animator.SetInteger("Attacking", Random.Range(1, 2));
+                    }
+                    else
+                    {
+                        animator.SetInteger("Attacking", 2);
+
+                    }
                 }
             }
         }

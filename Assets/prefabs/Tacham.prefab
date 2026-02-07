@@ -160,7 +160,7 @@ MonoBehaviour:
   moveArea: {fileID: 0}
   superstructure: {fileID: 2126540936189835381}
   backpedal: 0
-  Jump: {x: -2, y: 3}
+  Jump: {x: -12, y: 5}
 --- !u!1 &1311666641012077578
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,7 +252,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &6363277034954862162
 BoxCollider2D:
   m_ObjectHideFlags: 0
