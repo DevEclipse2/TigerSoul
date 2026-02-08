@@ -68,6 +68,11 @@ public class DealDamage : MonoBehaviour
                         health.takeDamage(damage);
                         Time.timeScale = 0.9f;
                         PlayerHealth.IncreaseHealth(Random.Range(6, 8));
+                        if (ray.collider.gameObject.CompareTag("Boss"))
+                        {
+                            PlayerHealth.IncreaseHealth(12);
+
+                        }
                     }
                     else
                     {

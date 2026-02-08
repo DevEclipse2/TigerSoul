@@ -15,15 +15,19 @@ public class Health : MonoBehaviour
         if(target == null)
         {
             target = gameObject;
+
         }
-        spriteflash = GetComponent<Flash>();
+        spriteflash = target.GetComponent<Flash>();
     }
     public void takeDamage(int damage)
     {
         if (armour <= 0 )
         {
-            if ((health -= damage) <= 0) { 
-                Destroy(target);
+            if ((health -= damage) <= 0) {
+                if (!isBoss)
+                {
+                    Destroy(target);
+                }
             }
             else
             {
