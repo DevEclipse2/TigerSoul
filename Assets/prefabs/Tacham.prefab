@@ -50,6 +50,7 @@ MonoBehaviour:
   rb: {fileID: 1541980513721282133}
   target: {fileID: 1311666641012077578}
   baseScale: -1
+  disable: 0
 --- !u!114 &7315788699641190334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,6 +141,7 @@ MonoBehaviour:
   Dashspeed: 16
   DashCd: 4
   AttackCd: 1.2
+  attacktimer: 0
   dashtimer: 0
   rb: {fileID: 1541980513721282133}
   Attacktrigger: {fileID: 6853440537684003310}
@@ -269,7 +271,7 @@ BoxCollider2D:
     m_Bits: 8
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 503
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

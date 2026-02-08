@@ -8,6 +8,7 @@ public class autoFlip : MonoBehaviour
     public float baseScale = 1;
     Transform transform;
     Vector3 scale;
+    public bool disable;
     void Start()
     {
 
@@ -27,17 +28,21 @@ public class autoFlip : MonoBehaviour
     void Update()
     {
         // Check if the Rigidbody is not null
-        if (rb != null)
+        if (rb != null )
         {
             // Get the velocity
             Vector2 velocity = rb.linearVelocity;
-            if (velocity.x < 0)
+            if (!disable)
             {
-                target.transform.localScale = new Vector3(scale.x * -1 * baseScale,  scale.y , scale.z);
-            }else if (velocity.x > 0)
-            {
-                target.transform.localScale = new Vector3(scale.x * baseScale, scale.y, scale.z);
+                if (velocity.x < 0)
+                {
+                    target.transform.localScale = new Vector3(scale.x * -1 * baseScale,  scale.y , scale.z);
+                }else if (velocity.x > 0)
+                {
+                    target.transform.localScale = new Vector3(scale.x * baseScale, scale.y, scale.z);
+                }
             }
+           
         }
         else
         {

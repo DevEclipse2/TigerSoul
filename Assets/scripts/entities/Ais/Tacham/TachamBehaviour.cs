@@ -14,7 +14,7 @@ public class TachamBehaviour : MonoBehaviour
     bool chasing;
     public float DashCd;
     public float AttackCd;
-    float attacktimer;
+    public float attacktimer;
     bool attacking;
     public float dashtimer;
     public Rigidbody2D rb;
@@ -115,18 +115,26 @@ public class TachamBehaviour : MonoBehaviour
     void Update()
     {
 
-        if (!attacking){attacktimer += Time.deltaTime;}
+        if (!attacking){attacktimer += Time.deltaTime;
+            this.GetComponent<autoFlip>().disable = false;
+        }
+        
         else if (AnimatorSetAttackComplete)
         {
-            Debug.Log("stopAttack");
+            this.GetComponent<autoFlip>().disable = true;
+            //Debug.Log("stopAttack");
 
             animator.SetInteger("Attacking", 0);
 
             if (triggerenter.IsTriggered)
             {
-                Debug.Log("followup");
+                //Debug.Log("followup");
+                rb.transform.position = (Vector2)transform.position + new Vector2(CheckDir() * 0.8f, 0);
                 attacktimer = 0;
                 attacking = true;
+                animator.SetBool("Hide", false);
+                superstructure.SetActive(false);
+                animator.speed = 1;
                 attackin = !attackin;
                 if (attackin)
                 {
@@ -143,18 +151,23 @@ public class TachamBehaviour : MonoBehaviour
             {
                 attacking = false;
                 superstructure.SetActive(true);
-
                 if (dashtimer > DashCd - 1)
                 {
                     dashtimer = DashCd - 1;
                     backpedal = true;
                     rb.linearVelocity = Jump;
                 }
+                this.GetComponent<autoFlip>().disable = false;
+
             }
-            
-            
+
+
         }
-        if(backpedal)
+        else
+        {
+            this.GetComponent<autoFlip>().disable = true;
+        }
+        if (backpedal)
         {
             //Debug.Log(backpedal);
             dashtimer += Time.deltaTime;

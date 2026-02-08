@@ -16,10 +16,11 @@ public class Spawnenemy : MonoBehaviour
     {
         spawntimer += Time.deltaTime;
         if (spawntimer > 0.3f) {
+            
             GameObject spawnobj = Instantiate(spawnObject);
             spawnobj.transform.position = this.transform.position + new Vector3(Random.Range(-3.0f,3.0f) , Random.Range(-1.0f,2.0f));
             spawnobj.transform.localScale = new Vector3(spawnobj.transform.localScale.x * -1, spawnobj.transform.localScale.y, spawnobj.transform.localScale.z);
-            spawnobj.GetComponent<FollowPath>().patrolspeed = Random.Range(9f, 10f);
+            spawnobj.GetComponent<FollowPath>().patrolspeed = 10f;
             spawntimer = 0;
             spawncount--;
         }
