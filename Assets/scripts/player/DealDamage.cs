@@ -70,7 +70,7 @@ public class DealDamage : MonoBehaviour
                         PlayerHealth.IncreaseHealth(Random.Range(6, 8));
                         if (ray.collider.gameObject.CompareTag("Boss"))
                         {
-                            PlayerHealth.IncreaseHealth(12);
+                            PlayerHealth.IncreaseHealth(4);
 
                         }
                     }

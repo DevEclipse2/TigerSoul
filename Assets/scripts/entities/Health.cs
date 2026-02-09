@@ -10,6 +10,8 @@ public class Health : MonoBehaviour
     public Flash spriteflash;
     public float flashtime = 0.8f;
     public GameObject target;
+    public GameObject flashtarget;
+
     void Start()
     {
         if(target == null)
@@ -17,7 +19,15 @@ public class Health : MonoBehaviour
             target = gameObject;
 
         }
-        spriteflash = target.GetComponent<Flash>();
+        if(flashtarget == null)
+        {
+            spriteflash = target.GetComponent<Flash>();
+        }
+        else
+        {
+            spriteflash = flashtarget.GetComponent<Flash>();
+
+        }
     }
     public void takeDamage(int damage)
     {

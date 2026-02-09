@@ -1,6 +1,8 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
+
 public class Char2cMain : MonoBehaviour
 {
     [Header("basic components")]
@@ -12,6 +14,9 @@ public class Char2cMain : MonoBehaviour
     public GameObject PlayerInput;
     float delta;
     AudioSource bossmusic;
+    public GameObject doorstopper;
+    public GameObject Cloud1;
+    public GameObject Cloud2;
 
 
     [Header("Enter Fight")]
@@ -38,7 +43,15 @@ public class Char2cMain : MonoBehaviour
     int Phase0NextAttack;
     bool left;
     public Collider2D Phase0FreeRange;
-    
+    public Transform SpawnLocation;
+    public GameObject SpawnableTacham;
+    public GameObject SpawnableVickers;
+
+
+    [Header("Phase 1")]
+    public GameObject Phase1Object;
+    Animator Phase1Animator;
+
     // 0 nothign
     //1 worm
     //2 trample
@@ -98,7 +111,8 @@ public class Char2cMain : MonoBehaviour
         }
         if (Phase0AnimFinishRelay.Finished)
         {
-            if(Phase0NextAttack == 2)
+            Debug.Log("finished" + Phase0Animator.GetInteger("Attack"));
+            if(Phase0NextAttack == 2 || Phase0Animator.GetInteger("Attack") == 4 || Phase0Animator.GetInteger("Attack") == 3)
             {
                 Phase0AnimFinishRelay.Finished = false;
                 //stuff
@@ -109,7 +123,8 @@ public class Char2cMain : MonoBehaviour
                 // 10% chance : 
                 if(followup <= 5)
                 {
-                        Phase0NextAttack = -1;
+                    Phase0NextAttack = -1;
+                    Phase0Animator.SetBool("Run", false);
                     Phase0Animator.SetInteger("Attack", 5);
 
                 }
@@ -120,7 +135,7 @@ public class Char2cMain : MonoBehaviour
                 else
                 {
                     Phase0Animator.SetInteger("Attack", 4);
-                    left = PlayerInput.transform.position.y < Phase0Object.transform.position.y;
+                    left = PlayerInput.transform.position.x < Phase0Object.transform.position.x;
                 }
 
             }
@@ -161,9 +176,16 @@ public class Char2cMain : MonoBehaviour
 
         }
     }
-    void DisablePhase0() 
-    { 
+    private  IEnumerator DisablePhase0()
+    {
+        Phase0Animator.SetInteger("Attack", 6);
+        Phase0AnimFinishRelay.Finished = false;
+        while (!Phase0AnimFinishRelay.Finished) {
+            yield return new WaitForSeconds(0.1f);
+        }
         Phase0Object.SetActive(false);
+
+        yield return null ;
     }
     void BossPhase()
     {
@@ -173,9 +195,10 @@ public class Char2cMain : MonoBehaviour
                 switch (CurrentPhase)
                 {
                     case 0:
-                        DisablePhase0();
+                        StartCoroutine( DisablePhase0());
                         //switch bosshealth
-
+                        //destroy
+                        Destroy(doorstopper);
 
                     break;
                 }
@@ -240,6 +263,9 @@ public class Char2cMain : MonoBehaviour
                 Intro.GetComponent<Animator>().SetBool("Hide", true);
                 LeaveChange.GetComponent<callbackTrigger>().index = 0;
                 PlayerInput.GetComponent<PlayerMove>().moveSpeed = originalmovespeed;
+                Destroy(Intro.GetComponent<Animator>());
+                Destroy(Cloud1);
+                Destroy(Cloud2);
 
 
             }

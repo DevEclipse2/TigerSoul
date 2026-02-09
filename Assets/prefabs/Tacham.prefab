@@ -1189,6 +1189,7 @@ MonoBehaviour:
   spriteflash: {fileID: 0}
   flashtime: 0.8
   target: {fileID: 1311666641012077578}
+  flashtarget: {fileID: 5916581224919148955}
 --- !u!114 &8368040066214622669
 MonoBehaviour:
   m_ObjectHideFlags: 0

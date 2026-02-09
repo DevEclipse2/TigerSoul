@@ -172,7 +172,8 @@ MonoBehaviour:
   isBoss: 0
   spriteflash: {fileID: 0}
   flashtime: 0.8
-  target: {fileID: 0}
+  target: {fileID: 3071282530666839225}
+  flashtarget: {fileID: 3071282530666839225}
 --- !u!50 &5606714293841398963
 Rigidbody2D:
   serializedVersion: 5
@@ -261,6 +262,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   target: {fileID: 0}
   baseScale: -1
+  disable: 0
 --- !u!114 &7827724612541925537
 MonoBehaviour:
   m_ObjectHideFlags: 0
