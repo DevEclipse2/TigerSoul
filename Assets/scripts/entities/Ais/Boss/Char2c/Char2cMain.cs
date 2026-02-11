@@ -2,6 +2,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using System.Linq;
+using UnityEngine.Rendering.Universal;
 
 public class Char2cMain : MonoBehaviour
 {
@@ -17,8 +19,8 @@ public class Char2cMain : MonoBehaviour
     public GameObject doorstopper;
     public GameObject Cloud1;
     public GameObject Cloud2;
-
-
+    bool CleanExit;
+    bool exiting;
     [Header("Enter Fight")]
 
     public GameObject EnterFightTrigger;
@@ -46,7 +48,8 @@ public class Char2cMain : MonoBehaviour
     public Transform[] SpawnLocation;
     public GameObject SpawnableTacham;
     public GameObject SpawnableVickers;
-    
+    bool timerPhase0;
+    GameObject Exittacam;
 
     [Header("Phase 1")]
     public GameObject Phase1Object;
@@ -72,8 +75,35 @@ public class Char2cMain : MonoBehaviour
         Phase0selectedCd = Phase0WormCd;
         bosshealth = Phase0ForegroundObject.GetComponent<Health>();
     }
+    
+    private IEnumerator Phase0Timer( float time)
+    {
+        timerPhase0 = true;
+        yield return new WaitForSeconds(time);
+        timerPhase0 = false;
+        yield return null;
+    }
+    
     void Phase0()
     {
+        if(exiting)
+        {
+            if (Phase0Animator.GetCurrentAnimatorStateInfo(0).IsName("End Phase") && Phase0AnimTrigRelay.Finished)
+            {
+                Phase0ForegroundObject.GetComponent<PolygonCollider2D>().enabled = false;
+                Debug.Log("tacam");
+                if (!timerPhase0)
+                {
+                    Instantiate(Phase0Object.transform);
+                    GameObject tacam = Instantiate(SpawnableTacham);
+                    tacam.transform.position = SpawnLocation[0].position;
+                    StartCoroutine(Phase0Timer(12f));
+                    Exittacam = tacam;
+                }
+
+            }
+            return;
+        }
         Sprite sprite = Phase0ForegroundObject.GetComponent<SpriteRenderer>().sprite;
         if (sprite != null) {
             Phase0ForegroundObject.GetComponent<PolygonCollider2D>().enabled = true;
@@ -95,20 +125,36 @@ public class Char2cMain : MonoBehaviour
             Phase0Object.transform.localScale = new Vector2(Mathf.Abs(Phase0Object.transform.localScale.x), Phase0Object.transform.localScale.y);
         }
         Phase0Object.transform.position = Phase0OriginalPos;
-        if (Phase0AnimTrigRelay.Finished && Phase0NextAttack == 2 ) 
+        if (Phase0AnimTrigRelay.Finished) 
         {
-            Vector2 targetPos = new Vector2(PlayerInput.transform.position.x, Phase0Object.transform.position.y);
-            left = PlayerInput.GetComponent<Rigidbody2D>().linearVelocityX < 0;
-            if (Phase0FreeRange.OverlapPoint(targetPos))
+            if(Phase0NextAttack == 2)
             {
-                Phase0Object.transform.position = targetPos;
-            }
-            else
-            {
-                Phase0Object.transform.position = new Vector2 (Phase0FreeRange.ClosestPoint(targetPos).x , targetPos.y);
+                Vector2 targetPos = new Vector2(PlayerInput.transform.position.x, Phase0Object.transform.position.y);
+                left = PlayerInput.GetComponent<Rigidbody2D>().linearVelocityX < 0;
+                if (Phase0FreeRange.OverlapPoint(targetPos))
+                {
+                    Phase0Object.transform.position = targetPos;
+                }
+                else
+                {
+                    Phase0Object.transform.position = new Vector2 (Phase0FreeRange.ClosestPoint(targetPos).x , targetPos.y);
 
+                }
             }
+            else if (Phase0Animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+            {
+                if (!timerPhase0)
+                {
+                    GameObject vickers = Instantiate(SpawnableVickers);
+                    vickers.transform.position = SpawnLocation[Random.Range(0, SpawnLocation.Length)].position;
+                    //vickers.transform.rotation = new Vector3(-0.5f, 0.5f, 1);
+                    StartCoroutine(Phase0Timer(1));
+                }
+                
+            }
+            
         }
+
         if (Phase0AnimFinishRelay.Finished)
         {
             Debug.Log("finished" + Phase0Animator.GetInteger("Attack"));
@@ -135,7 +181,10 @@ public class Char2cMain : MonoBehaviour
                 else
                 {
                     Phase0Animator.SetInteger("Attack", 4);
-                    left = PlayerInput.transform.position.x < Phase0Object.transform.position.x;
+                    if (Phase0selectedCd != 1)
+                    {
+                        left = PlayerInput.transform.position.x < Phase0Object.transform.position.x;
+                    }
                 }
 
             }
@@ -160,10 +209,16 @@ public class Char2cMain : MonoBehaviour
                 break;
                 case 1:
                     Phase0selectedCd = Phase0WormCd;
-                    left = !left;
-                break;
+                    if(Phase0Animator.GetInteger("Attack") != 4)
+                    {
+                        left = !left;
+                    }
+                    break;
                 case 2:
                     Phase0selectedCd = Phase0TrampleCd;
+                break;
+                default:
+
                 break;
             }
         }
@@ -178,44 +233,83 @@ public class Char2cMain : MonoBehaviour
     }
     private  IEnumerator DisablePhase0()
     {
+        StopCoroutine(Phase0Timer(1));
         Phase0Animator.SetInteger("Attack", 6);
         Phase0AnimFinishRelay.Finished = false;
-        while (!Phase0AnimFinishRelay.Finished) {
-            yield return new WaitForSeconds(0.1f);
-        }
-        Phase0Object.SetActive(false);
+        Phase0selectedCd = 9000;
+        Phase0NextAttack = -3;
+        yield return new WaitForSeconds(5.8f);
 
+        while (!Phase0AnimFinishRelay.Finished && Phase0Animator.GetCurrentAnimatorStateInfo(0).IsName("End Phase")) {
+            yield return new WaitForSeconds(0.1f);
+            Debug.Log("wait");
+
+        }
+        Debug.Log("exit");
+
+        Debug.Log(Phase0AnimFinishRelay.Finished);
+        Phase0Object.SetActive(false);
+        Destroy(doorstopper);
+        CurrentPhase++;
+        CleanExit = true;
+        exiting = false;
         yield return null ;
     }
+
+    void Phase1()
+    {
+
+    }
+
     void BossPhase()
     {
         if (bosshealth != null) { 
             if(bosshealth.health <=0 || CurrentPhase == -1)
             {
-                switch (CurrentPhase)
+                if (!exiting)
                 {
-                    case 0:
-                        StartCoroutine( DisablePhase0());
-                        //switch bosshealth
-                        //destroy
-                        Destroy(doorstopper);
+                    switch (CurrentPhase)
+                    {
+                        case 0:
+                            exiting = true;
+                            StartCoroutine( DisablePhase0());
+                            //switch bosshealth
+                            //destroy
 
-                    break;
-                }
-                CurrentPhase++;
-                if (CurrentPhase >= PhaseHp.Length) {
-                    BossDefeated = true;
-                    return;
-                }
+                        break;
+                    }
 
-                bosshealth.health = PhaseHp[CurrentPhase];
-                bosshealth.armour = PhaseAp[CurrentPhase];
+                    if (CurrentPhase == -1)
+                    {
+
+                        CurrentPhase++;
+                        CleanExit = true;
+                    }
+                    if (CurrentPhase >= PhaseHp.Length) {
+                        BossDefeated = true;
+                        return;
+                    }
+                    if (CleanExit)
+                    {
+                        bosshealth.health = PhaseHp[CurrentPhase];
+                        bosshealth.armour = PhaseAp[CurrentPhase];
+                        CleanExit = false;
+                    }
+                }
+                
+                
             }
             switch (CurrentPhase)
             {
                 case 0:
                     Phase0();
-                    
+                    break;
+
+                case 1:
+                    if(Exittacam == null)
+                    {
+
+                    }
                     break;
             }
 

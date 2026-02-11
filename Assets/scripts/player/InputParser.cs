@@ -134,7 +134,7 @@ public class InputParser : MonoBehaviour
     }
     public void onAttack(InputAction.CallbackContext context)
     {
-        Debug.Log("smack");
+        //Debug.Log("smack");
         KeepAlive(Input.Attack, context);
     }
     public void onInteract(InputAction.CallbackContext context)
