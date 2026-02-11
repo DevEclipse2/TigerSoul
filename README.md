@@ -1,6 +1,9 @@
 # TigerSoul
 The source code for Tigersoul. for the hack club campfire flagship game jam. 
 
+demo video due to incompetence:
+https://drive.google.com/file/d/1r2Nf18VLKfodnwDCdeucTkiblYEAcVJK/view?usp=drivesdk
+
 checklist : 
 
 presentable : X
