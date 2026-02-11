@@ -43,10 +43,10 @@ public class Char2cMain : MonoBehaviour
     int Phase0NextAttack;
     bool left;
     public Collider2D Phase0FreeRange;
-    public Transform SpawnLocation;
+    public Transform[] SpawnLocation;
     public GameObject SpawnableTacham;
     public GameObject SpawnableVickers;
-
+    
 
     [Header("Phase 1")]
     public GameObject Phase1Object;

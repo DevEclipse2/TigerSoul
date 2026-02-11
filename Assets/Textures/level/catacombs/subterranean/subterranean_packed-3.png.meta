@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 2ce80025a286ae44ebe145af3aa7c05b
+guid: 7bec02b2b5be0b24eae16b7c5f4265fc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1633872042899424177
-    second: mk-v_0
+      213: -2139275244190075652
+    second: subterranean_packed-3_0
+  - first:
+      213: -6779353248730213011
+    second: subterranean_packed-3_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mk-v_0
+      name: subterranean_packed-3_0
       rect:
         serializedVersion: 2
-        x: 58
-        y: 47
-        width: 645
-        height: 325
+        x: 1236
+        y: 101
+        width: 342
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f4cb98a98025359e0800000000000000
-      internalID: -1633872042899424177
+      spriteID: cf47341ff74cf42e0800000000000000
+      internalID: -2139275244190075652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: subterranean_packed-3_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 2608
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d659b8a8326eae1a0800000000000000
+      internalID: -6779353248730213011
       vertices: []
       indices: 
       edges: []
@@ -148,7 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      mk-v_0: -1633872042899424177
+      subterranean_packed-3_0: -2139275244190075652
+      subterranean_packed-3_1: -6779353248730213011
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

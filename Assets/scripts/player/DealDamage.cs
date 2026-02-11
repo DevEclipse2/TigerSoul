@@ -1,7 +1,8 @@
 using NUnit.Framework;
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UIElements;
 public class DealDamage : MonoBehaviour
 {
     public bool isleft = false;
@@ -20,7 +21,22 @@ public class DealDamage : MonoBehaviour
     AttackContainer atkcontainer;
     float slowtimer;
     PlayerHealth PlayerHealth;
+    public GameObject EnemyHit;
+    public GameObject DestructibleHit;
+    public float lifespan;
+    private bool direction;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private System.Collections.IEnumerator DestroyParticleSystemAfterDelay(float delay, GameObject particleObject)
+    {
+        // Wait for the duration of the particle system
+        yield return new WaitForSeconds(delay);
+
+        // Destroy the particle system GameObject
+        Destroy(particleObject);
+        yield return null;
+    }
+
     void Start()
     {
         PlayerHealth = GetComponentInParent<PlayerHealth>();
@@ -32,6 +48,7 @@ public class DealDamage : MonoBehaviour
         isEnabled = true;
         candeal = false;
         damage = atkcontainer.damage;
+        direction = isleft;
         dealDamage();
     }
     public void clear()
@@ -43,7 +60,7 @@ public class DealDamage : MonoBehaviour
     {
         RaycastHit2D[] hit;
         RaycastHit2D[] hitdes;
-        if (isleft)
+        if (direction)
         {
             //Debug.Log("left");
             hit = Physics2D.BoxCastAll(root.position, size, 0, Vector2.right ,-size.x - 2, enemies);
@@ -67,7 +84,12 @@ public class DealDamage : MonoBehaviour
                         
                         health.takeDamage(damage);
                         Time.timeScale = 0.9f;
-                        PlayerHealth.IncreaseHealth(Random.Range(6, 8));
+
+                        GameObject particleObject = Instantiate( EnemyHit , ray.collider.gameObject.transform.position, Quaternion.identity);
+                        StartCoroutine(DestroyParticleSystemAfterDelay(lifespan, particleObject));
+
+
+                    PlayerHealth.IncreaseHealth(Random.Range(6, 8));
                         if (ray.collider.gameObject.CompareTag("Boss"))
                         {
                             PlayerHealth.IncreaseHealth(4);
@@ -88,7 +110,10 @@ public class DealDamage : MonoBehaviour
                 if (ray.collider.gameObject.TryGetComponent<Destructible>(out Destructible destructible)) {
                     destructible.destroyThis();
                     PlayerHealth.IncreaseHealth(Random.Range(2, 4));
+                    GameObject particleObject = Instantiate(DestructibleHit, ray.collider.gameObject.transform.position, Quaternion.identity);
+                    particleObject.GetComponent<ParticleSystem>().Play();
 
+                    StartCoroutine(DestroyParticleSystemAfterDelay(lifespan, particleObject));
                 }
                 else
                 {

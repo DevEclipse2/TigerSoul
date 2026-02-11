@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Net;
 using Unity.Jobs;
 using Unity.VisualScripting;
@@ -44,6 +45,7 @@ public class PlayerMove : MonoBehaviour
     public GameObject InputController;
     InputParser parser;
     public bool permforce;
+    bool resetting;
     void Start()
     {
         //rb = GetComponent<Rigidbody2D>();
@@ -138,7 +140,14 @@ public class PlayerMove : MonoBehaviour
 
         //}
     }
-
+    private IEnumerator ClearJump()
+    {
+        resetting = true;
+        yield return new WaitForSeconds(1.2f);
+        lastWall = 0;
+        resetting = false;
+       yield return  null;
+    }
     public void OnJump(InputValue value)
     {
         float basespeed = Mathf.Abs(rb.linearVelocity.x);
@@ -174,6 +183,12 @@ public class PlayerMove : MonoBehaviour
                 lastWall = 2;
                 rb.linearVelocity = new Vector2(targetSpeed, verticalvelocity + jumpForce * 0.75f);
             }
+            if (resetting)
+            {
+                StopCoroutine(ClearJump());
+                resetting = false;
+            }
+            StartCoroutine(ClearJump());
         }
     }
     //public void OnMove(InputAction.CallbackContext context)
