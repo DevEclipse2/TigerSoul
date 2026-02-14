@@ -10,6 +10,7 @@ public class InputParser : MonoBehaviour
     public List<float> timeHeld;
     List<float> StartTime;
     public List<bool> ongoing;
+    public List<bool> ongoinglf;
     public List<bool> cancelled;
     public List<bool> pressed;
     public int retainCount;
@@ -32,6 +33,16 @@ public class InputParser : MonoBehaviour
             }
         }
     }
+    void Newentry(int id)
+    {
+        recentInput.Add(id);
+        timeSinceInput.Add(0);
+        timeHeld.Add(0);
+        ongoing.Add(true);
+        cancelled.Add(false);
+        pressed.Add(true);
+        ongoinglf.Add(false);
+    }
     void KeepAlive( int inputid , InputAction.CallbackContext context) 
     {
         int recent = 0;
@@ -46,17 +57,12 @@ public class InputParser : MonoBehaviour
                 cancelled[recent] = false;
                 timeSinceInput[recent] = 0;
             }
-            else { 
+            else {
                 //new entry
-                recentInput.Add(inputid);
-                timeSinceInput.Add(0);
-                timeHeld.Add(0);
-                ongoing.Add(true);
-                cancelled.Add(false);
-                pressed.Add(true);
 
+                Newentry(inputid);
             }
-            
+
         }
         else if (context.canceled)
         {
@@ -69,12 +75,7 @@ public class InputParser : MonoBehaviour
             }
             else
             {
-                recentInput.Add(inputid);
-                timeSinceInput.Add(0);
-                timeHeld.Add(0);
-                ongoing.Add(true);
-                cancelled.Add(true);
-                pressed.Add(false);
+                Newentry(inputid);
             }
         }
         else if (context.duration > 0.05) {
@@ -89,12 +90,7 @@ public class InputParser : MonoBehaviour
             }
             else
             {
-                recentInput.Add(inputid);
-                timeSinceInput.Add(0);
-                timeHeld.Add(0);
-                ongoing.Add(true);
-                cancelled.Add(false);
-                pressed.Add(false);
+                Newentry(inputid);
             }
         }
         //else if ((recent = recentInput.IndexOf(inputid)) != -1 && context.duration > 0.05) 
@@ -178,7 +174,33 @@ public class InputParser : MonoBehaviour
             if (!ongoing[i])
             {
                 timeSinceInput[i] += Time.deltaTime;
+                if (ongoinglf[i])
+                {
+                    //cancelled
+                    cancelled[i] = true;
+                }
+                else
+                {
+                    //>1 frame set false
+                    cancelled[i] = false;
+                }
             }
+            else
+            {
+                if (ongoinglf[i])
+                {
+                    pressed[i] = false;
+                    timeHeld[i] += Time.deltaTime;
+                }
+                else
+                {
+                    pressed[i] = true;
+                }
+
+
+            }
+            ongoinglf[i] = ongoing[i];
+
         }
         if (recentInput.Count > retainCount) {
 

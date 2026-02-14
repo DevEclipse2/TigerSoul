@@ -224,9 +224,31 @@ public class SimpleAnimation : MonoBehaviour
                 case Input.Jump: /* any additional checks*/
                     if (move.GroundCheck())
                     {
+                        
+                        if(animator.GetInteger("Action") != 2 && parser.timeHeld[inputs.IndexOf(Input.Jump)] < 0.2f)
+                        {
+                            Debug.Log(parser.timeHeld[inputs.IndexOf(Input.Jump)]);
+                            animator.SetBool("Idle", false);
+                            animator.SetInteger("Action", 2);
+                        }
+                        else
+                        {
+                            if (inputs.Contains(Input.Move))
+                            {
+                                if (active[inputs.IndexOf(Input.Move)])
+                                {
+                                    animator.SetBool("Sliding", false);
+                                    animator.SetBool("Idle", false);
+                                    animator.SetInteger("Action", 1);
+                                }
+                                else
+                                {
+                                    animator.SetBool("Idle", true); animator.SetInteger("Action", 0);
+                                }
+                            }
+                        }
                         //Debug.Log("jump");
-                        animator.SetBool("Idle", false);
-                        animator.SetInteger("Action", 2);
+                        
                     }
                     break;
                 default: animator.SetBool("Idle", true); animator.SetInteger("Action", 0); break;
