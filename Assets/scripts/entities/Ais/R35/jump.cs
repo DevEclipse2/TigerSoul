@@ -15,7 +15,7 @@ public class jump : MonoBehaviour
     public float range = 0.5f;
     public GameObject ChaseObject;
     public float JumpCd;
-    bool jumpable;
+    bool jumpable = true;
     bool jumping;
 
 
@@ -75,8 +75,9 @@ public class jump : MonoBehaviour
     {
         if (EnteredTrigger)
         {
-            if(Ballistics.CheckPosition(JumpForce.y, JumpForce.x, player.position - this.transform.position, rb.gravityScale * 9.8f, range , out landtime) && GroundCheck() )
+            if(Ballistics.CheckPosition(JumpForce.y, JumpForce.x, player.position - this.transform.position, rb.gravityScale * 9.8f, range , out landtime) && GroundCheck()&& jumpable )
             {
+                Debug.Log("jump");
                 if (Isleft()) 
                 {
                     rb.linearVelocity = new Vector2(JumpForce.x * -1 , JumpForce.y);
