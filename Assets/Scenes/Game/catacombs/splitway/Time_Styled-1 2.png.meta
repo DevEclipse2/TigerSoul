@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f5dee702aa759184aa24b529789fd38e
+guid: 5ae85e4880ff7374c92693a017094297
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1590583995105642664
-    second: splitway-7_0
+      213: -2782492109532829306
+    second: Time_Styled-1 2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,9 +46,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: splitway-7_0
+      name: Time_Styled-1 2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 618
-        width: 236
-        height: 375
+        x: 9
+        y: 17
+        width: 66
+        height: 141
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8a881bd57b3e21610800000000000000
-      internalID: 1590583995105642664
+      spriteID: 689e7fc2b2a9269d0800000000000000
+      internalID: -2782492109532829306
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      splitway-7_0: 1590583995105642664
+      Time_Styled-1 2_0: -2782492109532829306
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

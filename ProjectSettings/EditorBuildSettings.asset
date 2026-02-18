@@ -62,6 +62,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game/catacombs/CharArena.unity
     guid: 158ab503f912d884d9e56ce763f8037b
+  - enabled: 1
+    path: Assets/Scenes/Game/catacombs/splitway.unity
+    guid: e52a2c9464eddec49b8ab45050527d07
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 631571f1d2e06324ca07f1e762818260, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: c64ef7a5e7010454c822a21faaca7ea3, type: 3}

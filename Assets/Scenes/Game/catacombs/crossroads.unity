@@ -2364,7 +2364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelTransition
   sceneToLoad:
   - Maintenance
-  - Antechamber
+  - splitway
   player: {fileID: 2107957648}
   loadPositions: 0000000000000000
   fade: {fileID: 2107957649}
