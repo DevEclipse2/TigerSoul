@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: b2372127199e61847ad157f2c8127647
+guid: 720109249d02ebd47a3b7fd64a6e1386
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 422009688332668231
-    second: cobblestone__0
-  - first:
-      213: 5482763682643765009
-    second: cobblestone__1
-  - first:
-      213: 2459675922403464966
-    second: cobblestone__2
+      213: -2735702771512360263
+    second: Rite_packed-1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -54,7 +48,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -119,57 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cobblestone__0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1120
-        width: 41
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 74d87dc53974bd500800000000000000
-      internalID: 422009688332668231
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cobblestone__1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1005
-        width: 94
-        height: 141
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 117e46b3580b61c40800000000000000
-      internalID: 5482763682643765009
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cobblestone__2
+      name: Rite_packed-1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 2402
-        height: 1145
+        width: 2319
+        height: 2601
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 60790713836822220800000000000000
-      internalID: 2459675922403464966
+      spriteID: 9b244fcd2d4d80ad0800000000000000
+      internalID: -2735702771512360263
       vertices: []
       indices: 
       edges: []
@@ -198,9 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      cobblestone__0: 422009688332668231
-      cobblestone__1: 5482763682643765009
-      cobblestone__2: 2459675922403464966
+      Rite_packed-1_0: -2735702771512360263
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
