@@ -18,7 +18,6 @@ public class jump : MonoBehaviour
     bool jumpable = true;
     bool jumping;
 
-
     private IEnumerator Cd()
     {
         yield return new WaitForSeconds(JumpCd);
@@ -78,9 +77,10 @@ public class jump : MonoBehaviour
             if(Ballistics.CheckPosition(JumpForce.y, JumpForce.x, player.position - this.transform.position, rb.gravityScale * 9.8f, range , out landtime) && GroundCheck()&& jumpable )
             {
                 Debug.Log("jump");
-                if (Isleft()) 
+                if (player.position.x > transform.position.x) 
                 {
-                    rb.linearVelocity = new Vector2(JumpForce.x * -1 , JumpForce.y);
+                    //right
+                    rb.linearVelocity = new Vector2(JumpForce.x, JumpForce.y);
                 }
                 else
                 {

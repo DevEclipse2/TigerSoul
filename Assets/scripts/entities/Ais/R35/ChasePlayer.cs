@@ -14,25 +14,9 @@ public class ChasePlayer : MonoBehaviour
     private Rigidbody2D rb;
     public bool Disabled;
     public float stopDist = 0.4f;
-    public float turnspeed = 0.3f;
+    public float turnspeed = 1.3f;
     bool alreadyturning;
-    private IEnumerator Changedir(bool left)
-    {
-        alreadyturning = true;
-        yield return new WaitForSeconds(turnspeed);
-        if (left) 
-        {
-
-            rb.linearVelocity = new Vector2(chaseSpeed * -1, rb.linearVelocityY);
-            alreadyturning = false;
-            yield return null;
-        }
-        rb.linearVelocity = new Vector2(chaseSpeed, rb.linearVelocityY);
-        alreadyturning = false;
-        
-        yield return null;
-
-    }
+    
     void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
         //Debug.Log("touched collider");
@@ -45,7 +29,6 @@ public class ChasePlayer : MonoBehaviour
             followPath.disable = true;
 
         }
-
         // You can add other checks for different objects as needed
     }
     void OnTriggerExit2D(UnityEngine.Collider2D collision)
@@ -87,10 +70,11 @@ public class ChasePlayer : MonoBehaviour
             followPathObject = this.gameObject;
             followPath = GetComponent<FollowPath>();
         }
-        rb = followPathObject.GetComponent<Rigidbody2D>();
+        rb = followPath.Rigidbodycontainer.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
+
     void Update()
     {
         if (EnteredTrigger && !Disabled)
@@ -99,53 +83,28 @@ public class ChasePlayer : MonoBehaviour
             { 
                 if(player.transform.position.x < followPathObject.transform.position.x)
                 {
-                    Debug.Log("to The left" + rb.linearVelocityX);
-                    if(rb.linearVelocityX > 0)
+                    if(rb.linearVelocityX >= 0 || Mathf.Abs(rb.linearVelocityX) <= chaseSpeed)
                     {
-                        if (!alreadyturning)
-                        {
-                            StartCoroutine(Changedir(true));
-                        }
-                    }
-                    else
-                    {
-                        if (!alreadyturning)
-                        {
-                            rb.linearVelocity = new Vector2(chaseSpeed * -1, rb.linearVelocityY);
-                        }
+                        //Debug.Log("to The left" + rb.linearVelocityX + followPath.disable);
 
+                        rb.linearVelocity = new Vector2(rb.linearVelocityX - turnspeed * Time.deltaTime, rb.linearVelocityY);
                     }
 
                 }
                 else
                 {
-                    Debug.Log("to The right" + rb.linearVelocityX);
 
-                    if (rb.linearVelocityX < 0)
+                    if (rb.linearVelocityX <= 0 || Mathf.Abs(rb.linearVelocityX) <= chaseSpeed)
                     {
-                        if (!alreadyturning)
-                        {
-                            StartCoroutine(Changedir(false));
-                        }
-                    }
-                    else
-                    {
-                        if (!alreadyturning)
-                        {
-                            rb.linearVelocity = new Vector2(chaseSpeed, rb.linearVelocityY);
+                        //Debug.Log("to The right" + rb.linearVelocityX);
 
-                        }
+                        rb.linearVelocity = new Vector2(rb.linearVelocityX + turnspeed * Time.deltaTime, rb.linearVelocityY);
                     }
-                }
-                if (alreadyturning)
-                {
-                    rb.linearVelocity = new Vector2(rb.linearVelocityX * 0.98f, rb.linearVelocityY);
-
                 }
             }
             else
             {
-                rb.linearVelocity = new Vector2(0, rb.linearVelocityY);
+               //rb.linearVelocity = new Vector2(0, rb.linearVelocityY);
             }
         }
     }

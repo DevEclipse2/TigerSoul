@@ -24,7 +24,9 @@ public class LevelFade : MonoBehaviour
     void Start()
     {
         timer = 0;
+        fadeImage.color = Color.black;
         fadeColor = fadeImage.color;
+
         fadeIn = true;
 
     }
@@ -33,7 +35,7 @@ public class LevelFade : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if(timer > 0.2f)
+        if(timer < 0.2f)
         {
             completed = false;
         }

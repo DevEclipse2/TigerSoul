@@ -316,7 +316,7 @@ GameObject:
   - component: {fileID: 223702830}
   - component: {fileID: 223702829}
   m_Layer: 0
-  m_Name: exit2 (1)
+  m_Name: to other place
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -469,7 +469,7 @@ GameObject:
   - component: {fileID: 233322618}
   - component: {fileID: 233322620}
   m_Layer: 0
-  m_Name: exit0
+  m_Name: crossroadHigh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -662,10 +662,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Parralax
   TargetLayers:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 360054879}
+  - {fileID: 110141119}
   intensities:
-  - 0.9
+  - 0.3
   - 0.2
   cameraTransform: {fileID: 868160840}
 --- !u!1 &360054879
@@ -754,8 +754,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -4.391304, y: -3.7826087, z: 0}
-  m_LocalScale: {x: 1.0869565, y: 1.0869565, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.0120001}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 286088871}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1170,7 +1170,7 @@ GameObject:
   - component: {fileID: 574301719}
   - component: {fileID: 574301718}
   m_Layer: 0
-  m_Name: exit3
+  m_Name: grand chamber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1820,7 +1820,7 @@ GameObject:
   - component: {fileID: 710450263}
   - component: {fileID: 710450262}
   m_Layer: 0
-  m_Name: exit2
+  m_Name: undertanker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3315,7 +3315,7 @@ GameObject:
   - component: {fileID: 1503395279}
   - component: {fileID: 1503395278}
   m_Layer: 0
-  m_Name: exit1
+  m_Name: crossroadLow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3669,9 +3669,9 @@ MonoBehaviour:
   sceneToLoad:
   - crossroads
   - Grand Chamber
-  - gaze
+  - UnderTanker
   player: {fileID: 2107957648}
-  loadPositions: 0100000000000000
+  loadPositions: 010000000000000000000000
   fade: {fileID: 2107957649}
   targetpos: 0
 --- !u!1660057539 &9223372036854775807
