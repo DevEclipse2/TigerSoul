@@ -7,7 +7,8 @@ public class LevelFade : MonoBehaviour
     public static LevelFade instance;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public Image fadeImage;
-    public float FadeTime = 0.5f;
+    public float FadeOutTime = 0.4f;
+    public float FadeInTime = 0.6f;
     public float fadetimer = 0;
     Color fadeColor;
     public bool fadeIn;
@@ -41,14 +42,14 @@ public class LevelFade : MonoBehaviour
         }
         if (fadeOut) {
             fadetimer += Time.deltaTime;
-            fadeImage.color = new Color(fadeColor.r, fadeColor.g, fadeColor.b, 1.2f * (fadetimer / FadeTime));
+            fadeImage.color = new Color(fadeColor.r, fadeColor.g, fadeColor.b, 1.2f * (fadetimer / FadeOutTime));
         }
         else if (fadeIn) {
             fadetimer += Time.deltaTime;
-            fadeImage.color = new Color(fadeColor.r, fadeColor.g, fadeColor.b, 1.2f * (FadeTime - fadetimer) / FadeTime);
+            fadeImage.color = new Color(fadeColor.r, fadeColor.g, fadeColor.b, 1.2f * (FadeInTime - fadetimer) / FadeInTime);
 
         }
-        if(fadetimer > FadeTime)
+        if((fadetimer > FadeInTime && fadeIn)|| (fadetimer > FadeOutTime && fadeOut))
         {   
             fadeIn = false;
             fadeOut = false;

@@ -9,21 +9,16 @@ public class jump : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundLayer;
     public Vector2 GroundCheckArea;
-    bool EnteredTrigger;
+    public bool EnteredTrigger;
     public Transform player;
     float landtime;
     public float range = 0.5f;
     public GameObject ChaseObject;
     public float JumpCd;
+    float JumpCdTimer;
     bool jumpable = true;
     bool jumping;
 
-    private IEnumerator Cd()
-    {
-        yield return new WaitForSeconds(JumpCd);
-        jumpable = true;
-        yield return null;
-    }
     private void Start()
     {
         if(rb == null)
@@ -31,15 +26,8 @@ public class jump : MonoBehaviour
             rb = GetComponent<Rigidbody2D>();
 
         }
-        
-    }
-    bool Isleft()
-    {
-        if(this.gameObject.transform.localScale.x > 0)
-        {
-            return false;
-        }
-        return true;
+
+        jumpable = true;
     }
     void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
@@ -72,35 +60,51 @@ public class jump : MonoBehaviour
     }
     public void Update()
     {
+        if(JumpCdTimer > JumpCd)
+        {
+            jumpable = true;
+        }
         if (EnteredTrigger)
         {
-            if(Ballistics.CheckPosition(JumpForce.y, JumpForce.x, player.position - this.transform.position, rb.gravityScale * 9.8f, range , out landtime) && GroundCheck()&& jumpable )
+            
+            if (player.position.x < transform.position.x) 
             {
-                Debug.Log("jump");
-                if (player.position.x > transform.position.x) 
+            //right
+                if (Ballistics.CheckPosition(JumpForce.y, JumpForce.x, player.position - transform.position, rb.gravityScale * 9.8f, range, out landtime) && GroundCheck() && jumpable)
                 {
-                    //right
-                    rb.linearVelocity = new Vector2(JumpForce.x, JumpForce.y);
-                }
-                else
-                {
-                    rb.linearVelocity = new Vector2(JumpForce.x * -1, JumpForce.y);
+                    Debug.Log("jump");
 
+                    jumpable = false;
+                    jumping = true;
+                    ChaseObject.GetComponent<ChasePlayer>().Disabled = true;
+                    rb.linearVelocity = new Vector2(JumpForce.x, JumpForce.y); 
                 }
-                jumpable = false;
-                jumping = true;
-                ChaseObject.GetComponent<ChasePlayer>().Disabled = true;
             }
+            else
+            {
+                if (Ballistics.CheckPosition(JumpForce.y, -JumpForce.x, player.position - transform.position, rb.gravityScale * 9.8f, range, out landtime) && GroundCheck() && jumpable)
+                {
+                    Debug.Log("jump");
+
+                    jumpable = false;
+                    jumping = true;
+                    ChaseObject.GetComponent<ChasePlayer>().Disabled = true;
+                    rb.linearVelocity = new Vector2(-JumpForce.x, JumpForce.y);
+                }
+            }
+            
 
         }
-        if(jumping && GroundCheck())
+        if(GroundCheck())
         {
-            ChaseObject.GetComponent<ChasePlayer>().Disabled = false;
-
-            jumping = false;
-            StartCoroutine(Cd());
-
-
+            JumpCdTimer += Time.deltaTime;
+            if (jumping)
+            {
+                ChaseObject.GetComponent<ChasePlayer>().Disabled = false;
+                jumping = false;
+                JumpCdTimer = 0;
+            }
+            
         }
     }
 }

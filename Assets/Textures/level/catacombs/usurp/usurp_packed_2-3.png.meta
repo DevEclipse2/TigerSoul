@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a72e3ed332a127849a86d891a8793fab
+guid: e15e5247d6a45f149b668440441db1c3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3115733710769841238
-    second: usurp_packed-4_0
+      213: -3897098314934696426
+    second: usurp_packed_2-3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: usurp_packed-4_0
+      name: usurp_packed_2-3_0
       rect:
         serializedVersion: 2
-        x: 1754
+        x: 0
         y: 0
-        width: 2488
-        height: 241
+        width: 3125
+        height: 2240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 65465255d4f4d3b20800000000000000
-      internalID: 3115733710769841238
+      spriteID: 6164b83fab9bae9c0800000000000000
+      internalID: -3897098314934696426
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      usurp_packed-4_0: 3115733710769841238
+      usurp_packed_2-3_0: -3897098314934696426
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

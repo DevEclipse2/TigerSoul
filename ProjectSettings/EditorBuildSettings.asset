@@ -71,6 +71,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game/catacombs/UnderTanker.unity
     guid: 467bee5a2e4bec943bda18d533112286
+  - enabled: 1
+    path: Assets/Scenes/Game/catacombs/usurp.unity
+    guid: 0df4e1d6931aab74fbcaf4cd02910bb4
+  - enabled: 1
+    path: Assets/Scenes/Game/catacombs/Rite.unity
+    guid: 0e9ecdab817450a41bfb21950d8e69f9
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 631571f1d2e06324ca07f1e762818260, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: c64ef7a5e7010454c822a21faaca7ea3, type: 3}

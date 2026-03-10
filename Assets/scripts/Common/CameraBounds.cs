@@ -16,6 +16,7 @@ public class CameraBounds : MonoBehaviour
     }
     void LateUpdate()
     {
+        
         // Calculate the desired position based on the player's position and offset
         Vector3 desiredPosition = player.position + offset;
 
@@ -31,7 +32,10 @@ public class CameraBounds : MonoBehaviour
                 desiredPosition = new Vector3(point.x - t.localPosition.x , point.y - t.localPosition.y, desiredPosition.z);
             }
         }
-
+        if (Time.timeSinceLevelLoad < 0.1f)
+        {
+            transform.position = desiredPosition;
+        }
         // Smoothly transition the camera's position to the desired position
         if (Valid)
         {

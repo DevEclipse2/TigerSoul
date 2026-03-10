@@ -227,7 +227,7 @@ public class SimpleAnimation : MonoBehaviour
                         
                         if(animator.GetInteger("Action") != 2 && parser.timeHeld[inputs.IndexOf(Input.Jump)] < 0.2f)
                         {
-                            Debug.Log(parser.timeHeld[inputs.IndexOf(Input.Jump)]);
+                            //Debug.Log(parser.timeHeld[inputs.IndexOf(Input.Jump)]);
                             animator.SetBool("Idle", false);
                             animator.SetInteger("Action", 2);
                         }
