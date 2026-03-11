@@ -904,22 +904,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 297039286}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c22d06ff7804f8745ae87a916f827f95, type: 3}
+  m_Script: {fileID: 11500000, guid: de58b5f9ea225fe40b1c403d47086750, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ShermanCr
-  dialogIndex: 0
-  currentChar: 0
-  dialogBranch: 0
-  textMeshPro: {fileID: 1090257066}
+  m_EditorClassIdentifier: Assembly-CSharp::Dialogue
+  dialogue: []
+  dialogue1: []
+  dialogue2: []
+  repeating: []
+  currentbranch: []
+  characterRate: 0
+  inrange: 0
   buffer: 
-  CharRate: 0
-  currentBranch: []
-  dialog1: []
-  dialogLoop1: []
-  dialogLoop2: []
-  dialogLoop3: []
-  dialogLoop4: []
-  dialogLoop5: []
+  textMeshPro: {fileID: 1090257066}
 --- !u!1 &362614104
 GameObject:
   m_ObjectHideFlags: 0
