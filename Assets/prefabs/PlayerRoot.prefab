@@ -634,7 +634,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelFade
   fadeImage: {fileID: 3508784682536735367}
-  FadeTime: 0.5
+  FadeOutTime: 0.4
+  FadeInTime: 0.6
   fadetimer: 0
   fadeIn: 1
   fadeOut: 0

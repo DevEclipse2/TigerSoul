@@ -73,9 +73,10 @@ public class Dialogue : MonoBehaviour
         }
     }
     
-    public void OnInteract()
+    public void OnInteract(InputValue val)
     {
-
+        if (val.isPressed)
+        {
             if (exit)
             {
                 exit = false;
@@ -87,7 +88,7 @@ public class Dialogue : MonoBehaviour
                 {
                     //this switches to the next line
                     currentline++;
-                    Debug.Log(currentline);
+                    //Debug.Log(currentline);
                     spew = true;
                     currentchar = 0;
                     buffer = " ";
@@ -114,20 +115,19 @@ public class Dialogue : MonoBehaviour
                         exit = true;
                         return;
                     }
+                    advance = false;
                 }
                 else
                 {
                     // this makes the entire thing show up
                     advance = true;
+                    Debug.Log("advance");
                     spew = false;
-                    if (buffer.Length < currentbranch[currentline].Length)
-                    {
-                        buffer = currentbranch[currentline];
-                        ScrubTMP(buffer);
-                    }   
+                    buffer = currentbranch[currentline];
+                    ScrubTMP(buffer);
                 }
             }
-        
+        }
     }
     // Update is called once per frame
     void Update()
@@ -142,7 +142,15 @@ public class Dialogue : MonoBehaviour
                 UpdateTMP(currentbranch[currentline][currentchar]);
                 currentchar++;
             }
-            if(currentchar == currentbranch[currentline].Length)
+            if(currentline < currentbranch.Length)
+            {
+                if (currentchar == currentbranch[currentline].Length)
+                {
+                    spew = false;
+                    advance = true;
+                }
+            }
+            else
             {
                 spew = false;
                 advance = true;
