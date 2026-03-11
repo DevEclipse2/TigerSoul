@@ -1,5 +1,4 @@
 using TMPro;
-using UnityEditor.U2D.Animation;
 using UnityEngine;
 
 public class ShermanCr : DialogBase

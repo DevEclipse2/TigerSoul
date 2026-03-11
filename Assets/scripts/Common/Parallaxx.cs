@@ -13,6 +13,11 @@ public class Parralax : MonoBehaviour
 
     void Start()
     {
+        if(LockX == null || LockY == null)
+        {
+            LockX = new bool[1];
+            LockY = new bool[1];
+        }
         layers = new Transform[TargetLayers.Length];
         for(int i = 0; i < TargetLayers.Length; i++)
         {

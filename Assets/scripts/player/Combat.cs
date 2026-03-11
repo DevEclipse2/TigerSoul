@@ -1,8 +1,6 @@
-using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Interactions;
 public class Combat : MonoBehaviour
 {
     //public List<int> inputType = new List<int>();
