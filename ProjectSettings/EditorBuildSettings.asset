@@ -66,9 +66,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Game/catacombs/splitway.unity
     guid: e52a2c9464eddec49b8ab45050527d07
   - enabled: 1
-    path: Assets/Scenes/Game/catacombs/gaze.unity
-    guid: 33a367927f82da1458f20833cf36b6aa
-  - enabled: 1
     path: Assets/Scenes/Game/catacombs/UnderTanker.unity
     guid: 467bee5a2e4bec943bda18d533112286
   - enabled: 1
