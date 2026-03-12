@@ -107,6 +107,8 @@ public class PlayerHealth : MonoBehaviour
             {
                 health = basehealth; 
                 neardeath = false;
+                invulnerable = true;
+                iframeTimer = -10;
                 animation.Reload();
                 //dies
             }

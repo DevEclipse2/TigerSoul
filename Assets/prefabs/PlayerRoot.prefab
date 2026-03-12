@@ -1278,7 +1278,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
     m_ActionId: 351f2ccd-1f9f-44bf-9bec-d62ac5c5f408
     m_ActionName: 'Player/Move[/Keyboard/a,/Keyboard/d]'
   - m_PersistentCalls:
@@ -1402,7 +1402,19 @@ MonoBehaviour:
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5755754148162445331}
+        m_TargetAssemblyTypeName: InputParser, Assembly-CSharp
+        m_MethodName: onCrouch
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 6454c3e1-0903-4f53-ae73-989c58e101a2
     m_ActionName: 'Player/Crouch[/Keyboard/s]'
   m_NeverAutoSwitchControlSchemes: 0
@@ -1422,13 +1434,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bee36f646e433c4b93bce8c0513e82f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputParser
-  recentInput: 
-  timeSinceInput: []
-  timeHeld: []
-  ongoing: 
-  ongoinglf: 
-  cancelled: 
-  pressed: 
+  recentInput: 05000000fffffffffe00000001000000
+  timeSinceInput:
+  - 0
+  - 0
+  - 0
+  - 0
+  timeHeld:
+  - 0
+  - 0
+  - 0
+  - 0
+  ongoing: 00000000
+  ongoinglf: 00000000
+  cancelled: 01010101
+  pressed: 00000000
   retainCount: 8
 --- !u!1 &4672160008951170327
 GameObject:
@@ -2283,6 +2303,7 @@ Transform:
   - {fileID: 3622823229223484773}
   - {fileID: 4544285255571934902}
   - {fileID: 8697860331393192542}
+  - {fileID: 627922364869189151}
   m_Father: {fileID: 2949650181394933784}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.202}
 --- !u!61 &2456046828875987047
@@ -2526,6 +2547,99 @@ RectTransform:
   m_AnchoredPosition: {x: 369, y: -200}
   m_SizeDelta: {x: 606.1733, y: 449.16003}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &6833271915227539215
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 627922364869189151}
+  - component: {fileID: 6287059115613470606}
+  - component: {fileID: 3549385761489923460}
+  m_Layer: 8
+  m_Name: DialogInit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &627922364869189151
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6833271915227539215}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3071364352525126777}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6287059115613470606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6833271915227539215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3410c4c2e0af32b4fb4321cd263f9739, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueInitaliser
+  parser: {fileID: 4518979163348515901}
+  index: -1
+--- !u!61 &3549385761489923460
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6833271915227539215}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 256
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &7225534425861289572
 GameObject:
   m_ObjectHideFlags: 0

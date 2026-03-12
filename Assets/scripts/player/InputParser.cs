@@ -45,6 +45,7 @@ public class InputParser : MonoBehaviour
     }
     void KeepAlive( int inputid , InputAction.CallbackContext context) 
     {
+        Debug.Log("keepAlive " + inputid);
         int recent = 0;
         //check if its alive
         recent = recentInput.IndexOf(inputid);
@@ -130,7 +131,7 @@ public class InputParser : MonoBehaviour
     }
     public void onAttack(InputAction.CallbackContext context)
     {
-        //Debug.Log("smack");
+        Debug.Log("smack");
         KeepAlive(Input.Attack, context);
     }
     public void onInteract(InputAction.CallbackContext context)
@@ -145,7 +146,7 @@ public class InputParser : MonoBehaviour
     }
     public void onCrouch(InputAction.CallbackContext context)
     {
-        //Debug.Log("zoom");
+        Debug.Log("crouch");
         KeepAlive(Input.Down, context);
     }
     public int QueryInput( List<int> blacklist)
@@ -173,6 +174,7 @@ public class InputParser : MonoBehaviour
         for (int i = 0; i < timeSinceInput.Count; i++) {
             if (!ongoing[i])
             {
+                Debug.Log("not pressed");
                 timeSinceInput[i] += Time.deltaTime;
                 if (ongoinglf[i])
                 {

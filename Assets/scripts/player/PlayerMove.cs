@@ -46,6 +46,7 @@ public class PlayerMove : MonoBehaviour
     InputParser parser;
     public bool permforce;
     bool resetting;
+    bool walljumping;
     void Start()
     {
         //rb = GetComponent<Rigidbody2D>();
@@ -74,14 +75,12 @@ public class PlayerMove : MonoBehaviour
             {
                 if (GroundCheck())
                 {
-
                     rb.linearVelocity = new Vector2(rb.linearVelocity.x * 0.95f, rb.linearVelocity.y);
                 }
             }
-            else if (permforce)
+            else if (permforce && !walljumping)
             {
                 rb.linearVelocity = new Vector2(moveDir.x * moveSpeed, rb.linearVelocity.y);
-
             }
 
 
@@ -133,6 +132,10 @@ public class PlayerMove : MonoBehaviour
         //{
         if (canMove)
         {
+            if(walljumping && value.Get<Vector2>() == Vector2.zero)
+            {
+                walljumping = false;
+            }
             moveDir = value.Get<Vector2>();
             rb.linearVelocity = new Vector2(moveDir.x * moveSpeed, rb.linearVelocity.y);
         }
@@ -176,11 +179,13 @@ public class PlayerMove : MonoBehaviour
             }
             if (contactRight && (lastWall == 0 || lastWall == 2)) {
                 lastWall = 1;
+                walljumping = true;
                 rb.linearVelocity = new Vector2(-targetSpeed, verticalvelocity + jumpForce * 0.75f);
             }
             else if (contactLeft && (lastWall == 0 || lastWall == 1))
             {
                 lastWall = 2;
+                walljumping = true;
                 rb.linearVelocity = new Vector2(targetSpeed, verticalvelocity + jumpForce * 0.75f);
             }
             if (resetting)

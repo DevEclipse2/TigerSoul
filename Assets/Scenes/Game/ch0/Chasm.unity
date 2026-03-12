@@ -981,6 +981,8 @@ MonoBehaviour:
   - 0.4
   - 0.1
   - 0.1
+  LockX: 
+  LockY: 
   cameraTransform: {fileID: 868160840}
 --- !u!1 &314583291
 GameObject:
@@ -6273,7 +6275,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 60
+  m_Mass: 200
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1

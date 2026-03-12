@@ -70,18 +70,6 @@ public class jump : MonoBehaviour
             if (player.position.x < transform.position.x) 
             {
             //right
-                if (Ballistics.CheckPosition(JumpForce.y, JumpForce.x, player.position - transform.position, rb.gravityScale * 9.8f, range, out landtime) && GroundCheck() && jumpable)
-                {
-                    Debug.Log("jump");
-
-                    jumpable = false;
-                    jumping = true;
-                    ChaseObject.GetComponent<ChasePlayer>().Disabled = true;
-                    rb.linearVelocity = new Vector2(JumpForce.x, JumpForce.y); 
-                }
-            }
-            else
-            {
                 if (Ballistics.CheckPosition(JumpForce.y, -JumpForce.x, player.position - transform.position, rb.gravityScale * 9.8f, range, out landtime) && GroundCheck() && jumpable)
                 {
                     Debug.Log("jump");
@@ -89,7 +77,19 @@ public class jump : MonoBehaviour
                     jumpable = false;
                     jumping = true;
                     ChaseObject.GetComponent<ChasePlayer>().Disabled = true;
-                    rb.linearVelocity = new Vector2(-JumpForce.x, JumpForce.y);
+                    rb.linearVelocity = new Vector2(-JumpForce.x, JumpForce.y); 
+                }
+            }
+            else
+            {
+                if (Ballistics.CheckPosition(JumpForce.y, JumpForce.x, player.position - transform.position, rb.gravityScale * 9.8f, range, out landtime) && GroundCheck() && jumpable)
+                {
+                    Debug.Log("jump");
+
+                    jumpable = false;
+                    jumping = true;
+                    ChaseObject.GetComponent<ChasePlayer>().Disabled = true;
+                    rb.linearVelocity = new Vector2(JumpForce.x, JumpForce.y);
                 }
             }
             

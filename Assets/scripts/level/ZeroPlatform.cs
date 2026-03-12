@@ -29,7 +29,7 @@ public class ZeroPlatform : MonoBehaviour
     }
     public void OnCrouch()
     {
-        Debug.Log("crouch");
+        //Debug.Log("crouch");
         if (inrange)
         {
             Target.SetActive(false);

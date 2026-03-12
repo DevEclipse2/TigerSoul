@@ -4416,6 +4416,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   GroundCheckArea: {x: 0, y: 0}
+  EnteredTrigger: 0
   player: {fileID: 0}
   range: 4.5
   ChaseObject: {fileID: 1463556935}
