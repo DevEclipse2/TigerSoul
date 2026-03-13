@@ -125,9 +125,9 @@ public class jump : MonoBehaviour
         {
             JumpTimer = 0;
             ChaseObject.GetComponent<ChasePlayer>().Disabled = false;
-            jumping = false;
+            jumping = false; 
             JumpCdTimer = 0;
         }
-        
+         
     }
 }
