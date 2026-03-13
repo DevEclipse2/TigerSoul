@@ -45,7 +45,7 @@ public class InputParser : MonoBehaviour
     }
     void KeepAlive( int inputid , InputAction.CallbackContext context) 
     {
-        Debug.Log("keepAlive " + inputid);
+        //Debug.Log("keepAlive " + inputid);
         int recent = 0;
         //check if its alive
         recent = recentInput.IndexOf(inputid);

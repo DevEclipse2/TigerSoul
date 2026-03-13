@@ -11,16 +11,20 @@ public class jump : MonoBehaviour
     public Vector2 GroundCheckArea;
     public bool EnteredTrigger;
     public Transform player;
+    public GameObject followPath;
+    FollowPath fp;
     float landtime;
     public float range = 0.5f;
     public GameObject ChaseObject;
     public float JumpCd;
     float JumpCdTimer;
     bool jumpable = true;
-    bool jumping;
-
+    public bool jumping;
+    public float JumpTimer = 0;
+    public bool ground;
     private void Start()
     {
+        fp = followPath.GetComponent<FollowPath>();
         if(rb == null)
         {
             rb = GetComponent<Rigidbody2D>();
@@ -49,7 +53,10 @@ public class jump : MonoBehaviour
         // Check if the collider belongs to a specific tag (e.g., "Player")
         if (collision.CompareTag("Player"))
         {
-            EnteredTrigger = false;
+            if (!jumping)
+            {
+                EnteredTrigger = false;
+            }
         }
 
         // You can add other checks for different objects as needed
@@ -60,6 +67,8 @@ public class jump : MonoBehaviour
     }
     public void Update()
     {
+
+        ground = GroundCheck();
         if(JumpCdTimer > JumpCd)
         {
             jumpable = true;
@@ -69,7 +78,8 @@ public class jump : MonoBehaviour
             
             if (player.position.x < transform.position.x) 
             {
-            //right
+                //to the right of the player.
+                //jumps left
                 if (Ballistics.CheckPosition(JumpForce.y, -JumpForce.x, player.position - transform.position, rb.gravityScale * 9.8f, range, out landtime) && GroundCheck() && jumpable)
                 {
                     Debug.Log("jump");
@@ -92,19 +102,32 @@ public class jump : MonoBehaviour
                     rb.linearVelocity = new Vector2(JumpForce.x, JumpForce.y);
                 }
             }
-            
-
         }
-        if(GroundCheck())
+        if (jumping)
+        {
+            Debug.Log("Disable");
+            JumpTimer += Time.deltaTime;
+            fp.disable = true;
+            ChaseObject.GetComponent<ChasePlayer>().Disabled = true;
+        }
+        if (!jumpable && GroundCheck())
         {
             JumpCdTimer += Time.deltaTime;
-            if (jumping)
+            if (jumping && JumpTimer > 0.2f)
             {
+                JumpTimer = 0;
                 ChaseObject.GetComponent<ChasePlayer>().Disabled = false;
                 jumping = false;
                 JumpCdTimer = 0;
             }
-            
         }
+        if(JumpTimer > 2)
+        {
+            JumpTimer = 0;
+            ChaseObject.GetComponent<ChasePlayer>().Disabled = false;
+            jumping = false;
+            JumpCdTimer = 0;
+        }
+        
     }
 }

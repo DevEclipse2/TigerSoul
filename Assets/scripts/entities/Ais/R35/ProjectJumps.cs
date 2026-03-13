@@ -8,21 +8,20 @@ public static class Ballistics
     public static bool CheckPosition(float Vely , float Velx, Vector2 Offset , float g , float MaxDist, out float time)
     {
         // solve for time t
-        float maxtime = -(Offset.y - Vely) * 2 / g;
-        if (maxtime * Mathf.Abs(Velx) > Mathf.Abs(Offset.x)) {
-            Debug.Log("can Arrive");
-            float targetTime = Mathf.Abs(Offset.x) / Mathf.Abs(Velx);
-            // y offset  - 1/2at^2
-            // s = vt - 1/2at^2
-            float totalOffset = -0.5f * g * Mathf.Pow(targetTime, 2) + Vely * targetTime;
-            Debug.Log(totalOffset + " actual offset" + Offset);
-            if(Mathf.Abs(Offset.y - totalOffset) < MaxDist)
-            {
-                time = targetTime;
-                return true;
-            }
+        float targetTime = Mathf.Abs(Offset.x / Velx);
+        //Debug.Log("can Arrive" + targetTime);
+
+        // y offset  - 1/2at^2
+        // s = vt - 1/2at^2
+        float totalOffset = -0.5f * g * Mathf.Pow(targetTime, 2) + Vely * targetTime;
+        //Debug.Log(totalOffset + " actual offset" + Offset);
+        if (totalOffset < Offset.y + MaxDist || totalOffset > Offset.y - MaxDist)
+        {
+            time = targetTime;
+            return true;
         }
-            //error
+        
+        //error
         time = -1;
         return false; 
 

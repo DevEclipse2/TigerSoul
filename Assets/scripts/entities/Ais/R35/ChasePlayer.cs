@@ -5,7 +5,7 @@ public class ChasePlayer : MonoBehaviour
 {
 
     private GameObject player;
-    bool EnteredTrigger;
+    public bool EnteredTrigger;
     private FollowPath followPath;
     public GameObject followPathObject;
     int closestNode;
@@ -53,7 +53,7 @@ public class ChasePlayer : MonoBehaviour
                 }
             }
             followPath.target = closestNode;
-            followPath.disable = false;
+
         }
 
         // You can add other checks for different objects as needed
@@ -77,35 +77,43 @@ public class ChasePlayer : MonoBehaviour
 
     void Update()
     {
-        if (EnteredTrigger && !Disabled)
-        {   
-            if (Mathf.Abs(player.transform.position.x - followPathObject.transform.position.x) > stopDist) 
-            { 
-                if(player.transform.position.x < followPathObject.transform.position.x)
+        if (!Disabled)
+        {
+            if (EnteredTrigger)
+            {
+                if (Mathf.Abs(player.transform.position.x - followPathObject.transform.position.x) > stopDist)
                 {
-                    if(rb.linearVelocityX >= 0 || Mathf.Abs(rb.linearVelocityX) <= chaseSpeed)
+                    if (player.transform.position.x < followPathObject.transform.position.x)
                     {
-                        //Debug.Log("to The left" + rb.linearVelocityX + followPath.disable);
+                        if (rb.linearVelocityX >= 0 || Mathf.Abs(rb.linearVelocityX) <= chaseSpeed)
+                        {
+                            //Debug.Log("to The left" + rb.linearVelocityX + followPath.disable);
 
-                        rb.linearVelocity = new Vector2(rb.linearVelocityX - turnspeed * Time.deltaTime, rb.linearVelocityY);
+                            rb.linearVelocity = new Vector2(rb.linearVelocityX - turnspeed * Time.deltaTime, rb.linearVelocityY);
+                        }
+
                     }
+                    else
+                    {
 
+                        if (rb.linearVelocityX <= 0 || Mathf.Abs(rb.linearVelocityX) <= chaseSpeed)
+                        {
+                            //Debug.Log("to The right" + rb.linearVelocityX);
+
+                            rb.linearVelocity = new Vector2(rb.linearVelocityX + turnspeed * Time.deltaTime, rb.linearVelocityY);
+                        }
+                    }
                 }
                 else
                 {
-
-                    if (rb.linearVelocityX <= 0 || Mathf.Abs(rb.linearVelocityX) <= chaseSpeed)
-                    {
-                        //Debug.Log("to The right" + rb.linearVelocityX);
-
-                        rb.linearVelocity = new Vector2(rb.linearVelocityX + turnspeed * Time.deltaTime, rb.linearVelocityY);
-                    }
+                    //rb.linearVelocity = new Vector2(0, rb.linearVelocityY);
                 }
             }
             else
             {
-               //rb.linearVelocity = new Vector2(0, rb.linearVelocityY);
+                followPath.disable = false;
             }
         }
+        
     }
 }
