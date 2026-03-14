@@ -1,0 +1,34 @@
+btw can i have a few more hours? my art doesnt come from clankers yk.
+
+  10/3/26
+Added new levels : usurp , rite , bridge , undertanker
+Fixed movement to be more predictable
+Fixed level fading
+Fixed camera moving glitch
+Modified r35 jump script (unfinished)
+
+11/3/26
+Added proper collision shapes on rite
+Modified dialogue system to allow for quick line skips
+WIP : new dialogue system now inherits from dialogue class
+Changed parallax to allow locking axis (a long overdue change)
+Added new character : the composer / the auditor
+Fixed texture connection issue on Undertanker
+New prefabs : descendable platform
+
+12/3/26
+finished the dialogue base class
+implemented new input handling system to streamline codebase
+added new dialogue for the composer , aka symphony in brass
+made more changes to collision shapes on rite
+fixed level transitions on rite 
+fixed player taking damage after death
+modified movement code further to fix wall jumping 
+
+13/3/26
+Added R35 tank
+More collision shapes
+
+14/2/26
+goofed around
+
