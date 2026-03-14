@@ -3733,6 +3733,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 223842937817602601, guid: e698786b7d9d23a47875226044b64cf2, type: 3}
+      propertyPath: JumpForce.y
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 4971909741200846007, guid: e698786b7d9d23a47875226044b64cf2, type: 3}
       propertyPath: m_Name
       value: R35
