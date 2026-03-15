@@ -146,7 +146,7 @@ public class InputParser : MonoBehaviour
     }
     public void onCrouch(InputAction.CallbackContext context)
     {
-        Debug.Log("crouch");
+        //Debug.Log("crouch");
         KeepAlive(Input.Down, context);
     }
     public int QueryInput( List<int> blacklist)
@@ -174,7 +174,7 @@ public class InputParser : MonoBehaviour
         for (int i = 0; i < timeSinceInput.Count; i++) {
             if (!ongoing[i])
             {
-                Debug.Log("not pressed");
+                //Debug.Log("not pressed");
                 timeSinceInput[i] += Time.deltaTime;
                 if (ongoinglf[i])
                 {
