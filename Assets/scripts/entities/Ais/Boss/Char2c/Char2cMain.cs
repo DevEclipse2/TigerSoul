@@ -48,6 +48,7 @@ public class Char2cMain : MonoBehaviour
     public Transform[] SpawnLocation;
     public GameObject SpawnableTacham;
     public GameObject SpawnableVickers;
+    public GameObject SpawnableR35;
     bool timerPhase0;
     GameObject Exittacam;
 
@@ -145,8 +146,18 @@ public class Char2cMain : MonoBehaviour
             {
                 if (!timerPhase0)
                 {
-                    GameObject vickers = Instantiate(SpawnableVickers);
-                    vickers.transform.position = SpawnLocation[Random.Range(0, SpawnLocation.Length)].position;
+                    int random = Random.Range(0, 5);
+                    GameObject enemy;
+                    if(random <=  1 )
+                    {
+                        enemy = Instantiate(SpawnableR35);
+
+                    }
+                    else
+                    {
+                        enemy = Instantiate(SpawnableVickers);
+                    }
+                    enemy.transform.position = SpawnLocation[Random.Range(0, SpawnLocation.Length)].position;
                     //vickers.transform.rotation = new Vector3(-0.5f, 0.5f, 1);
                     StartCoroutine(Phase0Timer(1));
                 }
