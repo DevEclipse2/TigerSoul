@@ -3,6 +3,8 @@ using UnityEngine;
 public class Destructible : MonoBehaviour
 {
     public int health = 1;
+    public bool useSpecial = false;
+    public GameObject SpecialParticle;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

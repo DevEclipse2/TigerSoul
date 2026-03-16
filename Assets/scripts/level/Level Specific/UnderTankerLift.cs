@@ -21,20 +21,36 @@ public class UnderTankerLift : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(cHTop.IsTriggered && !bottom)
+        if(cHTop.IsTriggered)
         {
-            if (!top)
+            if (!top && !bottom)
             {
                 top = true;
                 animator.SetInteger("Value", 1 );
+            }
+            else if(bottom) { 
+                animator.SetInteger("Value", 0);
+
+
             }
             //if this is triggered second, do nothing
         }
         else if(cHBot.IsTriggered && !top) 
         {
-            bottom = true;
-            animator.SetInteger("Value", 2);
+            if (!bottom)
+            {
+                bottom = true;
+                animator.SetInteger("Value", 2);
+            }
         }
-
+        if(!cHTop.IsTriggered && !cHBot.IsTriggered)
+        {
+            if (bottom)
+            {
+                bottom = false;
+                //resets
+                animator.SetInteger("Value", 0);    
+            }
+        }
     }
 }

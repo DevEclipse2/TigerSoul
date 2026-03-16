@@ -110,10 +110,21 @@ public class DealDamage : MonoBehaviour
                 if (ray.collider.gameObject.TryGetComponent<Destructible>(out Destructible destructible)) {
                     destructible.destroyThis();
                     PlayerHealth.IncreaseHealth(Random.Range(2, 4));
-                    GameObject particleObject = Instantiate(DestructibleHit, ray.collider.gameObject.transform.position, Quaternion.identity);
-                    particleObject.GetComponent<ParticleSystem>().Play();
-
-                    StartCoroutine(DestroyParticleSystemAfterDelay(lifespan, particleObject));
+                    if(destructible.useSpecial) {
+                        if(destructible.SpecialParticle != null)
+                        {
+                            GameObject particleObject = Instantiate(destructible.SpecialParticle, ray.collider.gameObject.transform.position, Quaternion.identity);
+                            particleObject.GetComponent<ParticleSystem>().Play();
+                            StartCoroutine(DestroyParticleSystemAfterDelay(lifespan, particleObject));
+                        }
+                    }
+                    else
+                    {
+                        GameObject particleObject = Instantiate(DestructibleHit, ray.collider.gameObject.transform.position, Quaternion.identity);
+                        particleObject.GetComponent<ParticleSystem>().Play();
+                        StartCoroutine(DestroyParticleSystemAfterDelay(lifespan, particleObject));
+                    }
+                    
                 }
                 else
                 {
