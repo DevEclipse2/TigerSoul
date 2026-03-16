@@ -32,3 +32,20 @@ More collision shapes
 14/2/26
 goofed around
 
+15/3/26
+broke web build
+added new linkages( mausoleum with enlighten)
+added the higher organ bit
+added r35 as a possible enemy during the bossfight
+
+16/3/26
+fixed textures importing incorrectly
+fixed web build (finally)
+added lever pulling 
+added doors that are secretly levers
+added elevator ( janky & needs work)
+added multi purpose dual trigger lever
+fixed mausoleum layering
+multiple small fixes
+added data mule
+
