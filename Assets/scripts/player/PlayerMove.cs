@@ -2,6 +2,7 @@ using System.Collections;
 using System.Net;
 using Unity.Jobs;
 using Unity.VisualScripting;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.Rendering.DebugUI;
@@ -47,6 +48,7 @@ public class PlayerMove : MonoBehaviour
     public bool permforce;
     bool resetting;
     bool walljumping;
+    public bool Damage;
     void Start()
     {
         //rb = GetComponent<Rigidbody2D>();
@@ -80,9 +82,19 @@ public class PlayerMove : MonoBehaviour
             }
             else if (permforce && !walljumping)
             {
-                rb.linearVelocity = new Vector2(moveDir.x * moveSpeed, rb.linearVelocity.y);
-            }
+                if (!Damage)
+                {
+                    rb.linearVelocity = new Vector2(moveDir.x * moveSpeed, rb.linearVelocity.y);
+                    Debug.Log(rb.linearVelocityX);
+                }
+                else
+                {
+                    float velx = rb.linearVelocity.x + moveDir.x * moveSpeed * 0.6f * Time.deltaTime;
+                    rb.linearVelocity = new Vector2(Mathf.Clamp(velx, -moveSpeed, moveSpeed), rb.linearVelocityY);
 
+                }
+            }
+            
 
         }  
         if (moveDir.x < 0)

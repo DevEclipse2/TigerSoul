@@ -101,7 +101,7 @@ public class DisplayHealth : MonoBehaviour
         if ( !vignette && PlayerHealth.invulnerable)
         {
             vignette = true;
-            Debug.Log("damage");
+            
             //recently took damage
 
         }

@@ -4992,6 +4992,14 @@ PrefabInstance:
       value: PlayerRoot
       objectReference: {fileID: 0}
     - target: {fileID: 7806220438278823817, guid: 1e4310cb8b0cd184ba91e6c49a5cdbb9, type: 3}
+      propertyPath: pushforce.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7806220438278823817, guid: 1e4310cb8b0cd184ba91e6c49a5cdbb9, type: 3}
+      propertyPath: pushforce.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7806220438278823817, guid: 1e4310cb8b0cd184ba91e6c49a5cdbb9, type: 3}
       propertyPath: SavepointContainer
       value: 
       objectReference: {fileID: 0}

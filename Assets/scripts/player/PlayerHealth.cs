@@ -7,7 +7,7 @@ public class PlayerHealth : MonoBehaviour
     public int health;
     public int basehealth = 75;
     public GameObject Inputcontroller;
-    
+    Rigidbody2D Rb;
     public GameObject AnimationController;
     SimpleAnimation animation;
     public bool neardeath;
@@ -18,9 +18,11 @@ public class PlayerHealth : MonoBehaviour
     public bool invulnerable;
     public Flash flashhull;
     public Flash flashturret;
+    public Vector2 pushforce;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Rb = Inputcontroller.GetComponent<Rigidbody2D>();
         if (basehealth > health) { 
             health = basehealth;
         }
@@ -31,14 +33,11 @@ public class PlayerHealth : MonoBehaviour
     }
     void Update()
     {
-        if(Inputcontroller.GetComponent<PlayerMove>() == null)
-        {
-            return;
-        }
         if (!Inputcontroller.GetComponent<PlayerMove>().canMove && Inputcontroller.GetComponent<PlayerMove>().GroundCheck())
         {
             Inputcontroller.GetComponent<PlayerMove>().canMove = true;
         }
+        Inputcontroller.GetComponent<PlayerMove>().Damage = invulnerable;
         if (invulnerable)
         {
             Time.timeScale = 0.9f;
@@ -86,7 +85,7 @@ public class PlayerHealth : MonoBehaviour
     {
         health += amount;
     }
-    public void DamageTaken(int amount)
+    public void DamageTaken(int amount , Vector2 direction)
     {
         if (invulnerable)
         {
@@ -94,6 +93,8 @@ public class PlayerHealth : MonoBehaviour
             return;
         }
         invulnerable = true;
+        //Debug.Log(direction * pushforce);
+        Rb.linearVelocity = pushforce * direction;
         iframeTimer = 0;
         health -= amount;
         if(health < 0)
@@ -122,7 +123,7 @@ public class PlayerHealth : MonoBehaviour
         Inputcontroller.GetComponent<PlayerMove>().canMove = false;
         Inputcontroller.GetComponent<PlayerMove>().moveDir = Vector2.zero;
         Inputcontroller.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
-        DamageTaken(damagetaken);
+        DamageTaken(damagetaken,Vector2.zero);
         Inputcontroller.transform.position = recoverPoint.position;
     }
 

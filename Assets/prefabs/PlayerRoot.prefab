@@ -2067,6 +2067,7 @@ MonoBehaviour:
   invulnerable: 0
   flashhull: {fileID: 6083185426742014271}
   flashturret: {fileID: 1825435962026216784}
+  pushforce: {x: 8, y: 13}
 --- !u!114 &6083185426742014271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2384,6 +2385,7 @@ MonoBehaviour:
   moveDir: {x: 0, y: 0}
   InputController: {fileID: 4518979163348515901}
   permforce: 1
+  Damage: 0
 --- !u!50 &3805896817518180224
 Rigidbody2D:
   serializedVersion: 5

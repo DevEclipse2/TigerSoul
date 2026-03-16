@@ -29,9 +29,15 @@ public class ContactDamage : MonoBehaviour
             if (collision.GetComponentInParent<PlayerHealth>() != null && !collision.GetComponentInParent<PlayerHealth>().invulnerable)
             {
                 success = true;
-                collision.gameObject.transform.position = collision.gameObject.transform.position  + new Vector3((force * pushBack.normalized * transform.localScale.normalized).x , (force * pushBack.normalized * transform.localScale.normalized).y);
+                //collision.gameObject.transform.position = collision.gameObject.transform.position  + new Vector3((force * pushBack.normalized * transform.localScale.normalized).x , (force * pushBack.normalized * transform.localScale.normalized).y);
             }
-            collision.gameObject.GetComponentInParent<PlayerHealth>().DamageTaken(damage);
+            Vector2 push = new Vector2(1, 1);
+            if(collision.transform.position.x < transform.position.x)
+            {
+                //push to the right
+                push = new Vector2(-1, 1);
+            }
+            collision.gameObject.GetComponentInParent<PlayerHealth>().DamageTaken(damage, push);
 
         }
 
