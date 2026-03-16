@@ -54,7 +54,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   target: 0
-  distance: 0
+  distance: 0.4
   patrolspeed: 1.8
   random: 0
   Rigidbodycontainer: {fileID: 4971909741200846007}

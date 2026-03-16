@@ -85,12 +85,12 @@ public class PlayerMove : MonoBehaviour
                 if (!Damage)
                 {
                     rb.linearVelocity = new Vector2(moveDir.x * moveSpeed, rb.linearVelocity.y);
-                    Debug.Log(rb.linearVelocityX);
+                    //Debug.Log(rb.linearVelocityX);
                 }
                 else
                 {
                     float velx = rb.linearVelocity.x + moveDir.x * moveSpeed * 0.6f * Time.deltaTime;
-                    rb.linearVelocity = new Vector2(Mathf.Clamp(velx, -moveSpeed, moveSpeed), rb.linearVelocityY);
+                    rb.linearVelocity = new Vector2(Mathf.Clamp(velx, -15, 15), rb.linearVelocityY);
 
                 }
             }

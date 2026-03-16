@@ -2067,7 +2067,7 @@ MonoBehaviour:
   invulnerable: 0
   flashhull: {fileID: 6083185426742014271}
   flashturret: {fileID: 1825435962026216784}
-  pushforce: {x: 8, y: 13}
+  pushforce: {x: 14, y: 15}
 --- !u!114 &6083185426742014271
 MonoBehaviour:
   m_ObjectHideFlags: 0
