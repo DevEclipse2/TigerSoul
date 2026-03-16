@@ -105,7 +105,7 @@ public class jump : MonoBehaviour
         }
         if (jumping)
         {
-            Debug.Log("Disable");
+            //Debug.Log("Disable");
             JumpTimer += Time.deltaTime;
             fp.disable = true;
             ChaseObject.GetComponent<ChasePlayer>().Disabled = true;
