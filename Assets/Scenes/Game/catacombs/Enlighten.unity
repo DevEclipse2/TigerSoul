@@ -538,12 +538,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Parralax
   TargetLayers:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1649184906}
   intensities:
-  - 0.9
-  - 0.2
-  LockX: 
+  - 0.1
+  LockX: 01
   LockY: 
   cameraTransform: {fileID: 868160840}
 --- !u!1 &366064643
