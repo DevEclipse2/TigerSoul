@@ -50,6 +50,7 @@ public class PlayerMove : MonoBehaviour
     public bool Damage;
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         //rb = GetComponent<Rigidbody2D>();
         parser = InputController.GetComponent<InputParser>();
         damagescript = attackRoot.GetComponent<DealDamage>();
