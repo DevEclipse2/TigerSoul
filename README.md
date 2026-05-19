@@ -33,15 +33,7 @@ this is a project unfortunately still undergoing development. our team( me mysel
 
 HOW TO RUN (IMPORTANT)
 
-for windows computers(x64 only, arm support coming)
-
-from the itch.io page , https://bytebybite.itch.io/tigersoul , download the zip file and extract. inside, you will find Tigersoul.exe, double click to execute and ignore all warning by whatever trusted antivirus that happens to flag this admittedly suspicious software
-
-if there happens to be a warning along the lines of "windows protected your pc" , click on "more info" , then "run anyways". My trojans will take care of the rest/j
-
-from then on out, whatever happens is not under warranty , and if the game fails to run at any point beyond this , remember to send me a hostile email at eclipseanimationsbbyb@gmail.com
-
-
+go on itch and run; alternatively, you can go on https://www.anticlankerhammer.org to play in full hd
 Filler to reach requirements :
 Tigersoul is a metroidvania about walking tanks, complete with walking, talking, fully animated, and (mostly) historically accurate characters.
 you play as a Tiger H1 tank , and you explore the remnants of a war torn civilisation, meeting interesting , hostile and different varieties of esoteric along the way. run , jump , run harder , wall jump , and beat things down through this hastily crafted adventure. 
