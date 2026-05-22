@@ -3,6 +3,9 @@ The source code for Tigersoul. for the hack club campfire flagship game jam.
 
 demo video for reference:
 https://drive.google.com/drive/folders/1J97ZeOhL4QP5joXWOyPE8QFy59_uID4k
+zero ai is used in this thing from top to bottom
+i have been coding for over 6 years, you have had to pick up a couple tricks to do what i do
+
 
 checklist : 
 
@@ -17,6 +20,8 @@ is fun : X
 is ready for playing : X
 
 is on the epstein files : X 
+
+features clanker : none
 
 overall : not in the epstein files 
 9/10
@@ -33,7 +38,7 @@ this is a project unfortunately still undergoing development. our team( me mysel
 
 HOW TO RUN (IMPORTANT)
 
-go on itch [itch link](https://bytebybite.itch.io/tigersoul) 
+go on [itch ](https://bytebybite.itch.io/tigersoul) 
 and run; alternatively, you can go on https://www.anticlankerhammer.org to play in full hd
 
 
