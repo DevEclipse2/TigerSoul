@@ -10,6 +10,7 @@ public class levelAnimation : MonoBehaviour
     private Vector2[] speedVariation;
     [SerializeField]
     private byte[] animationFreq;
+
     private int[] compiledFreqs;
     [SerializeField]
     private byte animationCount;
@@ -20,15 +21,19 @@ public class levelAnimation : MonoBehaviour
     {
         //these 2 add boilerplate values in case you forget to do so yourself
 
-        if(animationFreq.Length < animationCount)
+        if (animationFreq.Length < animationCount)
         {
             Debug.LogError("you are missing a few frequencies for animations");
-            byte[] newfreq= new byte[animationCount];
+            byte[] newfreq = new byte[animationCount];
             Array.Fill<byte>(newfreq, 10);
             animationFreq.CopyTo(newfreq, 0);
             animationFreq = newfreq;
         }
-        if(speedVariation.Length < animationCount)
+        else if (animationFreq.Length > animationCount)
+        {
+            Debug.LogWarning("registered animation count lower than animation frequency, please double check");
+        }
+        if (speedVariation.Length < animationCount)
         {
             Debug.LogError("you are missing a few speed variations for animations");
 
@@ -37,7 +42,12 @@ public class levelAnimation : MonoBehaviour
             speedVariation.CopyTo(newspeeds, 0);
             speedVariation = newspeeds;
         }
-        if(animator == null)
+        else if (speedVariation.Length > animationCount)
+        {
+            Debug.LogWarning("registered animation count lower than speed changes, please double check");
+
+        }
+        if (animator == null)
 
         {
             animator = GetComponent<Animator>();

@@ -1638,6 +1638,7 @@ GameObject:
   - component: {fileID: 903401593}
   - component: {fileID: 903401592}
   - component: {fileID: 903401594}
+  - component: {fileID: 903401595}
   m_Layer: 0
   m_Name: steam
   m_TagString: Untagged
@@ -1741,6 +1742,25 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &903401595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903401591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117feb2d579708c4381cbf215605ed02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::levelAnimation
+  animator: {fileID: 903401594}
+  speedVariation:
+  - {x: 0.8, y: 1.2}
+  - {x: 0.6, y: 1.1}
+  - {x: 0.9, y: 1.2}
+  animationFreq: 0b0809
+  animationCount: 3
 --- !u!1 &1075399714
 GameObject:
   m_ObjectHideFlags: 0
