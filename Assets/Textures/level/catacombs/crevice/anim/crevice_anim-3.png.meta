@@ -1,0 +1,598 @@
+fileFormatVersion: 2
+guid: b9b058fd3f79a284c8e28bbcd313cb1a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7938813139466343865
+    second: crevice_anim-3_0
+  - first:
+      213: -5254651245303179423
+    second: crevice_anim-3_1
+  - first:
+      213: -4336327158812979333
+    second: crevice_anim-3_2
+  - first:
+      213: -7809836878063815028
+    second: crevice_anim-3_3
+  - first:
+      213: 3801496031590946925
+    second: crevice_anim-3_4
+  - first:
+      213: 7301816065173723453
+    second: crevice_anim-3_5
+  - first:
+      213: -1224864553523169977
+    second: crevice_anim-3_6
+  - first:
+      213: 7222067095661990091
+    second: crevice_anim-3_7
+  - first:
+      213: 8376558566657758025
+    second: crevice_anim-3_8
+  - first:
+      213: -2985314237721330503
+    second: crevice_anim-3_9
+  - first:
+      213: -68177888872089365
+    second: crevice_anim-3_10
+  - first:
+      213: -7700657448103517521
+    second: crevice_anim-3_11
+  - first:
+      213: 4699432109351227373
+    second: crevice_anim-3_12
+  - first:
+      213: 7068423246779409086
+    second: crevice_anim-3_13
+  - first:
+      213: -6228720021974958040
+    second: crevice_anim-3_14
+  - first:
+      213: 562287713183872179
+    second: crevice_anim-3_15
+  - first:
+      213: -674078973365347042
+    second: crevice_anim-3_16
+  - first:
+      213: 1890131976214733477
+    second: crevice_anim-3_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: crevice_anim-3_0
+      rect:
+        serializedVersion: 2
+        x: 1796
+        y: 516
+        width: 87
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74aa7e3e28ba3d190800000000000000
+      internalID: -7938813139466343865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crevice_anim-3_1
+      rect:
+        serializedVersion: 2
+        x: 2301
+        y: 568
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 167d321688ab317b0800000000000000
+      internalID: -5254651245303179423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crevice_anim-3_2
+      rect:
+        serializedVersion: 2
+        x: 2322
+        y: 570
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7fc2158c6542d3c0800000000000000
+      internalID: -4336327158812979333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crevice_anim-3_3
+      rect:
+        serializedVersion: 2
+        x: 1865
+        y: 544
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c86b249dcb2ed9390800000000000000
+      internalID: -7809836878063815028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crevice_anim-3_4
+      rect:
+        serializedVersion: 2
+        x: 2320
+        y: 533
+        width: 23
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d681902ef70a1c430800000000000000
+      internalID: 3801496031590946925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crevice_anim-3_5
+      rect:
+        serializedVersion: 2
+        x: 2514
+        y: 469
+        width: 67
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d399beb4603455560800000000000000
+      internalID: 7301816065173723453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crevice_anim-3_6
+      rect:
+        serializedVersion: 2
+        x: 2522
+        y: 492
+        width: 33
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 745b84d9d28600fe0800000000000000
+      internalID: -1224864553523169977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crevice_anim-3_7
+      rect:
+        serializedVersion: 2
+        x: 1834
+        y: 455
+        width: 43
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc058f462cfe93460800000000000000
+      internalID: 7222067095661990091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crevice_anim-3_8
+      rect:
+        serializedVersion: 2
+        x: 2552
+        y: 518
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94314eda2a38f3470800000000000000
+      internalID: 8376558566657758025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crevice_anim-3_9
+      rect:
+        serializedVersion: 2
+        x: 1354
+        y: 0
+        width: 1659
+        height: 509
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bc34b584880296d0800000000000000
+      internalID: -2985314237721330503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crevice_anim-3_10
+      rect:
+        serializedVersion: 2
+        x: 2173
+        y: 495
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be83e304298cd0ff0800000000000000
+      internalID: -68177888872089365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crevice_anim-3_11
+      rect:
+        serializedVersion: 2
+        x: 2226
+        y: 492
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa2e2dcc9d4c12590800000000000000
+      internalID: -7700657448103517521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crevice_anim-3_12
+      rect:
+        serializedVersion: 2
+        x: 2234
+        y: 489
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: defc1f3da9cb73140800000000000000
+      internalID: 4699432109351227373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crevice_anim-3_13
+      rect:
+        serializedVersion: 2
+        x: 2433
+        y: 485
+        width: 30
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb2666a2e75181260800000000000000
+      internalID: 7068423246779409086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crevice_anim-3_14
+      rect:
+        serializedVersion: 2
+        x: 1866
+        y: 467
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 820c1d424242f89a0800000000000000
+      internalID: -6228720021974958040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crevice_anim-3_15
+      rect:
+        serializedVersion: 2
+        x: 2169
+        y: 452
+        width: 39
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b434ed22b5adc700800000000000000
+      internalID: 562287713183872179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crevice_anim-3_16
+      rect:
+        serializedVersion: 2
+        x: 2249
+        y: 476
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1d9ff1ceb035a6f0800000000000000
+      internalID: -674078973365347042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crevice_anim-3_17
+      rect:
+        serializedVersion: 2
+        x: 2591
+        y: 479
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a2e2ec94091b3a10800000000000000
+      internalID: 1890131976214733477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      crevice_anim-3_0: -7938813139466343865
+      crevice_anim-3_1: -5254651245303179423
+      crevice_anim-3_10: -68177888872089365
+      crevice_anim-3_11: -7700657448103517521
+      crevice_anim-3_12: 4699432109351227373
+      crevice_anim-3_13: 7068423246779409086
+      crevice_anim-3_14: -6228720021974958040
+      crevice_anim-3_15: 562287713183872179
+      crevice_anim-3_16: -674078973365347042
+      crevice_anim-3_17: 1890131976214733477
+      crevice_anim-3_2: -4336327158812979333
+      crevice_anim-3_3: -7809836878063815028
+      crevice_anim-3_4: 3801496031590946925
+      crevice_anim-3_5: 7301816065173723453
+      crevice_anim-3_6: -1224864553523169977
+      crevice_anim-3_7: 7222067095661990091
+      crevice_anim-3_8: 8376558566657758025
+      crevice_anim-3_9: -2985314237721330503
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
