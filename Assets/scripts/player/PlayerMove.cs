@@ -48,8 +48,10 @@ public class PlayerMove : MonoBehaviour
     bool resetting;
     bool walljumping;
     public bool Damage;
+    float gravscaleOriginal = 0f;
     void Start()
     {
+        gravscaleOriginal = rb.gravityScale;
         Cursor.lockState = CursorLockMode.Locked;
         //rb = GetComponent<Rigidbody2D>();
         parser = InputController.GetComponent<InputParser>();
@@ -60,13 +62,49 @@ public class PlayerMove : MonoBehaviour
     {
         timer += Time.deltaTime;
         if (!canMove && dashing) {
+
             if (timer >= DashTime)
             {
                 dashing = false;
                 canMove = true;
+                rb.gravityScale = gravscaleOriginal;
+                rb.linearVelocity = Vector2.zero;
             }
             else
             {
+                if(isLeft)
+                {
+                    if (transform.position.x - DashAmt / DashTime * Time.deltaTime < DashTarget.x)
+                    {
+                        transform.position = DashTarget;
+                        dashing = false;
+                        canMove = true;
+                        rb.gravityScale = gravscaleOriginal;
+                        rb.linearVelocity = Vector2.zero;
+
+                    }
+                    else
+                    {
+                        transform.position = new Vector2(transform.position.x - DashAmt / DashTime * Time.deltaTime, transform.position.y);
+                    }
+
+                }
+                else
+                {
+                    if (transform.position.x + DashAmt / DashTime * Time.deltaTime > DashTarget.x)
+                    {
+                        transform.position = DashTarget;
+                        dashing = false;
+                        canMove = true;
+                        rb.gravityScale = gravscaleOriginal;
+                        rb.linearVelocity = Vector2.zero;
+                    }
+                    else
+                    {
+                        transform.position = new Vector2(transform.position.x + DashAmt / DashTime * Time.deltaTime, transform.position.y);
+                    }
+
+                }
 
             }
 
@@ -91,6 +129,7 @@ public class PlayerMove : MonoBehaviour
                 {
                     float velx = rb.linearVelocity.x + moveDir.x * moveSpeed * 0.6f * Time.deltaTime;
                     rb.linearVelocity = new Vector2(Mathf.Clamp(velx, -15, 15), rb.linearVelocityY);
+                    
 
                 }
             }
@@ -115,9 +154,11 @@ public class PlayerMove : MonoBehaviour
     }
     public void OnDash()
     {
+
         timer = 0;
         canMove = false;
         dashing = true;
+        rb.gravityScale = 0;
         RaycastHit2D geometry;
         if (isLeft)
         {
@@ -134,6 +175,7 @@ public class PlayerMove : MonoBehaviour
         else{
             DashTarget = this.gameObject.transform.position + new Vector3(DashAmt, 0, 0);
         }
+        rb.linearVelocity = Vector2.zero;
     }
     public void OnMove(InputValue value)
     {

@@ -2377,7 +2377,7 @@ MonoBehaviour:
   attackRoot: {fileID: 4059712571621258862}
   rb: {fileID: 3805896817518180224}
   GroundCheckArea: {x: 2.1, y: 0.3}
-  DashAmt: 3
+  DashAmt: 7
   DashTime: 0.3
   canMove: 1
   isLeft: 0
