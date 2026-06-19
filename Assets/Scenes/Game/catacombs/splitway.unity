@@ -3746,6 +3746,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4035233102945973971, guid: e698786b7d9d23a47875226044b64cf2, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4971909741200846007, guid: e698786b7d9d23a47875226044b64cf2, type: 3}
       propertyPath: m_Name
       value: R35

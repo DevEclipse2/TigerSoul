@@ -17,27 +17,26 @@ public class wallJump : baseUpgrade
     LayerMask groundLayer;
     float targetSpeed = 0;
     public bool walljumping;
-    bool resetting;
+
+    private Coroutine coroutine;
     public override void init()
     {
         groundCheckRadius = movementscript.groundCheckRadius;
-        //moveSpeed = movementscript.moveSpeed;
+        moveSpeed = movementscript.moveSpeed;
         groundLayer = movementscript.groundLayer;
-        //jumpForce = movementscript.jumpForce;
+        jumpForce = movementscript.jumpForce;
     }
 
     private IEnumerator ClearJump()
     {
-        resetting = true;
         yield return new WaitForSeconds(1.2f);
         lastWall = 0;
-        resetting = false;
         yield return null;
     }
 
     public override void useAbility()
     {
-        if(!enabled) return;
+        if(!Active) return;
 
 
         Rigidbody2D rb = movementscript.rb;
@@ -71,12 +70,11 @@ public class wallJump : baseUpgrade
                 walljumping = true;
                 rb.linearVelocity = new Vector2(targetSpeed, verticalvelocity + jumpForce * 0.75f);
             }
-            if (resetting)
+            if (coroutine != null)
             {
                 StopCoroutine(ClearJump());
-                resetting = false;
             }
-            StartCoroutine(ClearJump());
+            coroutine = StartCoroutine(ClearJump());
         }
     }
 }

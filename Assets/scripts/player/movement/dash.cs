@@ -16,10 +16,11 @@ public class dash : baseUpgrade
     float gravScale = 0;
     public override void cooldown()
     {
-        gravScale = movementscript.rb.gravityScale;
+        base.cooldown();
     }
     public override void init()
     {
+        gravScale = movementscript.rb.gravityScale;
     }
     public void dashtick()
     {
@@ -40,11 +41,11 @@ public class dash : baseUpgrade
             {
                 if (movementscript.isLeft)
                 {
-                    if (transform.position.x - dashAmt / dashTime * Time.deltaTime < DashTarget.x)
+                    if (movementscript.gameObject.transform.position.x - dashAmt / dashTime * Time.deltaTime < DashTarget.x)
                     {
-                        Debug.Log("dash ended positional");
 
-                        transform.position = DashTarget;
+
+                        movementscript.gameObject.transform.position = DashTarget;
                         dashing = false;
                         movementscript.changeMove(true);
                         rb.gravityScale = gravScale;
@@ -53,17 +54,17 @@ public class dash : baseUpgrade
                     }
                     else
                     {
-                        transform.position = new Vector2(transform.position.x - dashAmt / dashTime * Time.deltaTime, transform.position.y);
+                        movementscript.gameObject.transform.position = new Vector2(movementscript.gameObject.transform.position.x - dashAmt / dashTime * Time.deltaTime, movementscript.gameObject.transform.position.y);
                     }
 
                 }
                 else
                 {
-                    if (transform.position.x + dashAmt / dashTime * Time.deltaTime > DashTarget.x)
+                    if (movementscript.gameObject.transform.position.x + dashAmt / dashTime * Time.deltaTime > DashTarget.x)
                     {
-                        Debug.Log("dash ended positional");
 
-                        transform.position = DashTarget;
+
+                        movementscript.gameObject.transform.position = DashTarget;
                         dashing = false;
                         movementscript.changeMove(true);
                         rb.gravityScale = gravScale;
@@ -71,7 +72,7 @@ public class dash : baseUpgrade
                     }
                     else
                     {
-                        transform.position = new Vector2(transform.position.x + dashAmt / dashTime * Time.deltaTime, transform.position.y);
+                        movementscript.gameObject.transform.position = new Vector2(movementscript.gameObject.transform.position.x + dashAmt / dashTime * Time.deltaTime, movementscript.gameObject.transform.position.y);
                     }
 
                 }
@@ -79,16 +80,16 @@ public class dash : baseUpgrade
             }
 
         }
+        
     }
 
     public override void useAbility()
     {
-        Debug.Log(Active + " is active");
-        Debug.Log(Available + " is available");
+        Debug.Log("Dash");
         if(!Active || !Available) return;
         Rigidbody2D rb = movementscript.rb;
+        rb.linearVelocity = Vector2.zero;
         Available = false;
-        cooldown();
         timer = 0;
         movementscript.changeMove(false);
         dashing = true;
@@ -97,32 +98,51 @@ public class dash : baseUpgrade
         RaycastHit2D geometry;
         if (movementscript.isLeft)
         {
-            geometry = Physics2D.BoxCast(this.gameObject.transform.position, new Vector2(2.16f, 0.18f), 0, Vector2.left, dashAmt, dashLayer);
+            geometry = Physics2D.BoxCast(movementscript.gameObject.transform.position, new Vector2(2.16f, 0.18f), 0, Vector2.left, dashAmt, dashLayer);
+
+            try
+            {
+                Debug.Log(geometry.collider.gameObject.name);
+            }
+            catch (Exception e)
+            {
+
+            }
             if (!geometry)
             {
-                DashTarget = this.gameObject.transform.position + new Vector3(-dashAmt, 0, 0);
+                DashTarget = movementscript.gameObject.transform.position + new Vector3(-dashAmt, 0, 0);
             }
             else
             {
+                Debug.Log(geometry.collider.gameObject.name);
                 closestpt = true;
-                DashTarget = geometry.collider.ClosestPoint(this.gameObject.transform.position);
+                DashTarget = geometry.collider.ClosestPoint(movementscript.gameObject.transform.position);
                 DashTarget = new Vector2(DashTarget.x + 1.2f, DashTarget.y);
             }
 
         }
         else
         {
-            geometry = Physics2D.BoxCast(this.gameObject.transform.position, new Vector2(2.16f, 0.18f), 0, Vector2.right, dashAmt, dashLayer);
+            geometry = Physics2D.BoxCast(movementscript.gameObject.transform.position, new Vector2(2.16f, 0.18f), 0, Vector2.right, dashAmt, dashLayer);
+
+            try
+            {
+                Debug.Log(geometry.collider.gameObject.name);
+            }
+            catch (Exception e) { 
+            
+            }
             if (!geometry)
             {
-                DashTarget = this.gameObject.transform.position + new Vector3(dashAmt, 0, 0);
+                DashTarget = movementscript.gameObject.transform.position + new Vector3(dashAmt, 0, 0);
 
 
             }
             else
             {
+
                 closestpt = true;
-                DashTarget = geometry.collider.ClosestPoint(this.gameObject.transform.position);
+                DashTarget = geometry.collider.ClosestPoint(movementscript.gameObject.transform.position);
                 DashTarget = new Vector2(DashTarget.x - 1.2f, DashTarget.y);
             }
         }

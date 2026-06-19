@@ -1,138 +1,114 @@
+///
+/// movement options include
+/// walljumping
+/// doublejumping
+/// dashing
+/// crouch / sliding
+
 using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEngine.Rendering.DebugUI;
 
 public class PlayerMove : MonoBehaviour
 {
-    /*
-     this also deals with various input functions
-    honestly should move the movement code
-     
-     */
-
-
-
+    public bool canMove;
     public float moveSpeed = 5f;         // Player movement speed
     public float jumpForce = 5f;         // Force applied to jump
     [SerializeField]
-    LayerMask groundLayer;         // Layer for the ground
-    [SerializeField]
-    LayerMask dashLayer;         // Layer for the ground
-    bool closestpt = false;
-    public Transform groundCheck;         // Transform to check if the player is grounded
-    public Transform LeftWall;         // Transform to check if the player is grounded
-    public Transform RightWall;         // Transform to check if the player is grounded
-    public float groundCheckRadius = 0.2f; // Radius for ground check
-    public GameObject attackRoot;
+    GameObject damageroot;
     DealDamage damagescript;
-    public Rigidbody2D rb;
-    private bool isGrounded = false;
-    private bool contactLeft = false;
-    private bool contactRight = false;
-    private Vector2 movementInput;
-    byte lastWall = 0; //no last wall
-    float targetSpeed;
-    public Vector2 GroundCheckArea;
-    public float DashAmt = 3.0f;
-    public float DashTime = 0.3f;
-    float timer;
-    public bool canMove = true;
-    [SerializeField]
-    bool dashing = true;
-    public bool isLeft = false;
-    public Vector2 DashTarget;
+
+
+
+    public LayerMask groundLayer;         // Layer for the ground
+    public Transform groundCheck;         // Transform to check if the player is grounded
+    public float groundCheckRadius = 0.2f; // Radius for ground check
     public Vector2 moveDir;
-    bool moving = true;
+    public Vector2 GroundCheckArea;
+
+    public GameObject dashObject;
+    public GameObject walljumpObject;
+
+    private dash dashModule;
+    private wallJump walljumpModule;
     public GameObject InputController;
     InputParser parser;
-    public bool permforce;
-    bool resetting;
-    bool walljumping;
+    public Rigidbody2D rb;
+
+    public bool isLeft = false;
+
     public bool Damage;
-    float gravscaleOriginal = 0f;
-    [SerializeField]
-    float dashCd;
-    float dashtimer;
-    bool rechargeDash;
+    //for dash
+    public void rechargeDash() { dashModule.cooldown(); }
+    public void changeMove(bool value) { canMove = value; }
+
+    //for walljump
+    public void resetLastWall() { walljumpModule.lastWall = 0; }
+
+
     void Start()
     {
-        gravscaleOriginal = rb.gravityScale;
         Cursor.lockState = CursorLockMode.Locked;
-        //rb = GetComponent<Rigidbody2D>();
         parser = InputController.GetComponent<InputParser>();
-        damagescript = attackRoot.GetComponent<DealDamage>();
+        damagescript = damageroot.GetComponent<DealDamage>();
+        if (upgradeLoader.Dash)
+        {
+            dashModule = dashObject.GetComponent<dash>();
+            dashModule.Active = true;
+            dashModule.Available = true;
+            dashModule.init();
+        }
+        if (upgradeLoader.wallJump)
+        {
+            walljumpModule = walljumpObject.GetComponent<wallJump>();
+            walljumpModule.Active = true;
+            walljumpModule.init();
+        }
+
+    }
+    public bool GroundCheck()
+    {
+        return Physics2D.BoxCast(groundCheck.position, GroundCheckArea, 0, Vector2.down, 0, groundLayer);
+    }
+    public void OnMove(InputValue value)
+    {
+        if (canMove)
+        {
+            moveDir = value.Get<Vector2>();
+            rb.linearVelocity = new Vector2(moveDir.x * moveSpeed, rb.linearVelocity.y);
+        }
     }
 
+    public void OnJump(InputValue value)
+    {
+        bool isGrounded = GroundCheck();
+
+        if (isGrounded)
+        {
+            walljumpModule.lastWall = 0;
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            //rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+        }
+        else
+        {
+            walljumpModule.useAbility();
+        }
+    }
+
+    public void OnDash()
+    {
+        dashModule.useAbility();
+    }
+    // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-        if (rechargeDash) 
+        if (GroundCheck())
         {
-            dashtimer += Time.deltaTime; 
+            dashModule.cooldown();
         }
-        else if (GroundCheck())
+        dashModule.dashtick();
+        if (parser.recentInput.IndexOf(Input.Move) != -1)
         {
-            rechargeDash = true;
-        }
-
-        if (dashing)
-        {
-
-            if (timer >= DashTime)
-            {
-                Debug.Log("dash ended timer");
-                dashing = false;
-                canMove = true;
-                rb.gravityScale = gravscaleOriginal;
-                rb.linearVelocity = Vector2.zero;
-            }
-            else
-            {
-                if (isLeft)
-                {
-                    if (transform.position.x - DashAmt / DashTime * Time.deltaTime < DashTarget.x)
-                    {
-                        Debug.Log("dash ended positional");
-
-                        transform.position = DashTarget;
-                        dashing = false;
-                        canMove = true;
-                        rb.gravityScale = gravscaleOriginal;
-                        rb.linearVelocity = Vector2.zero;
-
-                    }
-                    else
-                    {
-                        transform.position = new Vector2(transform.position.x - DashAmt / DashTime * Time.deltaTime, transform.position.y);
-                    }
-
-                }
-                else
-                {
-                    if (transform.position.x + DashAmt / DashTime * Time.deltaTime > DashTarget.x)
-                    {
-                        Debug.Log("dash ended positional");
-
-                        transform.position = DashTarget;
-                        dashing = false;
-                        canMove = true;
-                        rb.gravityScale = gravscaleOriginal;
-                        rb.linearVelocity = Vector2.zero;
-                    }
-                    else
-                    {
-                        transform.position = new Vector2(transform.position.x + DashAmt / DashTime * Time.deltaTime, transform.position.y);
-                    }
-
-                }
-
-            }
-
-        }
-
-        if (parser.recentInput.IndexOf(Input.Move) != -1) {
             if (!parser.ongoing[parser.recentInput.IndexOf(Input.Move)])
             {
                 if (GroundCheck())
@@ -140,7 +116,7 @@ public class PlayerMove : MonoBehaviour
                     rb.linearVelocity = new Vector2(rb.linearVelocity.x * 0.95f, rb.linearVelocity.y);
                 }
             }
-            else if (permforce && !walljumping)
+            else if (!walljumpModule.walljumping)
             {
                 if (!Damage)
                 {
@@ -151,178 +127,21 @@ public class PlayerMove : MonoBehaviour
                 {
                     float velx = rb.linearVelocity.x + moveDir.x * moveSpeed * 0.6f * Time.deltaTime;
                     rb.linearVelocity = new Vector2(Mathf.Clamp(velx, -15, 15), rb.linearVelocityY);
-                    
+
 
                 }
             }
-            
-
-        }  
+        }
         if (moveDir.x < 0)
         {
             //left
             isLeft = true;
             damagescript.isleft = true;
         }
-        else if( moveDir.x > 0)
+        else if (moveDir.x > 0)
         {
             isLeft = false;
             damagescript.isleft = false;
         }
     }
-    public bool GroundCheck()
-    {
-        return Physics2D.BoxCast(groundCheck.position, GroundCheckArea , 0 , Vector2.down,0, groundLayer);
-    }
-    public void OnDash()
-    {
-        if(dashtimer < dashCd)
-        {
-            return;
-        }
-        dashtimer = 0;
-        timer = 0;
-        canMove = false;
-        rechargeDash = false;
-        dashing = true;
-        rb.gravityScale = 0;
-        lastWall = 0;
-        RaycastHit2D geometry;
-        if (isLeft)
-        {
-            geometry = Physics2D.BoxCast(this.gameObject.transform.position, new Vector2(2.16f, 0.18f), 0, Vector2.left, DashAmt, dashLayer);
-            try
-            {
-                Debug.Log(geometry.collider.gameObject.name);
-            }
-            catch (Exception e) { 
-            
-            }
-            
-            if (!geometry)
-            {
-                DashTarget = this.gameObject.transform.position + new Vector3(-DashAmt, 0, 0);
-            }
-            else
-            {
-                Debug.Log("closest point");
-                closestpt = true;
-                DashTarget = geometry.collider.ClosestPoint(this.gameObject.transform.position);
-                DashTarget = new Vector2(DashTarget.x + 1.2f, DashTarget.y);
-            }
-            
-        }
-        else
-        {
-            geometry = Physics2D.BoxCast(this.gameObject.transform.position, new Vector2(2.16f, 0.18f), 0, Vector2.right, DashAmt,dashLayer);
-            try
-            {
-                Debug.Log(geometry.collider.gameObject.name);
-            }
-            catch (Exception e)
-            {
-
-            }
-            if (!geometry)
-            {
-                DashTarget = this.gameObject.transform.position + new Vector3(DashAmt, 0, 0);
-                
-
-            }
-            else
-            {
-                Debug.Log("closest point");
-                closestpt = true;
-                DashTarget = geometry.collider.ClosestPoint(this.gameObject.transform.position);
-                DashTarget = new Vector2(DashTarget.x - 1.2f, DashTarget.y);
-            }
-        }
-        rb.linearVelocity = Vector2.zero;
-    }
-    public void OnMove(InputValue value)
-    {
-        //Debug.Log("move");
-        //float moveInput = Input.GetAxis("Horizontal");
-
-        //if (value.isPressed)
-        //{
-        if (canMove)
-        {
-            if(walljumping && value.Get<Vector2>() == Vector2.zero)
-            {
-                walljumping = false;
-            }
-            moveDir = value.Get<Vector2>();
-            rb.linearVelocity = new Vector2(moveDir.x * moveSpeed, rb.linearVelocity.y);
-        }
-
-
-        //}
-    }
-    private IEnumerator ClearJump()
-    {
-        resetting = true;
-        yield return new WaitForSeconds(1.2f);
-        lastWall = 0;
-        resetting = false;
-       yield return  null;
-    }
-    public void OnJump(InputValue value)
-    {
-        float basespeed = Mathf.Abs(rb.linearVelocity.x);
-        isGrounded = GroundCheck();
-        RaycastHit2D leftWallCheck = Physics2D.Raycast(LeftWall.position, Vector2.right * -1, groundCheckRadius + 0.04f * basespeed, groundLayer);
-        RaycastHit2D rightWallCheck = Physics2D.Raycast(RightWall.position, Vector2.right , groundCheckRadius + 0.04f * basespeed, groundLayer);
-        contactLeft = (leftWallCheck.collider != null);
-        contactRight = (rightWallCheck.collider != null);
-        if (isGrounded)
-        {
-            lastWall = 0;
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-            //rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-        }
-        else if (contactLeft || contactRight)
-        {
-            rechargeDash = true;
-            float verticalvelocity = rb.linearVelocity.y;
-            if (verticalvelocity < 0) { 
-                verticalvelocity = 0f;
-            }
-
-            if((targetSpeed = moveSpeed * 0.6f + basespeed * 0.8f ) > 15)
-            {
-                targetSpeed = 15;
-            }
-            if (contactRight && (lastWall == 0 || lastWall == 2)) {
-                lastWall = 1;
-                walljumping = true;
-                rb.linearVelocity = new Vector2(-targetSpeed, verticalvelocity + jumpForce * 0.75f);
-            }
-            else if (contactLeft && (lastWall == 0 || lastWall == 1))
-            {
-                lastWall = 2;
-                walljumping = true;
-                rb.linearVelocity = new Vector2(targetSpeed, verticalvelocity + jumpForce * 0.75f);
-            }
-            if (resetting)
-            {
-                StopCoroutine(ClearJump());
-                resetting = false;
-            }
-            StartCoroutine(ClearJump());
-        }
-    }
-    //public void OnMove(InputAction.CallbackContext context)
-    //{
-    //    rb.linearVelocity = new Vector2(moveDir.x * moveSpeed, rb.linearVelocity.y);
-
-    //    if (context.performed)
-    //    {
-    //        moving = true;
-    //    }
-    //    if (context.canceled )
-    //    {
-    //        moving = false;
-    //    }
-    //}
 }

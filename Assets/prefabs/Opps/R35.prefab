@@ -1058,7 +1058,7 @@ GameObject:
   - component: {fileID: 8065291537264561529}
   - component: {fileID: 5090525687730312689}
   - component: {fileID: 7717720385843475539}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: chasePlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

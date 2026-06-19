@@ -150,43 +150,15 @@ Transform:
   m_Children: []
   m_Father: {fileID: 868160840}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &193887512
+--- !u!1 &193887512 stripped
 GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 798777201146292497, guid: 1e4310cb8b0cd184ba91e6c49a5cdbb9, type: 3}
+  m_PrefabInstance: {fileID: 2107957646}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 193887513}
-  - component: {fileID: 193887514}
-  m_Layer: 8
-  m_Name: walljump
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &193887513
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 193887512}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2052432692}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &193887514
+--- !u!114 &193887514 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 5505219555880196472, guid: 1e4310cb8b0cd184ba91e6c49a5cdbb9, type: 3}
+  m_PrefabInstance: {fileID: 2107957646}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 193887512}
   m_Enabled: 1
@@ -194,15 +166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2757371ac3473ed4fb8ce1365d10d4fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::wallJump
-  playerController: {fileID: 2107957652}
-  Active: 0
-  Available: 0
-  AbilityCooldown: 0.1
-  lastWall: 0
-  LeftWall: {fileID: 1331829077}
-  RightWall: {fileID: 887126649}
-  groundCheckRadius: 0.2
-  walljumping: 0
 --- !u!1001 &436550576
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -591,11 +554,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!4 &649688638 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4057525182310392563, guid: 1e4310cb8b0cd184ba91e6c49a5cdbb9, type: 3}
-  m_PrefabInstance: {fileID: 2107957646}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &654700706
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -963,11 +921,6 @@ MonoBehaviour:
   - {fileID: 1086803837}
   - {fileID: 1188368555}
   colliderObject: {fileID: 1472317587}
---- !u!4 &887126649 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2565339625829316867, guid: 1e4310cb8b0cd184ba91e6c49a5cdbb9, type: 3}
-  m_PrefabInstance: {fileID: 2107957646}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1075399714
 GameObject:
   m_ObjectHideFlags: 0
@@ -1004,43 +957,15 @@ Transform:
   - {fileID: 1246268324}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1086513667
+--- !u!1 &1086513667 stripped
 GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 2641809758158670868, guid: 1e4310cb8b0cd184ba91e6c49a5cdbb9, type: 3}
+  m_PrefabInstance: {fileID: 2107957646}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1086513668}
-  - component: {fileID: 1086513669}
-  m_Layer: 8
-  m_Name: dash
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1086513668
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1086513667}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2052432692}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1086513669
+--- !u!114 &1086513669 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 1543788580431993053, guid: 1e4310cb8b0cd184ba91e6c49a5cdbb9, type: 3}
+  m_PrefabInstance: {fileID: 2107957646}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1086513667}
   m_Enabled: 1
@@ -1048,15 +973,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13927b0c358f23743b5cbb1fd69448c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::dash
-  playerController: {fileID: 2107957652}
-  Active: 0
-  Available: 0
-  AbilityCooldown: 0.8
-  dashAmt: 4
-  dashLayer:
-    serializedVersion: 2
-    m_Bits: 200
-  dashTime: 0.5
 --- !u!1 &1086803836
 GameObject:
   m_ObjectHideFlags: 0
@@ -1302,13 +1218,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0bf3cc22a69e064cba131e5f1613650, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraShake
-  Shake: {fileID: 649688638}
+  Shake: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
---- !u!4 &1331829077 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3565919803840042022, guid: 1e4310cb8b0cd184ba91e6c49a5cdbb9, type: 3}
-  m_PrefabInstance: {fileID: 2107957646}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1346928683
 GameObject:
   m_ObjectHideFlags: 0
@@ -2082,39 +1993,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &2052432691
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2052432692}
-  m_Layer: 8
-  m_Name: movementModules
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2052432692
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2052432691}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1086513668}
-  - {fileID: 193887513}
-  m_Father: {fileID: 2107957647}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2098792889
 GameObject:
   m_ObjectHideFlags: 0
@@ -2224,26 +2102,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6144104877183687936, guid: 1e4310cb8b0cd184ba91e6c49a5cdbb9, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6144104877183687936, guid: 1e4310cb8b0cd184ba91e6c49a5cdbb9, type: 3}
+      propertyPath: damageroot
+      value: 
+      objectReference: {fileID: 2107957649}
+    - target: {fileID: 6144104877183687936, guid: 1e4310cb8b0cd184ba91e6c49a5cdbb9, type: 3}
+      propertyPath: dashModule
+      value: 
+      objectReference: {fileID: 1086513669}
+    - target: {fileID: 6144104877183687936, guid: 1e4310cb8b0cd184ba91e6c49a5cdbb9, type: 3}
+      propertyPath: dashObject
+      value: 
+      objectReference: {fileID: 1086513667}
+    - target: {fileID: 6144104877183687936, guid: 1e4310cb8b0cd184ba91e6c49a5cdbb9, type: 3}
+      propertyPath: walljumpModule
+      value: 
+      objectReference: {fileID: 193887514}
+    - target: {fileID: 6144104877183687936, guid: 1e4310cb8b0cd184ba91e6c49a5cdbb9, type: 3}
+      propertyPath: walljumpObject
+      value: 
+      objectReference: {fileID: 193887512}
     - target: {fileID: 6144104877183687936, guid: 1e4310cb8b0cd184ba91e6c49a5cdbb9, type: 3}
       propertyPath: dashLayer.m_Bits
       value: 72
       objectReference: {fileID: 0}
-    - target: {fileID: 7806220438278823817, guid: 1e4310cb8b0cd184ba91e6c49a5cdbb9, type: 3}
+    - target: {fileID: 7806220438278823817, guid: 98ed197d2b6620f4c919f6d2d2310f47, type: 3}
       propertyPath: SavepointContainer
       value: 
       objectReference: {fileID: 654700707}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 3071364352525126777, guid: 1e4310cb8b0cd184ba91e6c49a5cdbb9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2052432692}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6385074731725750393, guid: 1e4310cb8b0cd184ba91e6c49a5cdbb9, type: 3}
-      insertIndex: 4
-      addedObject: {fileID: 2107957654}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e4310cb8b0cd184ba91e6c49a5cdbb9, type: 3}
 --- !u!4 &2107957647 stripped
 Transform:
@@ -2260,54 +2152,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4059712571621258862, guid: 1e4310cb8b0cd184ba91e6c49a5cdbb9, type: 3}
   m_PrefabInstance: {fileID: 2107957646}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2107957650 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4518979163348515901, guid: 1e4310cb8b0cd184ba91e6c49a5cdbb9, type: 3}
-  m_PrefabInstance: {fileID: 2107957646}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2107957651 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2181609746320903883, guid: 1e4310cb8b0cd184ba91e6c49a5cdbb9, type: 3}
-  m_PrefabInstance: {fileID: 2107957646}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2107957652 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6385074731725750393, guid: 1e4310cb8b0cd184ba91e6c49a5cdbb9, type: 3}
-  m_PrefabInstance: {fileID: 2107957646}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &2107957653 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 3805896817518180224, guid: 1e4310cb8b0cd184ba91e6c49a5cdbb9, type: 3}
-  m_PrefabInstance: {fileID: 2107957646}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2107957654
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2107957652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8090fcf5755ebad4eb0836d1e58fad17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::movement
-  canMove: 1
-  moveSpeed: 10
-  jumpForce: 12
-  damageroot: {fileID: 2107957649}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  groundCheck: {fileID: 2107957651}
-  groundCheckRadius: 0.2
-  GroundCheckArea: {x: 0, y: 0}
-  dashModule: {fileID: 1086513669}
-  walljumpModule: {fileID: 193887514}
-  InputController: {fileID: 2107957650}
-  rb: {fileID: 2107957653}
-  isLeft: 0
-  Damage: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
