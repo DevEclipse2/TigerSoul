@@ -1,7 +1,5 @@
+using System;
 using System.Collections;
-using System.Net;
-using Unity.Jobs;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.Rendering.DebugUI;
@@ -18,7 +16,11 @@ public class PlayerMove : MonoBehaviour
 
     public float moveSpeed = 5f;         // Player movement speed
     public float jumpForce = 5f;         // Force applied to jump
-    public LayerMask groundLayer;         // Layer for the ground
+    [SerializeField]
+    LayerMask groundLayer;         // Layer for the ground
+    [SerializeField]
+    LayerMask dashLayer;         // Layer for the ground
+    bool closestpt = false;
     public Transform groundCheck;         // Transform to check if the player is grounded
     public Transform LeftWall;         // Transform to check if the player is grounded
     public Transform RightWall;         // Transform to check if the player is grounded
@@ -37,6 +39,7 @@ public class PlayerMove : MonoBehaviour
     public float DashTime = 0.3f;
     float timer;
     public bool canMove = true;
+    [SerializeField]
     bool dashing = true;
     public bool isLeft = false;
     public Vector2 DashTarget;
@@ -49,6 +52,10 @@ public class PlayerMove : MonoBehaviour
     bool walljumping;
     public bool Damage;
     float gravscaleOriginal = 0f;
+    [SerializeField]
+    float dashCd;
+    float dashtimer;
+    bool rechargeDash;
     void Start()
     {
         gravscaleOriginal = rb.gravityScale;
@@ -61,10 +68,17 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (!canMove && dashing) {
+        if (rechargeDash) { dashtimer += Time.deltaTime; }else if (GroundCheck())
+        {
+            rechargeDash = true;
+        }
+
+        if (dashing)
+        {
 
             if (timer >= DashTime)
             {
+                Debug.Log("dash ended timer");
                 dashing = false;
                 canMove = true;
                 rb.gravityScale = gravscaleOriginal;
@@ -72,10 +86,12 @@ public class PlayerMove : MonoBehaviour
             }
             else
             {
-                if(isLeft)
+                if (isLeft)
                 {
                     if (transform.position.x - DashAmt / DashTime * Time.deltaTime < DashTarget.x)
                     {
+                        Debug.Log("dash ended positional");
+
                         transform.position = DashTarget;
                         dashing = false;
                         canMove = true;
@@ -93,6 +109,8 @@ public class PlayerMove : MonoBehaviour
                 {
                     if (transform.position.x + DashAmt / DashTime * Time.deltaTime > DashTarget.x)
                     {
+                        Debug.Log("dash ended positional");
+
                         transform.position = DashTarget;
                         dashing = false;
                         canMove = true;
@@ -154,26 +172,66 @@ public class PlayerMove : MonoBehaviour
     }
     public void OnDash()
     {
-
+        if(dashtimer < dashCd)
+        {
+            return;
+        }
+        dashtimer = 0;
         timer = 0;
         canMove = false;
+        rechargeDash = false;
         dashing = true;
         rb.gravityScale = 0;
+        lastWall = 0;
         RaycastHit2D geometry;
         if (isLeft)
         {
-            if(!(geometry = Physics2D.BoxCast(this.gameObject.transform.position, new Vector2(2.16f,1.18f), 0, Vector2.left , DashAmt)))
+            geometry = Physics2D.BoxCast(this.gameObject.transform.position, new Vector2(2.16f, 0.18f), 0, Vector2.left, DashAmt, dashLayer);
+            try
+            {
+                Debug.Log(geometry.collider.gameObject.name);
+            }
+            catch (Exception e) { 
+            
+            }
+            
+            if (!geometry)
             {
                 DashTarget = this.gameObject.transform.position + new Vector3(-DashAmt, 0, 0);
             }
             else
             {
+                Debug.Log("closest point");
+                closestpt = true;
                 DashTarget = geometry.collider.ClosestPoint(this.gameObject.transform.position);
+                DashTarget = new Vector2(DashTarget.x + 1.2f, DashTarget.y);
             }
             
         }
-        else{
-            DashTarget = this.gameObject.transform.position + new Vector3(DashAmt, 0, 0);
+        else
+        {
+            geometry = Physics2D.BoxCast(this.gameObject.transform.position, new Vector2(2.16f, 0.18f), 0, Vector2.right, DashAmt,dashLayer);
+            try
+            {
+                Debug.Log(geometry.collider.gameObject.name);
+            }
+            catch (Exception e)
+            {
+
+            }
+            if (!geometry)
+            {
+                DashTarget = this.gameObject.transform.position + new Vector3(DashAmt, 0, 0);
+                
+
+            }
+            else
+            {
+                Debug.Log("closest point");
+                closestpt = true;
+                DashTarget = geometry.collider.ClosestPoint(this.gameObject.transform.position);
+                DashTarget = new Vector2(DashTarget.x - 1.2f, DashTarget.y);
+            }
         }
         rb.linearVelocity = Vector2.zero;
     }
@@ -221,7 +279,7 @@ public class PlayerMove : MonoBehaviour
         }
         else if (contactLeft || contactRight)
         {
-            
+            rechargeDash = true;
             float verticalvelocity = rb.linearVelocity.y;
             if (verticalvelocity < 0) { 
                 verticalvelocity = 0f;
