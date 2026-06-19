@@ -2525,6 +2525,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Destructible
   health: 1
+  useSpecial: 0
+  SpecialParticle: {fileID: 0}
 --- !u!61 &976081750
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4060,6 +4062,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4116953973409478779, guid: 6809aa016a7c0ca4e89c1f0c6caef50c, type: 3}
+      propertyPath: m_Mass
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 6121540023449015097, guid: 6809aa016a7c0ca4e89c1f0c6caef50c, type: 3}
       propertyPath: m_Name
       value: Charge
@@ -5281,6 +5287,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Destructible
   health: 1
+  useSpecial: 0
+  SpecialParticle: {fileID: 0}
 --- !u!61 &2115218321
 BoxCollider2D:
   m_ObjectHideFlags: 0
