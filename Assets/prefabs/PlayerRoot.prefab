@@ -145,6 +145,92 @@ MonoBehaviour:
   hold: 0.1
   cutOut: 0.01
   args: 
+--- !u!1 &777631800537962619
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1297654895169259069}
+  m_Layer: 8
+  m_Name: movementModules
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1297654895169259069
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777631800537962619}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7216704494389886359}
+  - {fileID: 1225513851756951127}
+  m_Father: {fileID: 3071364352525126777}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &798777201146292497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1225513851756951127}
+  - component: {fileID: 5505219555880196472}
+  m_Layer: 8
+  m_Name: walljump
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1225513851756951127
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798777201146292497}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1297654895169259069}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5505219555880196472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798777201146292497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2757371ac3473ed4fb8ce1365d10d4fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::wallJump
+  playerController: {fileID: 6385074731725750393}
+  Active: 0
+  Available: 0
+  AbilityCooldown: 0.1
+  lastWall: 0
+  LeftWall: {fileID: 3565919803840042022}
+  RightWall: {fileID: 2565339625829316867}
+  groundCheckRadius: 0.2
+  walljumping: 0
 --- !u!1 &804381416566587566
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,6 +600,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2949650181394933784}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2641809758158670868
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7216704494389886359}
+  - component: {fileID: 1543788580431993053}
+  m_Layer: 8
+  m_Name: dash
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7216704494389886359
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2641809758158670868}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1297654895169259069}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1543788580431993053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2641809758158670868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13927b0c358f23743b5cbb1fd69448c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::dash
+  playerController: {fileID: 6385074731725750393}
+  Active: 0
+  Available: 0
+  AbilityCooldown: 0.8
+  dashAmt: 4
+  dashLayer:
+    serializedVersion: 2
+    m_Bits: 200
+  dashTime: 0.2
 --- !u!1 &2698240817723246532
 GameObject:
   m_ObjectHideFlags: 0
@@ -1200,7 +1339,7 @@ MonoBehaviour:
     m_Bits: 64
   destructibles:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 1152
   Invokable: []
   damage: 0
   timer: 0
@@ -2305,6 +2444,7 @@ Transform:
   - {fileID: 4544285255571934902}
   - {fileID: 8697860331393192542}
   - {fileID: 627922364869189151}
+  - {fileID: 1297654895169259069}
   m_Father: {fileID: 2949650181394933784}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.202}
 --- !u!61 &2456046828875987047
@@ -2365,26 +2505,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b30d5f104e7eb84aa37d009ee65ca4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputHandler
+  canMove: 1
   moveSpeed: 10
   jumpForce: 12
+  damageroot: {fileID: 4059712571621258862}
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
   groundCheck: {fileID: 2181609746320903883}
-  LeftWall: {fileID: 3565919803840042022}
-  RightWall: {fileID: 2565339625829316867}
   groundCheckRadius: 0.2
-  attackRoot: {fileID: 4059712571621258862}
-  rb: {fileID: 3805896817518180224}
-  GroundCheckArea: {x: 2.1, y: 0.3}
-  DashAmt: 3
-  DashTime: 0.3
-  canMove: 1
-  isLeft: 0
-  DashTarget: {x: 0, y: 0}
   moveDir: {x: 0, y: 0}
+  GroundCheckArea: {x: 2.1, y: 0.3}
+  dashObject: {fileID: 2641809758158670868}
+  walljumpObject: {fileID: 798777201146292497}
   InputController: {fileID: 4518979163348515901}
-  permforce: 1
+  rb: {fileID: 3805896817518180224}
+  isLeft: 0
   Damage: 0
 --- !u!50 &3805896817518180224
 Rigidbody2D:

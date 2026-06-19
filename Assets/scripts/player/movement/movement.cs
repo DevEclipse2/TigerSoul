@@ -9,7 +9,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMove : MonoBehaviour
+public class movement : MonoBehaviour
 {
     public bool canMove;
     public float moveSpeed = 5f;         // Player movement speed
@@ -23,14 +23,11 @@ public class PlayerMove : MonoBehaviour
     public LayerMask groundLayer;         // Layer for the ground
     public Transform groundCheck;         // Transform to check if the player is grounded
     public float groundCheckRadius = 0.2f; // Radius for ground check
-    public Vector2 moveDir;
+    private Vector2 moveDir;
     public Vector2 GroundCheckArea;
 
-    public GameObject dashObject;
-    public GameObject walljumpObject;
-
-    private dash dashModule;
-    private wallJump walljumpModule;
+    public dash dashModule;
+    public wallJump walljumpModule;
     public GameObject InputController;
     InputParser parser;
     public Rigidbody2D rb;
@@ -53,15 +50,12 @@ public class PlayerMove : MonoBehaviour
         damagescript = damageroot.GetComponent<DealDamage>();
         if (upgradeLoader.Dash)
         {
-            dashModule = dashObject.GetComponent<dash>();
-            dashModule.Active = true;
-            dashModule.Available = true;
+            dashModule.enabled = true;
             dashModule.init();
         }
         if (upgradeLoader.wallJump)
         {
-            walljumpModule = walljumpObject.GetComponent<wallJump>();
-            walljumpModule.Active = true;
+            walljumpModule.enabled = true;
             walljumpModule.init();
         }
 
@@ -82,7 +76,7 @@ public class PlayerMove : MonoBehaviour
     public void OnJump(InputValue value)
     {
         bool isGrounded = GroundCheck();
-
+        
         if (isGrounded)
         {
             walljumpModule.lastWall = 0;
@@ -106,7 +100,6 @@ public class PlayerMove : MonoBehaviour
         {
             dashModule.cooldown();
         }
-        dashModule.dashtick();
         if (parser.recentInput.IndexOf(Input.Move) != -1)
         {
             if (!parser.ongoing[parser.recentInput.IndexOf(Input.Move)])

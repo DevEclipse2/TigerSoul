@@ -20,7 +20,6 @@ public class FixerUpper : MonoBehaviour
         if (other.CompareTag("Player")) // Check if the collider belongs to the player
         {
 
-            Debug.Log("enter");
             heal = true;
         }
         Datapersistence.SetSave(transform.position, SceneManager.GetActiveScene().name );
