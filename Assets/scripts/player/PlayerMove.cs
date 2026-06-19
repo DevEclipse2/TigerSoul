@@ -68,7 +68,11 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (rechargeDash) { dashtimer += Time.deltaTime; }else if (GroundCheck())
+        if (rechargeDash) 
+        {
+            dashtimer += Time.deltaTime; 
+        }
+        else if (GroundCheck())
         {
             rechargeDash = true;
         }
