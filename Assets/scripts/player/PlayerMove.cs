@@ -42,11 +42,12 @@ public class PlayerMove : MonoBehaviour
     public bool Damage = false;
     //for dash
     public void rechargeDash() { dashModule.cooldown(); }
+    public void resetWallJump() { walljumpModule.walljumping = false; }
     public void changeMove(bool value) { canMove = value; }
     public void excludeDash(bool  value) { dashModule.Active = value; }
 
     //for walljump
-    public void resetLastWall() { walljumpModule.lastWall = 0; }
+    public void resetLastWall() { walljumpModule.lastWall = 0; walljumpModule.walljumping = false; }
 
 
     void Start()
@@ -93,7 +94,10 @@ public class PlayerMove : MonoBehaviour
     public void OnJump(InputValue value)
     {
         bool isGrounded = GroundCheck();
-
+        if(dashModule.dashing)
+        {
+            return;
+        }
         if (isGrounded)
         {
             walljumpModule.lastWall = 0;

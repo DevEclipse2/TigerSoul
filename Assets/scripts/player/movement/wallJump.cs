@@ -29,7 +29,7 @@ public class wallJump : baseUpgrade
 
     private IEnumerator ClearJump()
     {
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(1.8f);
         lastWall = 0;
         walljumping = false;
         yield return null;
@@ -55,7 +55,7 @@ public class wallJump : baseUpgrade
                 verticalvelocity = 0f;
             }
 
-            if ((targetSpeed = moveSpeed * 0.6f + basespeed * 0.8f) > 15)
+            if ((targetSpeed = moveSpeed * 0.6f + basespeed * 0.8f) > 15) 
             {
                 targetSpeed = 15;
             }
@@ -64,19 +64,29 @@ public class wallJump : baseUpgrade
                 lastWall = 1;
                 walljumping = true;
                 rb.linearVelocity = new Vector2(-targetSpeed, verticalvelocity + jumpForce * 0.75f);
+                if (coroutine != null)
+                {
+                    StopCoroutine(coroutine);
+                }
+                coroutine = StartCoroutine(ClearJump());
             }
             else if (contactLeft && (lastWall == 0 || lastWall == 1))
             {
                 lastWall = 2;
                 walljumping = true;
                 rb.linearVelocity = new Vector2(targetSpeed, verticalvelocity + jumpForce * 0.75f);
+                if (coroutine != null)
+                {
+                    StopCoroutine(coroutine);
+                }
+                coroutine = StartCoroutine(ClearJump());
             }
-            if (coroutine != null)
+            else
             {
-                StopCoroutine(ClearJump());
+                return 2;
             }
-            coroutine = StartCoroutine(ClearJump());
-            return 1;
+
+                return 1;
         }
         else
         {

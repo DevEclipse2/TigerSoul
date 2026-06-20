@@ -10,10 +10,20 @@ public class dash : baseUpgrade
     Vector2 DashTarget;
     bool closestpt = false;
     public LayerMask dashLayer;
-    bool dashing;
+    public bool dashing;
     public float dashTime;
     float timer;
     float gravScale = 0;
+
+    [SerializeField]
+    GameObject dashcloud;
+    [SerializeField]
+    Vector2 Loffset;
+    [SerializeField]
+    Vector2 Roffset;
+
+    public Animator animator;
+    public Animator animatorCloud;
     public override void cooldown()
     {
         base.cooldown();
@@ -33,7 +43,8 @@ public class dash : baseUpgrade
             {
                 dashing = false;
                 movementscript.changeMove(true);
-
+                animator.SetBool("Dash", false);
+                animatorCloud.SetBool("Dash", false);
                 rb.gravityScale = gravScale;
                 rb.linearVelocity = Vector2.zero;
             }
@@ -82,7 +93,13 @@ public class dash : baseUpgrade
         }
         
     }
-
+    public IEnumerator killAnim()
+    {
+        yield return new WaitForSeconds(dashTime);
+        animator.SetBool("Dash", false);
+        animatorCloud.SetBool("Dash", false);
+        yield return null;
+    }
     public override void useAbility()
     {
         Debug.Log("Dash");
@@ -96,6 +113,10 @@ public class dash : baseUpgrade
         rb.gravityScale = 0;
         movementscript.resetLastWall();
         RaycastHit2D geometry;
+        animator.SetBool("Dash", true);
+        animatorCloud.SetBool("Dash", true);
+        StartCoroutine(killAnim());
+        movementscript.resetWallJump();
         if (movementscript.isLeft)
         {
             geometry = Physics2D.BoxCast(movementscript.gameObject.transform.position, new Vector2(2.16f, 0.18f), 0, Vector2.left, dashAmt, dashLayer);
@@ -111,20 +132,26 @@ public class dash : baseUpgrade
             if (!geometry)
             {
                 DashTarget = movementscript.gameObject.transform.position + new Vector3(-dashAmt, 0, 0);
+                dashcloud.transform.localScale = new Vector2(-1, 1);
+                dashcloud.transform.position = DashTarget + Loffset;
+
             }
             else
             {
                 Debug.Log(geometry.collider.gameObject.name);
                 closestpt = true;
                 DashTarget = geometry.collider.ClosestPoint(movementscript.gameObject.transform.position);
-                DashTarget = new Vector2(DashTarget.x + 1.2f, DashTarget.y);
+                DashTarget = new Vector2(DashTarget.x + 1.2f, movementscript.gameObject.transform.position.y);
+                dashcloud.transform.localScale = new Vector2(-1, 1);
+                dashcloud.transform.localScale *= ((DashTarget.x - movementscript.gameObject.transform.position.x) / dashAmt) * -1;
+                dashcloud.transform.position = DashTarget + Loffset;
             }
 
         }
         else
         {
-            geometry = Physics2D.BoxCast(movementscript.gameObject.transform.position, new Vector2(2.16f, 0.18f), 0, Vector2.right, dashAmt, dashLayer);
 
+            geometry = Physics2D.BoxCast(movementscript.gameObject.transform.position, new Vector2(2.16f, 0.18f), 0, Vector2.right, dashAmt, dashLayer);
             try
             {
                 Debug.Log(geometry.collider.gameObject.name);
@@ -135,7 +162,8 @@ public class dash : baseUpgrade
             if (!geometry)
             {
                 DashTarget = movementscript.gameObject.transform.position + new Vector3(dashAmt, 0, 0);
-
+                dashcloud.transform.localScale = new Vector2(1, 1);
+                dashcloud.transform.position = DashTarget + Roffset;
 
             }
             else
@@ -143,7 +171,10 @@ public class dash : baseUpgrade
 
                 closestpt = true;
                 DashTarget = geometry.collider.ClosestPoint(movementscript.gameObject.transform.position);
-                DashTarget = new Vector2(DashTarget.x - 1.2f, DashTarget.y);
+                DashTarget = new Vector2(DashTarget.x - 1.2f, movementscript.gameObject.transform.position.y);
+                dashcloud.transform.localScale = new Vector2(1, 1);
+                dashcloud.transform.localScale *= ((DashTarget.x - movementscript.gameObject.transform.position.x) / dashAmt);
+                dashcloud.transform.position = DashTarget + Loffset;
             }
         }
         rb.linearVelocity = Vector2.zero;
