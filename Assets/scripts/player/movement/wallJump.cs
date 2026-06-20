@@ -29,14 +29,15 @@ public class wallJump : baseUpgrade
 
     private IEnumerator ClearJump()
     {
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(0.8f);
         lastWall = 0;
+        walljumping = false;
         yield return null;
     }
 
-    public override void useAbility()
+    public int useAbility()
     {
-        if(!Active) return;
+        if(!Active) return -1;
 
 
         Rigidbody2D rb = movementscript.rb;
@@ -75,6 +76,11 @@ public class wallJump : baseUpgrade
                 StopCoroutine(ClearJump());
             }
             coroutine = StartCoroutine(ClearJump());
+            return 1;
+        }
+        else
+        {
+            return 2;
         }
     }
 }

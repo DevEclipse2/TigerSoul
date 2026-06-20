@@ -30,7 +30,7 @@ public class DialogueInitaliser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(index == -1)
+        if(index == -1 || index >= inputParser.pressed.Count)
         {
             index = inputParser.recentInput.IndexOf(Input.Interact);
         }

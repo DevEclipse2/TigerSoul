@@ -17,8 +17,8 @@ public class PlayerMove : MonoBehaviour
     [SerializeField]
     GameObject damageroot;
     DealDamage damagescript;
-
-
+    [SerializeField]
+    Animator animator;
 
     public LayerMask groundLayer;         // Layer for the ground
     public Transform groundCheck;         // Transform to check if the player is grounded
@@ -28,19 +28,22 @@ public class PlayerMove : MonoBehaviour
 
     public GameObject dashObject;
     public GameObject walljumpObject;
+    public GameObject doublejumpObject;
 
     private dash dashModule;
     private wallJump walljumpModule;
+    private DoubleJump doublejumpModule;
     public GameObject InputController;
     InputParser parser;
     public Rigidbody2D rb;
 
     public bool isLeft = false;
 
-    public bool Damage;
+    public bool Damage = false;
     //for dash
     public void rechargeDash() { dashModule.cooldown(); }
     public void changeMove(bool value) { canMove = value; }
+    public void excludeDash(bool  value) { dashModule.Active = value; }
 
     //for walljump
     public void resetLastWall() { walljumpModule.lastWall = 0; }
@@ -64,6 +67,13 @@ public class PlayerMove : MonoBehaviour
             walljumpModule.Active = true;
             walljumpModule.init();
         }
+        if (upgradeLoader.DoubleJump)
+        {
+            doublejumpModule           = doublejumpObject.GetComponent<DoubleJump>();
+            doublejumpModule.Active    = true;
+            doublejumpModule.Available = true;
+            doublejumpModule.init();
+        }
 
     }
     public bool GroundCheck()
@@ -72,9 +82,10 @@ public class PlayerMove : MonoBehaviour
     }
     public void OnMove(InputValue value)
     {
+        
+        moveDir = value.Get<Vector2>();
         if (canMove)
         {
-            moveDir = value.Get<Vector2>();
             rb.linearVelocity = new Vector2(moveDir.x * moveSpeed, rb.linearVelocity.y);
         }
     }
@@ -87,11 +98,13 @@ public class PlayerMove : MonoBehaviour
         {
             walljumpModule.lastWall = 0;
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            doublejumpModule.Available = true;
             //rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         }
         else
         {
-            walljumpModule.useAbility();
+            switch(walljumpModule.useAbility())
+            { case -1:break; case 1:break; case 2: doublejumpModule.useAbility(); break; }
         }
     }
 
@@ -116,22 +129,29 @@ public class PlayerMove : MonoBehaviour
                     rb.linearVelocity = new Vector2(rb.linearVelocity.x * 0.95f, rb.linearVelocity.y);
                 }
             }
-            else if (!walljumpModule.walljumping)
+            else
             {
-                if (!Damage)
+                if (!walljumpModule.walljumping)
                 {
-                    rb.linearVelocity = new Vector2(moveDir.x * moveSpeed, rb.linearVelocity.y);
-                    //Debug.Log(rb.linearVelocityX);
-                }
-                else
-                {
-                    float velx = rb.linearVelocity.x + moveDir.x * moveSpeed * 0.6f * Time.deltaTime;
-                    rb.linearVelocity = new Vector2(Mathf.Clamp(velx, -15, 15), rb.linearVelocityY);
+                    
+                    if (!Damage && canMove)
+                    {
+
+                        rb.linearVelocity = new Vector2(moveDir.x * moveSpeed, rb.linearVelocity.y);
+                        //Debug.Log(rb.linearVelocityX);
+                    }
+                    else
+                    {
+                        float velx = rb.linearVelocity.x + moveDir.x * moveSpeed * 0.6f * Time.deltaTime;
+                        rb.linearVelocity = new Vector2(Mathf.Clamp(velx, -15, 15), rb.linearVelocityY);
 
 
+                    }
                 }
             }
+            
         }
+       
         if (moveDir.x < 0)
         {
             //left

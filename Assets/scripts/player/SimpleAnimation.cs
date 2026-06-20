@@ -69,6 +69,10 @@ public class SimpleAnimation : MonoBehaviour
         
     }
 
+    public void StopDoubleJump()
+    {
+        animator.SetBool("DoubleJ", false);
+    }
     void Start()
     {
         animator.SetBool("Attack", false);

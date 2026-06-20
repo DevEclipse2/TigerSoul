@@ -10,9 +10,15 @@ public class CameraBounds : MonoBehaviour
     public GameObject colliderObject;
     Collider2D Collider;
     bool Valid;
+    public float snapspeed = 10.0f;
+    public float snapspeedLowBound = 4.0f;
+    private Rigidbody2D rb;
+    public bool snap = false;
+
     private void Start()
     {
         Collider = colliderObject.GetComponent<Collider2D>();
+        rb= player.gameObject.GetComponent<Rigidbody2D>();
     }
     void LateUpdate()
     {
@@ -39,7 +45,19 @@ public class CameraBounds : MonoBehaviour
         // Smoothly transition the camera's position to the desired position
         if (Valid)
         {
-            
+            if( Mathf.Abs(rb.linearVelocityY) > snapspeed)
+            {
+
+                snap = true;
+            }
+            if (snap)
+            {
+                transform.position = desiredPosition;
+                if(Mathf.Abs(rb.linearVelocityY) < snapspeedLowBound)
+                {
+                    snap = false;
+                }
+            }
             transform.position = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
         }
         

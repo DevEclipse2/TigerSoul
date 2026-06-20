@@ -28,6 +28,7 @@ public class movement : MonoBehaviour
 
     public dash dashModule;
     public wallJump walljumpModule;
+    public DoubleJump doubleJumpModule;
     public GameObject InputController;
     InputParser parser;
     public Rigidbody2D rb;
@@ -50,15 +51,19 @@ public class movement : MonoBehaviour
         damagescript = damageroot.GetComponent<DealDamage>();
         if (upgradeLoader.Dash)
         {
-            dashModule.enabled = true;
+            dashModule.Active = true;
             dashModule.init();
         }
         if (upgradeLoader.wallJump)
         {
-            walljumpModule.enabled = true;
+            walljumpModule.Active = true;
             walljumpModule.init();
         }
-
+        if (upgradeLoader.DoubleJump)
+        {
+            doubleJumpModule.enabled = true;
+            walljumpModule.init();
+        }
     }
     public bool GroundCheck()
     {
