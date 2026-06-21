@@ -703,7 +703,7 @@ MonoBehaviour:
   dashAmt: 8
   dashLayer:
     serializedVersion: 2
-    m_Bits: 200
+    m_Bits: 2248
   dashing: 0
   dashTime: 0.2
   dashcloud: {fileID: 5418429598663868635}
