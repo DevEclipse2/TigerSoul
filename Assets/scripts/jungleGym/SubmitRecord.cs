@@ -12,6 +12,7 @@ public class ScoreSubmitter : MonoBehaviour
     public TMP_InputField nameInputField;
     public Button submitButton;
     public TextMeshProUGUI statusText;
+    public TextMeshProUGUI Time;
 
     [Header("Database Settings")]
     public string databaseEndpoint = "https://jgym-record-keeper.anticlankerhammer.org";
@@ -29,6 +30,7 @@ public class ScoreSubmitter : MonoBehaviour
     private void Start()
     {
         currentRecordTime = Data.time;
+        Time.text = currentRecordTime.ToString();
         if (submitButton != null)
         {
             submitButton.onClick.AddListener(OnSubmitClicked);
@@ -51,6 +53,7 @@ public class ScoreSubmitter : MonoBehaviour
         submitButton.interactable = false;
         statusText.text = "Processing...";
 
+       
         StartCoroutine(SendScoreToDatabase(rawName, currentRecordTime));
     }
 
@@ -59,29 +62,6 @@ public class ScoreSubmitter : MonoBehaviour
     {
         ScorePayload payload = new ScorePayload { playerName = playerName, time = time };
         string jsonData = JsonUtility.ToJson(payload);
-
-#if UNITY_EDITOR
-        Debug.Log("Editor detected: Simulating CORS Preflight (OPTIONS) request...");
-        using (UnityWebRequest preflight = new UnityWebRequest(databaseEndpoint, "OPTIONS"))
-        {
-            preflight.downloadHandler = new DownloadHandlerBuffer();
-            preflight.SetRequestHeader("Access-Control-Request-Method", "POST");
-            preflight.SetRequestHeader("Access-Control-Request-Headers", "Content-Type");
-            preflight.SetRequestHeader("Origin", "https://unity-editor-mock.com"); // Mock origin
-
-            yield return preflight.SendWebRequest();
-
-            if (preflight.result != UnityWebRequest.Result.Success)
-            {
-                Debug.LogWarning($"Simulated CORS Preflight failed: {preflight.error}. Check your Cloudflare Worker OPTIONS route.");
-            }
-            else
-            {
-                Debug.Log("Simulated CORS Preflight successful. Proceeding to POST.");
-            }
-        }
-#endif
-
         using (UnityWebRequest request = UnityWebRequest.Put(databaseEndpoint, jsonData))
         {
             request.method = UnityWebRequest.kHttpVerbPOST;

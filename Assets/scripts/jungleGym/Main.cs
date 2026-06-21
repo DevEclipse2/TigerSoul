@@ -1,3 +1,4 @@
+using System.Reflection;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,18 +15,30 @@ public class Main : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI leverC;
     float updatetimer = 0;
+    public bool force;
+    bool intrigger;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         
     }
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
-        if(levers == 7)
+        Debug.Log("entered");
+
+        if (levers == 7 || force)
         {
             Data.time = time;
             SceneManager.LoadScene(scene);
         }
+        else
+        {
+            intrigger = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        intrigger = false;
     }
     // Update is called once per frame
     void Update()
@@ -40,7 +53,14 @@ public class Main : MonoBehaviour
             }
         }
         levers = levercount;
-        leverC.text = levers.ToString() + "/7 Levers";
+        if (intrigger)
+        {
+            leverC.text = "missing a few levers: " + levers.ToString() + "/7 !";
+        }
+        else
+        {
+            leverC.text = levers.ToString() + "/7 Levers";
+        }
         timer.text = time.ToString();
         time += Time.deltaTime;
         updatetimer += Time.deltaTime;
