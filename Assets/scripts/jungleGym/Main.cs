@@ -8,7 +8,7 @@ public class Main : MonoBehaviour
     float time = 0;
     int levers = 0;
     [SerializeField]
-    int scene = 0;
+    string scene;
     [SerializeField]
     GameObject[] leverObjects;
     [SerializeField]

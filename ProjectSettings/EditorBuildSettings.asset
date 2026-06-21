@@ -11,72 +11,78 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Titlescreen.unity
     guid: aced459d41227b74cab9c71b5e86c489
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game/ch0/Maintenance.unity
     guid: e3da882ae5706424995f8e4f5c8d6219
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game/ch0/Battlements.unity
     guid: dc9492da0ee1ca04ba4fdd48771f0fd1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game/ch0/Chasm.unity
     guid: 83cec8e936b61a8458ddb490ef5bcd9c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game/ch0/Mortar.unity
     guid: a3ce97c682aeff84cad34f4b5b1d6f02
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game/ch0/Spiral.unity
     guid: 3590c8b28c6314c4db491e0370ee31eb
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/credits.unity
     guid: 6526fa908d2a64f4d9483d41b5aac0d8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/terminator.unity
     guid: 4e4544f6198dece478addc8068dbd837
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game/catacombs/Crevice.unity
     guid: f4057cad6bdee924d9940527d13d0cb6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game/catacombs/crossroads.unity
     guid: fb26f92fe348b6a46ae2b34b0bf12c62
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game/catacombs/Antechamber.unity
     guid: 897fe2783bb0e6d4398d7f891d2b7775
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game/catacombs/Grand Chamber.unity
     guid: c75281fc8b2a64943ab14e4e122c8302
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game/catacombs/clearedGrandChamber.unity
     guid: de829818e44217848b8340c0e9ff17e9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game/catacombs/Trial.unity
     guid: 84183d345368cdc4f9c0143d2e0de82d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game/catacombs/Subterranean.unity
     guid: 2ad6ce936858f534692ef57439a68e1f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game/catacombs/Enlighten.unity
     guid: 4f7ee293b4bc46b429d247707d49d498
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game/catacombs/Judgement.unity
     guid: 983acbfc54b4e3742bf96997c8a8c986
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game/catacombs/CharArena.unity
     guid: 158ab503f912d884d9e56ce763f8037b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game/catacombs/splitway.unity
     guid: e52a2c9464eddec49b8ab45050527d07
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game/catacombs/UnderTanker.unity
     guid: 467bee5a2e4bec943bda18d533112286
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game/catacombs/usurp.unity
     guid: 0df4e1d6931aab74fbcaf4cd02910bb4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game/catacombs/Rite.unity
     guid: 0e9ecdab817450a41bfb21950d8e69f9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game/catacombs/Mausoleum.unity
     guid: ac2578eb93444e54b800d190549d2b92
+  - enabled: 1
+    path: Assets/Scenes/testingScenes/jungleGym.unity
+    guid: fe3adb6e562ef834da9a78914a568c74
+  - enabled: 1
+    path: Assets/scoreboard.unity
+    guid: 5b1430cb92759a74b8772a3db56e4540
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 631571f1d2e06324ca07f1e762818260, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: c64ef7a5e7010454c822a21faaca7ea3, type: 3}

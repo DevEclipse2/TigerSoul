@@ -17,7 +17,6 @@ public class ScoreSubmitter : MonoBehaviour
     public string databaseEndpoint = "https://your-database-api.com/submit-score";
 
     // Assume this is being tracked elsewhere in your game
-    [Header("Mock Data")]
     public float currentRecordTime = 42.5f;
 
     // A basic HashSet for exact word matching. 
@@ -33,6 +32,7 @@ public class ScoreSubmitter : MonoBehaviour
 
     private void Start()
     {
+        currentRecordTime = Data.time;
         // Hook up the button click event via code
         if (submitButton != null)
         {

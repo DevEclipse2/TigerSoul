@@ -54,6 +54,7 @@ public class TitleScreen : MonoBehaviour
             Exittimer += Time.deltaTime;
             if(TimerExitMax < Exittimer)
             {
+                
                 SceneManager.LoadScene(SceneToSwap);
             }
             Darken.GetComponent<SpriteRenderer>().color = new Color(initialCol2.r, initialCol2.g, initialCol2.b, Mathf.Clamp01(Exittimer/TimerExitMax));
