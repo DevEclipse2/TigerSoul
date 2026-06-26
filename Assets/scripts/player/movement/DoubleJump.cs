@@ -31,7 +31,7 @@ public class DoubleJump : baseUpgrade
             movementscript.excludeDash(false);
             movementscript.changeMove(false);
             StartCoroutine(pauseMovement());
-            animator.SetBool("DoubleJ", true);
+            animator.SetInteger("Action", 3);
         }
     }
 }

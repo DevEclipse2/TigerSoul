@@ -43,7 +43,6 @@ public class dash : baseUpgrade
             {
                 dashing = false;
                 movementscript.changeMove(true);
-                animator.SetBool("Dash", false);
                 animatorCloud.SetBool("Dash", false);
                 rb.gravityScale = gravScale;
                 rb.linearVelocity = Vector2.zero;
@@ -113,7 +112,7 @@ public class dash : baseUpgrade
         rb.gravityScale = 0;
         movementscript.resetLastWall();
         RaycastHit2D geometry;
-        animator.SetBool("Dash", true);
+        animator.SetInteger("Action", 5);
         animatorCloud.SetBool("Dash", true);
         StartCoroutine(killAnim());
         movementscript.resetWallJump();

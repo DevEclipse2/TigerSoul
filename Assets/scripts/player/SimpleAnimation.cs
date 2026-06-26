@@ -61,8 +61,7 @@ public class SimpleAnimation : MonoBehaviour
         if (!dying)
         {
             dying = true;
-            animator.SetBool("Dying", true);
-            animator.SetBool("Idle", false);
+            animator.SetInteger("Action", -1);
             ovveride = true;
             Controller.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
         }
@@ -71,7 +70,20 @@ public class SimpleAnimation : MonoBehaviour
 
     public void StopDoubleJump()
     {
-        animator.SetBool("DoubleJ", false);
+        animator.SetInteger("Action", 0);
+    }
+    public void StopDash()
+    {
+        animator.SetInteger("Action", 0);
+    }
+    public void StopFalling()
+    {
+        animator.SetBool("Falling", false);
+    }
+
+    public void StopAttack()
+    {
+        animator.SetInteger("Attack", 0);
     }
     void Start()
     {
@@ -120,8 +132,6 @@ public class SimpleAnimation : MonoBehaviour
             {
                 animator.SetBool("Falling", true);
                 falling = true;
-                animator.SetBool("Sliding", false);
-
             }
 
             for (int i = 0; i < inputs.Count; i++)
@@ -156,8 +166,6 @@ public class SimpleAnimation : MonoBehaviour
             if (falling && falltimer >= 0.3)
             {
                 animator.SetBool("FallInterp", true);
-                animator.SetBool("Sliding", false);
-
             }
             switch (Priorities[selectedIndex])
             {
@@ -166,11 +174,11 @@ public class SimpleAnimation : MonoBehaviour
                     {
                         if (falling)
                         {
-                            animator.SetBool("GroundContact", true);
+                            animator.SetBool("Falling", true);
+                            animator.SetBool("Grounded", true);
                             landingcloud.transform.position = move.transform.position + LandingCloudOffset;
                             //Debug.Log("Groundcontact");
                             Landtick = tick;
-                            animator.SetBool("Sliding", false);
 
                         }
                         else
@@ -178,14 +186,11 @@ public class SimpleAnimation : MonoBehaviour
 
                             if (velocity <= 0.2)
                             {
-                                animator.SetBool("Idle", true);
                                 animator.SetInteger("Action", 0);
-                                animator.SetBool("Sliding", false);
-
                                 break;
                             }
                             //Debug.Log("sliding");
-                            animator.SetInteger("Action", 3);
+                            animator.SetInteger("Action", 4);
 
                         }
 
@@ -202,13 +207,12 @@ public class SimpleAnimation : MonoBehaviour
                     {
                         if (falling)
                         {
-                            animator.SetBool("GroundContact", true);
+                            animator.SetBool("Grounded", true);
+                            animator.SetBool("Falling", true);
                             landingcloud.transform.position = move.transform.position + LandingCloudOffset;
                             //Debug.Log("Groundcontact");
                             Landtick = tick;
                         }
-                        animator.SetBool("Sliding", false);
-                        animator.SetBool("Idle", false);
                         animator.SetInteger("Action", 1);
                     }
                     else if (!falling)
@@ -219,9 +223,16 @@ public class SimpleAnimation : MonoBehaviour
                     }
                     break;
                 case Input.Attack: /* any additional checks*/
-                    AttackIn = !animator.GetBool("AttackIn");
-                    animator.SetBool("AttackIn", AttackIn);
-                    animator.SetBool("Attack", true);
+
+                    AttackIn = !AttackIn;
+                    if (AttackIn)
+                    {
+                        animator.SetInteger("Attack", 1);
+                    }
+                    else
+                    {
+                        animator.SetInteger("Attack", 2);
+                    }
                     Hittick = tick;
                     break;
                 //case Input.Dash: /* any additional checks*/ AttackIn = !AttackIn; animator.SetBool("AttackIn", AttackIn); animator.SetBool("Attack", true);  break;
@@ -232,7 +243,6 @@ public class SimpleAnimation : MonoBehaviour
                         if(animator.GetInteger("Action") != 2 && parser.timeHeld[inputs.IndexOf(Input.Jump)] < 0.2f)
                         {
                             //Debug.Log(parser.timeHeld[inputs.IndexOf(Input.Jump)]);
-                            animator.SetBool("Idle", false);
                             animator.SetInteger("Action", 2);
                         }
                         else
@@ -241,13 +251,11 @@ public class SimpleAnimation : MonoBehaviour
                             {
                                 if (active[inputs.IndexOf(Input.Move)])
                                 {
-                                    animator.SetBool("Sliding", false);
-                                    animator.SetBool("Idle", false);
                                     animator.SetInteger("Action", 1);
                                 }
                                 else
                                 {
-                                    animator.SetBool("Idle", true); animator.SetInteger("Action", 0);
+                                    animator.SetInteger("Action", 0);
                                 }
                             }
                         }
@@ -255,18 +263,13 @@ public class SimpleAnimation : MonoBehaviour
                         
                     }
                     break;
-                default: animator.SetBool("Idle", true); animator.SetInteger("Action", 0); break;
+                default: animator.SetInteger("Action", 0); break;
             }
-            if (!falling && animator.GetBool("GroundContact") && tick > (Landtick + 40))
-            {
-                animator.SetBool("GroundContact", false);
+            //if (!falling && animator.GetBool("GroundContact") && tick > (Landtick + 40))
+            //{
+            //    animator.SetBool("GroundContact", false);
 
-            }
-            if (animator.GetBool("Attack") && tick > (Hittick + 20))
-            {
-                animator.SetBool("Attack", false);
-
-            }
+            //}
             if (move.GroundCheck())
             {
                 if (falling)
@@ -290,18 +293,9 @@ public class SimpleAnimation : MonoBehaviour
             //Debug.Log("override");
             animator.SetBool("Falling", false);
             animator.SetBool("FallInterp", false);
-            animator.SetBool("Sliding", false);
             animator.SetBool("Grounded", true);
             animator.SetInteger("Action", 0 ) ;
             falling = false;
-            if (dying)
-            {
-                animator.SetBool("Idle", false);
-            }
-            else
-            {
-                animator.SetBool("Idle", true);
-            }
         }
     }
 }
