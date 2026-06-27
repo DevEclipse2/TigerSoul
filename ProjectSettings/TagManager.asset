@@ -20,7 +20,7 @@ TagManager:
   - camBounds
   - DestructibleNonCollide
   - HurtTrig
-  - 
+  - NoDash
   - 
   - 
   - 
