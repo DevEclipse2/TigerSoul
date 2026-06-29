@@ -232,6 +232,7 @@ MonoBehaviour:
   RightWall: {fileID: 2565339625829316867}
   groundCheckRadius: 0.2
   walljumping: 0
+  animator: {fileID: 2959546877090752486}
 --- !u!1 &804381416566587566
 GameObject:
   m_ObjectHideFlags: 0
@@ -1848,7 +1849,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 7.86, y: 9.22}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -3567,7 +3568,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10.31, y: 9.22}
+  m_Size: {x: 7.86, y: 9.22}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0

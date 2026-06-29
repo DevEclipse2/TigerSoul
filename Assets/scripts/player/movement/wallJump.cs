@@ -17,7 +17,7 @@ public class wallJump : baseUpgrade
     LayerMask groundLayer;
     float targetSpeed = 0;
     public bool walljumping;
-
+    public Animator animator;
     private Coroutine coroutine;
     public override void init()
     {
@@ -68,6 +68,7 @@ public class wallJump : baseUpgrade
                 {
                     StopCoroutine(coroutine);
                 }
+                animator.SetInteger("Action", 6);
                 coroutine = StartCoroutine(ClearJump());
             }
             else if (contactLeft && (lastWall == 0 || lastWall == 1))
@@ -79,6 +80,7 @@ public class wallJump : baseUpgrade
                 {
                     StopCoroutine(coroutine);
                 }
+                animator.SetInteger("Action", 6);
                 coroutine = StartCoroutine(ClearJump());
             }
             else
