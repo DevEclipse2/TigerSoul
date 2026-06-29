@@ -86,6 +86,10 @@ public class SimpleAnimation : MonoBehaviour
         animator.SetBool("Touchdown", false);
 
     }
+    public void FlipPlayer()
+    {
+        move.isLeft = move.targLeft;
+    }
     public void StopFalling()
     {
         animator.SetBool("Falling", false);

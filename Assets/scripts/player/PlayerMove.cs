@@ -38,7 +38,7 @@ public class PlayerMove : MonoBehaviour
     public Rigidbody2D rb;
 
     public bool isLeft = false;
-
+    public bool targLeft = false;
     public bool Damage = false;
     //for dash
     public void rechargeDash() { dashModule.cooldown(); }

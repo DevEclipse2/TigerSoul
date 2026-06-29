@@ -69,6 +69,7 @@ public class wallJump : baseUpgrade
                     StopCoroutine(coroutine);
                 }
                 animator.SetInteger("Action", 6);
+                movementscript.targLeft = true;
                 coroutine = StartCoroutine(ClearJump());
             }
             else if (contactLeft && (lastWall == 0 || lastWall == 1))
@@ -81,6 +82,8 @@ public class wallJump : baseUpgrade
                     StopCoroutine(coroutine);
                 }
                 animator.SetInteger("Action", 6);
+                movementscript.targLeft = false;
+
                 coroutine = StartCoroutine(ClearJump());
             }
             else
