@@ -10,7 +10,7 @@ public class CameraBounds : MonoBehaviour
     public GameObject colliderObject;
     Collider2D Collider;
     bool Valid;
-    public float snapspeed = 10.0f;
+    public float snapspeed = 15.0f;
     public float snapspeedLowBound = 4.0f;
     private Rigidbody2D rb;
     public bool snap = false;
@@ -19,6 +19,7 @@ public class CameraBounds : MonoBehaviour
     {
         Collider = colliderObject.GetComponent<Collider2D>();
         rb= player.gameObject.GetComponent<Rigidbody2D>();
+        snapspeed = 20;
     }
     void LateUpdate()
     {
