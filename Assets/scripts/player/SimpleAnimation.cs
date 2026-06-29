@@ -76,6 +76,16 @@ public class SimpleAnimation : MonoBehaviour
     {
         animator.SetInteger("Action", 0);
     }
+    public void TouchDownCloud()
+    {
+        animator.SetBool("Touchdown", true);
+
+    }
+    public void EndTouchDownCloud()
+    {
+        animator.SetBool("Touchdown", false);
+
+    }
     public void StopFalling()
     {
         animator.SetBool("Falling", false);
