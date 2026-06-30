@@ -7,9 +7,12 @@ public class UnderTankerLift : MonoBehaviour
     public GameObject collisionBottom;
     private CollisionHandle cHTop;
     private CollisionHandle cHBot;
+    [SerializeField]
     bool bottom;
+    [SerializeField]
     bool top;
     Animator animator;
+    public float exitTimer = 0; 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,6 +24,18 @@ public class UnderTankerLift : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (top)
+        {
+            exitTimer += Time.deltaTime;
+            if (exitTimer > 5)
+            {
+                top = false;
+                bottom = false;
+                animator.SetInteger("Value", 3);
+                exitTimer = 0;
+            }
+
+        }
         if(cHTop.IsTriggered)
         {
             if (!top && !bottom)
