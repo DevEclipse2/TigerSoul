@@ -10852,12 +10852,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelTransition
   sceneToLoad:
-  - usurp
+  - congregate
   - Antechamber
   - Mausoleum
   - Enlighten
   player: {fileID: 2107957648}
-  loadPositions: 000000000000000000000000
+  loadPositions: 010000000000000000000000
   fade: {fileID: 2107957649}
   targetpos: 0
 --- !u!1 &2134426833
