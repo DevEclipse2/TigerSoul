@@ -29,6 +29,8 @@ public class ScoreSubmitter : MonoBehaviour
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         currentRecordTime = Data.time;
         Time.text = currentRecordTime.ToString();
         if (submitButton != null)
