@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8495112675083530985}
   - component: {fileID: 8652819794739557089}
   - component: {fileID: 7692285839970293884}
+  - component: {fileID: 2110675706423015986}
   m_Layer: 0
   m_Name: Bubble Column
   m_TagString: Untagged
@@ -114,3 +115,16 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &2110675706423015986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7796613767996235036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eef6ad7942b02b4481488a14ec0ae19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Bubble
+  permanent: 1
