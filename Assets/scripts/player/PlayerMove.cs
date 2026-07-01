@@ -33,6 +33,7 @@ public class PlayerMove : MonoBehaviour
     private dash dashModule;
     private wallJump walljumpModule;
     private DoubleJump doublejumpModule;
+    private Stomp stompModule;
     public GameObject InputController;
     InputParser parser;
     public Rigidbody2D rb;
@@ -45,6 +46,7 @@ public class PlayerMove : MonoBehaviour
     public void resetWallJump() { walljumpModule.walljumping = false; }
     public void changeMove(bool value) { canMove = value; }
     public void excludeDash(bool  value) { dashModule.Active = value; }
+    public void excludeDouble(bool  value) { doublejumpModule.Active = value; }
 
     //for walljump
     public void resetLastWall() { walljumpModule.lastWall = 0; walljumpModule.walljumping = false; }
@@ -115,6 +117,10 @@ public class PlayerMove : MonoBehaviour
     public void OnDash()
     {
         dashModule.useAbility();
+    }
+    public void OnCrouch()
+    {
+        stompModule.useAbility();
     }
     // Update is called once per frame
     void Update()

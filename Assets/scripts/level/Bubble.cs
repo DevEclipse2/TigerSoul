@@ -6,6 +6,6 @@ public class Bubble : MonoBehaviour
     public void selfDestruct()
     {
         if (permanent) return;
-        Destroy(this);
+        Destroy(this.gameObject);
     }
 }

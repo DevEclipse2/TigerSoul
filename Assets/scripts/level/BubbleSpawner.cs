@@ -53,8 +53,7 @@ public class BubbleSpawner : MonoBehaviour
     GameObject bubbleInstance;
     void Start()
     {
-        bottomLeftpos = BottomLeft.transform.position;
-        topRightpos = TopRight.transform.position;
+        
         StartCoroutine(updateLoop());
     }
     IEnumerator updateLoop()
@@ -63,6 +62,8 @@ public class BubbleSpawner : MonoBehaviour
             yield return new WaitForSeconds(frequency);
             if(Random.Range(0.0f,1.0f) > probability)
             {
+                bottomLeftpos = BottomLeft.transform.position;
+                topRightpos = TopRight.transform.position;
                 //spawn shi
                 float alpha = 0;
                 if (useDiscreteAlphas)
@@ -93,12 +94,11 @@ public class BubbleSpawner : MonoBehaviour
                 }
                 Vector2 position = new Vector2(Random.Range(bottomLeftpos.x, topRightpos.x), Random.Range(bottomLeftpos.y, topRightpos.y));
                 Color color = colorPalette[Random.Range(0, colorPalette.Length-1)];
-                GameObject spawnobj = Instantiate(bubbleInstance);
+                GameObject spawnobj = Instantiate(bubbleInstance);  
 
                 spawnobj.transform.position = position;
                 spawnobj.transform.localScale = new Vector3(size.x, size.y, spawnobj.transform.localScale.z);
                 spawnobj.GetComponent<Animator>().speed = speed;
-                spawnobj.AddComponent<Bubble>();
                 spawnobj.GetComponent<Bubble>().permanent = false;
                 spawnobj.GetComponent<SpriteRenderer>().color = new Color(color.r,color.g,color.b,alpha);
             }

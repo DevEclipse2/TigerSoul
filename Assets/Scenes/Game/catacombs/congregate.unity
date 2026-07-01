@@ -404,7 +404,7 @@ Transform:
   m_GameObject: {fileID: 199686966}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.6, y: 1.5, z: 0}
+  m_LocalPosition: {x: 3.4, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -860,6 +860,8 @@ MonoBehaviour:
   - {fileID: 873394706}
   - {fileID: 1568433714}
   - {fileID: 1795289582}
+  - {fileID: 894350112}
+  - {fileID: 199686966}
   intensities:
   - 0.3
   - 0.18
@@ -867,8 +869,10 @@ MonoBehaviour:
   - 0.08
   - 0.08
   - 0.04
-  LockX: 000000000000
-  LockY: 010101010101
+  - 1
+  - 1
+  LockX: 0000000000000000
+  LockY: 0101010101010101
   cameraTransform: {fileID: 868160840}
 --- !u!1 &333287164
 GameObject:
@@ -1447,11 +1451,27 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1204120972}
     m_Modifications:
+    - target: {fileID: 1385680363950521591, guid: 95ad9d817dfc1c94cba229d8e472a9b3, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385680363950521591, guid: 95ad9d817dfc1c94cba229d8e472a9b3, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385680363950521591, guid: 95ad9d817dfc1c94cba229d8e472a9b3, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385680363950521591, guid: 95ad9d817dfc1c94cba229d8e472a9b3, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1519760459363406380, guid: 95ad9d817dfc1c94cba229d8e472a9b3, type: 3}
       propertyPath: permanent
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5338849252484248398, guid: 95ad9d817dfc1c94cba229d8e472a9b3, type: 3}
       propertyPath: m_Name
@@ -1459,11 +1479,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8168492162312958736, guid: 95ad9d817dfc1c94cba229d8e472a9b3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.15
+      value: 3.3861802
       objectReference: {fileID: 0}
     - target: {fileID: 8168492162312958736, guid: 95ad9d817dfc1c94cba229d8e472a9b3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -19.48
+      value: -7.6349897
       objectReference: {fileID: 0}
     - target: {fileID: 8168492162312958736, guid: 95ad9d817dfc1c94cba229d8e472a9b3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1505,6 +1525,11 @@ PrefabInstance:
 --- !u!1 &736388304 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5338849252484248398, guid: 95ad9d817dfc1c94cba229d8e472a9b3, type: 3}
+  m_PrefabInstance: {fileID: 736388303}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &736388308 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8168492162312958736, guid: 95ad9d817dfc1c94cba229d8e472a9b3, type: 3}
   m_PrefabInstance: {fileID: 736388303}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &739284363
@@ -2019,7 +2044,7 @@ Transform:
   m_GameObject: {fileID: 894350112}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.8, y: -1.7, z: 0}
+  m_LocalPosition: {x: -12, y: -1.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2438,6 +2463,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 736388308}
   - {fileID: 894350113}
   - {fileID: 199686967}
   m_Father: {fileID: 0}
@@ -2468,11 +2494,14 @@ MonoBehaviour:
   maxSpeed: 1.33
   colorPalette:
   - {r: 1, g: 1, b: 1, a: 0}
+  - {r: 0.74509805, g: 0.78039217, b: 0.6784314, a: 1}
+  - {r: 0.7457052, g: 0.7987421, b: 0.64552426, a: 1}
+  - {r: 0.72327036, g: 0.58763653, b: 0.54358995, a: 1}
   alphaPalette: []
   sizePalette: []
   speedPalette: []
-  frequency: 0.3
-  probability: 0.5
+  frequency: 0.1
+  probability: 0.3
   bubbleInstance: {fileID: 736388304}
 --- !u!1 &1246268323
 GameObject:
@@ -4288,4 +4317,3 @@ SceneRoots:
   - {fileID: 1280556145}
   - {fileID: 1204120972}
   - {fileID: 2013803376}
-  - {fileID: 736388303}
