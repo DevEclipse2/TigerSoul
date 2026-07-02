@@ -2503,6 +2503,9 @@ MonoBehaviour:
   - {fileID: 1086803837}
   - {fileID: 1188368555}
   colliderObject: {fileID: 1472317587}
+  snapspeed: 15
+  snapspeedLowBound: 4
+  snap: 0
 --- !u!1 &874689111
 GameObject:
   m_ObjectHideFlags: 0

@@ -2781,7 +2781,7 @@ MonoBehaviour:
   groundCheck: {fileID: 2181609746320903883}
   groundCheckRadius: 0.2
   moveDir: {x: 0, y: 0}
-  GroundCheckArea: {x: 2.1, y: 0.3}
+  GroundCheckArea: {x: 1.41, y: 0.4}
   dashObject: {fileID: 2641809758158670868}
   walljumpObject: {fileID: 798777201146292497}
   doublejumpObject: {fileID: 1091075852186681902}
