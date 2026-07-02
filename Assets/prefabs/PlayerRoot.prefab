@@ -2774,7 +2774,7 @@ MonoBehaviour:
   moveSpeed: 10
   jumpForce: 12
   damageroot: {fileID: 4059712571621258862}
-  animator: {fileID: 0}
+  animator: {fileID: 2959546877090752486}
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -2788,6 +2788,7 @@ MonoBehaviour:
   InputController: {fileID: 4518979163348515901}
   rb: {fileID: 3805896817518180224}
   isLeft: 0
+  targLeft: 0
   Damage: 0
 --- !u!50 &3805896817518180224
 Rigidbody2D:

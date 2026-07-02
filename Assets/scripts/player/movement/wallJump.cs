@@ -21,6 +21,7 @@ public class wallJump : baseUpgrade
     private Coroutine coroutine;
     public override void init()
     {
+        movementscript = playerController.GetComponent<PlayerMove>();
         groundCheckRadius = movementscript.groundCheckRadius;
         moveSpeed = movementscript.moveSpeed;
         groundLayer = movementscript.groundLayer;

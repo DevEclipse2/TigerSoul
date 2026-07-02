@@ -10,7 +10,7 @@ public class DoubleJump : baseUpgrade
     float disableMoves = 0.2f;
     public override void init()
     {
-        
+        movementscript = playerController.GetComponent<PlayerMove>();
     }
     public IEnumerator pauseMovement()
     {

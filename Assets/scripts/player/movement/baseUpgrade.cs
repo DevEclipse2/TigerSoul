@@ -5,7 +5,7 @@ using UnityEngine;
 public class baseUpgrade : MonoBehaviour
 {
     [SerializeField]
-    protected GameObject playerController;
+    public GameObject playerController;
     protected PlayerMove movementscript;
     public bool Active;
     public bool Available;

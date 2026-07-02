@@ -8,7 +8,7 @@ public class SavePoint : MonoBehaviour
 {
     public string levelId;
     public string thisId;
-    public Vector2 location;
+    public Vector2 location; 
     public bool isDeath;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -16,6 +16,7 @@ public class SavePoint : MonoBehaviour
     {
         isDeath = true;
         SceneManager.sceneLoaded += OnSceneLoaded; // Subscribe to the sceneLoaded event
+        Debug.Log("loading Scene" + Datapersistence.Reloadscene);
         SceneManager.LoadScene(Datapersistence.Reloadscene);
 
     }

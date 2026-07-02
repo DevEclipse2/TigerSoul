@@ -59,20 +59,28 @@ public class PlayerMove : MonoBehaviour
         damagescript = damageroot.GetComponent<DealDamage>();
         if (upgradeLoader.Dash)
         {
+            Debug.Log("use Dash module");
             dashModule = dashObject.GetComponent<dash>();
+            dashModule.playerController = this.gameObject;
             dashModule.Active = true;
             dashModule.Available = true;
             dashModule.init();
         }
         if (upgradeLoader.wallJump)
         {
+            Debug.Log("use walljump module");
+
             walljumpModule = walljumpObject.GetComponent<wallJump>();
+            walljumpModule.playerController = this.gameObject;
             walljumpModule.Active = true;
             walljumpModule.init();
         }
         if (upgradeLoader.DoubleJump)
         {
-            doublejumpModule           = doublejumpObject.GetComponent<DoubleJump>();
+            Debug.Log("use double jump module");
+
+            doublejumpModule = doublejumpObject.GetComponent<DoubleJump>();
+            doublejumpModule.playerController = this.gameObject;
             doublejumpModule.Active    = true;
             doublejumpModule.Available = true;
             doublejumpModule.init();

@@ -30,6 +30,7 @@ public class dash : baseUpgrade
     }
     public override void init()
     {
+        movementscript = playerController.GetComponent<PlayerMove>();
         gravScale = movementscript.rb.gravityScale;
     }
     public void dashtick()

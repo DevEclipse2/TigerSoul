@@ -61,14 +61,18 @@ public class SimpleAnimation : MonoBehaviour
         if (!dying)
         {
             dying = true;
-            animator.SetInteger("Action", -1);
+            animator.SetBool("dead", true);
             ovveride = true;
             Controller.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
         }
         
     }
+    public void Death()
+    {
+        animator.SetBool("dead", false);
 
-    public void StopDoubleJump()
+    }
+public void StopDoubleJump()
     {
         animator.SetInteger("Action", 0);
     }
