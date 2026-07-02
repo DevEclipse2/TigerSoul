@@ -2772,7 +2772,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InputHandler
   canMove: 1
   moveSpeed: 10
-  jumpForce: 12
+  jumpForce: 14
   damageroot: {fileID: 4059712571621258862}
   animator: {fileID: 2959546877090752486}
   groundLayer:
@@ -2805,7 +2805,7 @@ Rigidbody2D:
   m_Mass: 10
   m_LinearDamping: 0.2
   m_AngularDamping: 0.05
-  m_GravityScale: 2.5
+  m_GravityScale: 1.8
   m_Material: {fileID: 6200000, guid: fa29235f91cfb3c4db7962ea4feeed59, type: 2}
   m_IncludeLayers:
     serializedVersion: 2

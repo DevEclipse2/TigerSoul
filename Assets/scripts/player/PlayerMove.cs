@@ -42,14 +42,14 @@ public class PlayerMove : MonoBehaviour
     public bool targLeft = false;
     public bool Damage = false;
     //for dash
-    public void rechargeDash() { dashModule.cooldown(); }
-    public void resetWallJump() { walljumpModule.walljumping = false; }
+    public void rechargeDash() { if (!upgradeLoader.Dash) { return; } dashModule.cooldown(); }
+    public void resetWallJump() { if (!upgradeLoader.wallJump) { return; } walljumpModule.walljumping = false; }
     public void changeMove(bool value) { canMove = value; }
-    public void excludeDash(bool  value) { dashModule.Active = value; }
-    public void excludeDouble(bool  value) { doublejumpModule.Active = value; }
+    public void excludeDash(bool  value) { if (!upgradeLoader.Dash) { return; } dashModule.Active = value; }
+    public void excludeDouble(bool  value) { if (!upgradeLoader.DoubleJump) { return; } doublejumpModule.Active = value; }
 
     //for walljump
-    public void resetLastWall() { walljumpModule.lastWall = 0; walljumpModule.walljumping = false; }
+    public void resetLastWall() { if (!upgradeLoader.wallJump) { return; } walljumpModule.lastWall = 0; walljumpModule.walljumping = false; }
 
 
     void Start()
@@ -57,26 +57,22 @@ public class PlayerMove : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         parser = InputController.GetComponent<InputParser>();
         damagescript = damageroot.GetComponent<DealDamage>();
-        if (upgradeLoader.Dash)
-        {
+        
             Debug.Log("use Dash module");
             dashModule = dashObject.GetComponent<dash>();
             dashModule.playerController = this.gameObject;
             dashModule.Active = true;
             dashModule.Available = true;
             dashModule.init();
-        }
-        if (upgradeLoader.wallJump)
-        {
+        
             Debug.Log("use walljump module");
 
             walljumpModule = walljumpObject.GetComponent<wallJump>();
             walljumpModule.playerController = this.gameObject;
             walljumpModule.Active = true;
             walljumpModule.init();
-        }
-        if (upgradeLoader.DoubleJump)
-        {
+        
+       
             Debug.Log("use double jump module");
 
             doublejumpModule = doublejumpObject.GetComponent<DoubleJump>();
@@ -84,7 +80,7 @@ public class PlayerMove : MonoBehaviour
             doublejumpModule.Active    = true;
             doublejumpModule.Available = true;
             doublejumpModule.init();
-        }
+        
 
     }
     public bool GroundCheck()
@@ -104,40 +100,66 @@ public class PlayerMove : MonoBehaviour
     public void OnJump(InputValue value)
     {
         bool isGrounded = GroundCheck();
-        if(dashModule.dashing)
+        if (upgradeLoader.Dash)
         {
-            return;
+            if(dashModule.dashing)
+            {
+                return;
+            }
         }
+        
         if (isGrounded)
         {
-            walljumpModule.lastWall = 0;
+            if (upgradeLoader.wallJump)
+            {
+                walljumpModule.lastWall = 0;
+            }
+            if (upgradeLoader.DoubleJump)
+            {
+                doublejumpModule.Available = true;
+            }
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-            doublejumpModule.Available = true;
             //rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         }
-        else
+        else if(upgradeLoader.wallJump)
         {
             switch(walljumpModule.useAbility())
-            { case -1:break; case 1:break; case 2: doublejumpModule.useAbility(); break; }
+            { case -1:break; case 1:break; case 2: if (upgradeLoader.DoubleJump) { doublejumpModule.useAbility(); } break; }
         }
     }
 
     public void OnDash()
     {
-        dashModule.useAbility();
+        if (upgradeLoader.Dash)
+        {
+            dashModule.useAbility();
+        }
     }
     public void OnCrouch()
     {
-        stompModule.useAbility();
+        if (upgradeLoader.GroundPound)
+        {
+            stompModule.useAbility();
+        }
     }
     // Update is called once per frame
     void Update()
     {
         if (GroundCheck())
         {
-            dashModule.cooldown();
+            if (upgradeLoader.wallJump)
+            {
+                walljumpModule.lastWall = 0;
+            }
         }
-        dashModule.dashtick();
+        if (upgradeLoader.Dash)
+        {
+            if (GroundCheck())
+            {
+                dashModule.cooldown();
+            }
+            dashModule.dashtick();
+        }
         if (parser.recentInput.IndexOf(Input.Move) != -1)
         {
             if (!parser.ongoing[parser.recentInput.IndexOf(Input.Move)])
@@ -149,7 +171,8 @@ public class PlayerMove : MonoBehaviour
             }
             else
             {
-                if (!walljumpModule.walljumping)
+                
+                if (!upgradeLoader.wallJump || !walljumpModule.walljumping)
                 {
                     
                     if (!Damage && canMove)

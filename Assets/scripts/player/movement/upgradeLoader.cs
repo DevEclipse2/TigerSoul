@@ -2,9 +2,9 @@ using UnityEngine;
 
 public static class upgradeLoader
 {
-    public static bool Dash = true;
-    public static bool DoubleJump = true;
-    public static bool GroundPound = false;
-    public static bool Slide = false;
-    public static bool wallJump = true;
+    public static bool Dash { get; set; } = false;
+    public static bool DoubleJump { get; set; } = false;
+    public static bool GroundPound { get; set; } = false;
+    public static bool Slide { get; set; } = false;
+    public static bool wallJump { get; set; } = false;
 }

@@ -19,6 +19,7 @@ public class wallJump : baseUpgrade
     public bool walljumping;
     public Animator animator;
     private Coroutine coroutine;
+    private Rigidbody2D rb;
     public override void init()
     {
         movementscript = playerController.GetComponent<PlayerMove>();
@@ -26,6 +27,7 @@ public class wallJump : baseUpgrade
         moveSpeed = movementscript.moveSpeed;
         groundLayer = movementscript.groundLayer;
         jumpForce = movementscript.jumpForce;
+        rb = movementscript.rb;
     }
 
     private IEnumerator ClearJump()
@@ -41,7 +43,7 @@ public class wallJump : baseUpgrade
         if(!Active) return -1;
 
 
-        Rigidbody2D rb = movementscript.rb;
+        
         float basespeed = Mathf.Abs(rb.linearVelocity.x);
         RaycastHit2D leftWallCheck = Physics2D.Raycast(LeftWall.position, Vector2.right * -1, groundCheckRadius + 0.04f * basespeed, groundLayer);
         RaycastHit2D rightWallCheck = Physics2D.Raycast(RightWall.position, Vector2.right, groundCheckRadius + 0.04f * basespeed, groundLayer);
