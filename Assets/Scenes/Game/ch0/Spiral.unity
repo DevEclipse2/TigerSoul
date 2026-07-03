@@ -3952,6 +3952,7 @@ MonoBehaviour:
   HighPosition: {fileID: 0}
   linePrefab: {fileID: 7886058868642019725, guid: bf8d1ec72b0d1c643a1de393ee43ebe6, type: 3}
   Squisher: {fileID: 1991290615}
+  Charge: {fileID: 995027859}
 --- !u!1 &1188368554
 GameObject:
   m_ObjectHideFlags: 0

@@ -34,6 +34,13 @@ public class GrantUpgrade : MonoBehaviour
     void Start()
     {
         parser = inputparserGameobject.GetComponent<InputParser>();
+        Type upgradeloadertype = typeof(upgradeLoader);
+        PropertyInfo prop = upgradeloadertype.GetProperty(name, BindingFlags.Public | BindingFlags.Static);
+        object val = prop.GetValue(null, null);
+        if ((bool)val)
+        {
+            Destroy(deleteObj);
+        }
     }
 
     // Update is called once per frame

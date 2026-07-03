@@ -638,7 +638,7 @@ MonoBehaviour:
   - 0.1
   LockX: 0101000101
   LockY: 
-  cameraTransform: {fileID: 2107957647}
+  cameraTransform: {fileID: 868160840}
 --- !u!1001 &324251404
 PrefabInstance:
   m_ObjectHideFlags: 0

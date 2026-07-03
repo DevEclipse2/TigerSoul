@@ -13,6 +13,7 @@ public class BoardMortar : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Data.addKV(0, "mortarLoaded", "true");
         leveltrans = sceneloader.GetComponent<LevelTransition>();
         animator = GetComponent<Animator>();
         Exitcollider = GetComponent<Collider2D>();        

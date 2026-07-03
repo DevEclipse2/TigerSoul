@@ -16,16 +16,36 @@ public static class Data
         catacombs
     }
 
-    public static List<Dictionary<string,string>> kv { get; private set; }
+    public static List<Dictionary<string,string>> kv { get; private set; } = new List<Dictionary<string,string>>();
     
 
 
-    static void addKV(byte section,string key, string value)
+    public static bool addKV(byte section,string key, string value)
     {
+        while(kv.Count - 1  < section)
+        {
+            kv.Add(new Dictionary<string, string>());
+        }
         if (!kv[section].ContainsKey(key))
         {
             kv[section].Add(key, value);
+            return true;
         }
+        return false;
+    }
+    public static bool readKV(byte section,string key,out string value)
+    {
+        while (kv.Count - 1 < section)
+        {
+            kv.Add(new Dictionary<string, string>());
+        }
+        if (!kv[section].ContainsKey(key))
+        {
+            value = null;
+            return false;
+        }
+        kv[section].TryGetValue(key, out value);
+        return true;
     }
    
 }

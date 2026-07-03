@@ -45,7 +45,8 @@ public class CheckCartridge : MonoBehaviour
     bool part2complete;
     public LineRenderer linePrefab;
     public GameObject Squisher;
-
+    bool skip = false;
+    public GameObject Charge;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -62,7 +63,32 @@ public class CheckCartridge : MonoBehaviour
             lines[i] = Instantiate(linePrefab);
             
         }
+        string hasPassed = "";
+        if (Data.readKV(0,"mortarLoaded", out hasPassed))
+        {
+            if(hasPassed == "true")
+            {
+                skipPuzzle();
+            }
+        }
     }
+    void skipPuzzle()
+    {
+        skip = true;
+        Destroy(CounterBalance.GetComponent<Rigidbody2D>());
+
+        CounterBalance.transform.position = new Vector2(56.76086f - 38.12f, 16.53023f);
+        platform.transform.position = new Vector2(33.7604f, -17.37893f);
+        Destroy(Charge);
+        for (int i = 0; i < pointA.Length; i++)
+        {
+            drawline(i);
+        }
+
+        part2 = false;
+        part1 = false;
+    }
+
     public void CounterbalanceDown()
     {
           part1 = true;
@@ -97,6 +123,10 @@ public class CheckCartridge : MonoBehaviour
             {
                 drawline(i);
             }
+        }
+        if (skip) 
+        {
+            return;
         }
         if (!part1 && !part1complete && !AirTrigger.GetComponent<CollisionHandle>().IsTriggered) {
             part1 = true;
