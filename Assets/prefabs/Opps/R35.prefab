@@ -727,7 +727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::jump
   rb: {fileID: 1084156336153056819}
-  JumpForce: {x: 8, y: 12}
+  JumpForce: {x: 8, y: 18}
   groundCheck: {fileID: 4292348583320690419}
   groundLayer:
     serializedVersion: 2
@@ -876,7 +876,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
