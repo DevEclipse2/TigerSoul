@@ -23,12 +23,11 @@ public class SimpleAnimation : MonoBehaviour
     {
         //lowest
         Input.Sleep,
-        Input.Move,
         Input.Attack,
+        Input.Move,
         Input.Dash,
         Input.Jump,
         Input.Down
-
 
     };
     List<int> allPriorities = new List<int>
@@ -54,6 +53,8 @@ public class SimpleAnimation : MonoBehaviour
     public bool ovveride;
     bool dying;
     public bool deathanimcompleted;
+    [SerializeField]
+    GameObject turret;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     public void Reload()
@@ -66,6 +67,14 @@ public class SimpleAnimation : MonoBehaviour
             Controller.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
         }
         
+    }
+    public void SpawnTurret()
+    {
+        turret.SetActive(true);
+        Rigidbody2D rb = turret.GetComponent<Rigidbody2D>();
+        rb.angularVelocity = Random.Range(-82f, 114.2f);
+        rb.linearVelocityX = Random.Range(-1.3f, 1.3f);
+        rb.linearVelocityY = Random.Range(13.2f, 23.3f);
     }
     public void Death()
     {
@@ -97,6 +106,7 @@ public void StopDoubleJump()
     public void StopFalling()
     {
         animator.SetBool("Falling", false);
+        animator.SetBool("Grounded", true);
     }
 
     public void StopAttack()
@@ -170,6 +180,19 @@ public void StopDoubleJump()
                         case Input.Left: isLeft = true; break;
                         case Input.Right: isLeft = false; break;
                     }
+                    if(input == Input.Attack)
+                    {
+                        AttackIn = !AttackIn;
+                        if (AttackIn)
+                        {
+                            animator.SetInteger("Attack", 1);
+                        }
+                        else
+                        {
+                            animator.SetInteger("Attack", 2);
+                        }
+                        Hittick = tick;
+                    }
                     if (bufferindex > selectedIndex)
                     {
                         selectedIndex = bufferindex;
@@ -178,13 +201,14 @@ public void StopDoubleJump()
 
                 }
             }
-
+           
 
             //Debug.Log(selectedIndex);
             if (falling && falltimer >= 0.3)
             {
                 animator.SetBool("FallInterp", true);
             }
+
             switch (Priorities[selectedIndex])
             {
                 case Input.Sleep:
@@ -195,7 +219,6 @@ public void StopDoubleJump()
                             animator.SetBool("Falling", true);
                             animator.SetBool("Grounded", true);
                             landingcloud.transform.position = move.transform.position + LandingCloudOffset;
-                            //Debug.Log("Groundcontact");
                             Landtick = tick;
 
                         }
@@ -207,7 +230,6 @@ public void StopDoubleJump()
                                 animator.SetInteger("Action", 0);
                                 break;
                             }
-                            //Debug.Log("sliding");
                             animator.SetInteger("Action", 4);
 
                         }
@@ -215,7 +237,6 @@ public void StopDoubleJump()
                     }
                     else if (!falling)
                     {
-                        //Debug.Log("falling");
                         animator.SetBool("Falling", true);
                         falling = true;
                     }
@@ -240,19 +261,7 @@ public void StopDoubleJump()
                         falling = true;
                     }
                     break;
-                case Input.Attack: /* any additional checks*/
-
-                    AttackIn = !AttackIn;
-                    if (AttackIn)
-                    {
-                        animator.SetInteger("Attack", 1);
-                    }
-                    else
-                    {
-                        animator.SetInteger("Attack", 2);
-                    }
-                    Hittick = tick;
-                    break;
+                
                 //case Input.Dash: /* any additional checks*/ AttackIn = !AttackIn; animator.SetBool("AttackIn", AttackIn); animator.SetBool("Attack", true);  break;
                 case Input.Jump: /* any additional checks*/
                     if (move.GroundCheck())

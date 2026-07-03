@@ -183,6 +183,7 @@ public class PlayerMove : MonoBehaviour
                     }
                     else
                     {
+                        animator.SetInteger("Action", 1);
                         float velx = rb.linearVelocity.x + moveDir.x * moveSpeed * 0.6f * Time.deltaTime;
                         rb.linearVelocity = new Vector2(Mathf.Clamp(velx, -15, 15), rb.linearVelocityY);
 
