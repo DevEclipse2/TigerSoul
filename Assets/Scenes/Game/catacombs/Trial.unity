@@ -5385,7 +5385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelTransition
   sceneToLoad:
-  - clearedGrandChamber
+  - Grand Chamber
   - Subterranean
   player: {fileID: 2107957648}
   loadPositions: 0100000000000000

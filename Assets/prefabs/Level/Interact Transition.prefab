@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9212132651811245136}
   - component: {fileID: 6771202075695536833}
   m_Layer: 0
-  m_Name: 76 sherman
+  m_Name: Interact Transition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
