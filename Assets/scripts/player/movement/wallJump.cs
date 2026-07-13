@@ -44,7 +44,7 @@ public class wallJump : baseUpgrade
 
 
         
-        float basespeed = Mathf.Abs(rb.linearVelocity.x);
+        float basespeed = 0;
         RaycastHit2D leftWallCheck = Physics2D.Raycast(LeftWall.position, Vector2.right * -1, groundCheckRadius + 0.04f * basespeed, groundLayer);
         RaycastHit2D rightWallCheck = Physics2D.Raycast(RightWall.position, Vector2.right, groundCheckRadius + 0.04f * basespeed, groundLayer);
         contactLeft = (leftWallCheck.collider != null);
