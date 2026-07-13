@@ -11,10 +11,7 @@ public static class Pause
 
     //many pauses 
     //pause sfx , pause music 
-    
-
-    public static void SetGlobalPause(bool pause)
-    {
-        IsPaused = pause;
+    public static void SetGlobalPause(bool value) {
+        IsPaused = value;
     }
 }

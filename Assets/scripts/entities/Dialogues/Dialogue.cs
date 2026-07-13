@@ -24,7 +24,8 @@ public class Dialogue : MonoBehaviour
     int stringlength;
     [SerializeField] private TMP_Text textMeshPro;
     bool exit;
-
+    public GameObject inputparser;
+    InputParser parser;
     public void UpdateTMP(char character)
     {
         if (textMeshPro != null)
@@ -53,6 +54,7 @@ public class Dialogue : MonoBehaviour
         collider = GetComponent<Collider2D>();
         chartimer = 1/characterRate;
         currentbranch = dialogue;
+        parser = inputparser.GetComponent<InputParser>();
     }
     void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
@@ -73,10 +75,8 @@ public class Dialogue : MonoBehaviour
         }
     }
     
-    public void OnInteract(InputValue val)
+    public void OnInteract()
     {
-        if (val.isPressed)
-        {
             if (exit)
             {
                 exit = false;
@@ -127,11 +127,14 @@ public class Dialogue : MonoBehaviour
                     ScrubTMP(buffer);
                 }
             }
-        }
     }
     // Update is called once per frame
     void Update()
     {
+        if (parser.CheckPress(Input.Interact))
+        {
+            OnInteract();
+        }
         if (spew)
         {
             //Debug.Log("spew");
