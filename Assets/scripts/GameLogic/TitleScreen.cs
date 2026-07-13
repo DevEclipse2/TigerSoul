@@ -29,13 +29,11 @@ public class TitleScreen : MonoBehaviour
         initialCol =  StrongGlow.GetComponent<SpriteRenderer>().color;
         initialCol2 =  Darken.GetComponent<SpriteRenderer>().color;
     }
-    public void OnMouseX(InputValue value)
+    public void OnNavigate(InputValue value)
     {
-        mouseScreenSpaceX = value.Get<float>();
-    }
-    public void OnMouseY(InputValue value)
-    {
-        mouseScreenSpaceY = value.Get<float>();
+        mouseScreenSpaceX = value.Get<Vector2>().x;
+        Debug.Log("Value" + value.Get<Vector2>());
+        mouseScreenSpaceY = value.Get<Vector2>().y;
     }
     public void OnAny()
     {
