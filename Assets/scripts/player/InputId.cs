@@ -13,6 +13,7 @@ public static class Input
     public const int Interact = 7;
     public const int Exit = 8;
     public const int Cancel = 9;
+    public const int Pause = 10;
     public const int Sleep = 254; // this is when nothing happens
     public const int Error = 255;
 

@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,16 +10,18 @@ public class InputParser : MonoBehaviour
     public List<float> timeSinceInput;
     public List<float> timeHeld;
     List<float> StartTime;
-    public List<bool> ongoing;
-    public List<bool> ongoinglf;
-    public List<bool> cancelled;
-    public List<bool> pressed;
+    public List<bool> ongoing; //currently ongoing
+    public List<bool> ongoinglf; 
+    public List<bool> cancelled; // stopped pressing this frame
+    public List<bool> pressed;  //just pressed this frame
     public int retainCount;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Start()
     {
-        
+        Newentry(Input.Pause);
+        ongoing[ongoing.Count - 1] = false;
+        pressed[ongoing.Count - 1] = false;
     }
     public void clearInput()
     {
@@ -49,7 +52,11 @@ public class InputParser : MonoBehaviour
         int recent = 0;
         //check if its alive
         recent = recentInput.IndexOf(inputid);
-        
+        if(recent == -1)
+        {
+            Newentry(inputid);
+        }
+        recent = recentInput.IndexOf(inputid);
         if (context.started)
         {
             if (recent != -1)
@@ -149,6 +156,13 @@ public class InputParser : MonoBehaviour
         //Debug.Log("crouch");
         KeepAlive(Input.Down, context);
     }
+
+    public void onPause(InputAction.CallbackContext context)
+    {
+        Debug.Log("pause");
+        KeepAlive(Input.Pause, context);
+    }
+
     public int QueryInput( List<int> blacklist)
     {   
         if(blacklist == null)
@@ -166,6 +180,15 @@ public class InputParser : MonoBehaviour
         }
         //filters input and returns most current input in index 
         return -1; // no available
+    }
+    public bool CheckPress(int input)
+    {
+        if (recentInput.Contains(input))
+        {
+            int index = recentInput.IndexOf(input);
+            return pressed[index];
+        }
+        return false;
     }
     // Update is called once per frame
 

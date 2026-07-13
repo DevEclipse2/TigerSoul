@@ -33,6 +33,10 @@ public class PlayerHealth : MonoBehaviour
     }
     void Update()
     {
+        if (Pause.IsPaused) 
+        {
+            return;
+        }
         if (!Inputcontroller.GetComponent<PlayerMove>().canMove && Inputcontroller.GetComponent<PlayerMove>().GroundCheck())
         {
             Inputcontroller.GetComponent<PlayerMove>().canMove = true;
