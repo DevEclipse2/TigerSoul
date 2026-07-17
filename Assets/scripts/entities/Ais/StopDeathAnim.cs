@@ -10,6 +10,7 @@ public class StopDeathAnim : MonoBehaviour
     public bool turretToss;
     public float forceMult = 1;
     public PhysicsMaterial2D material;
+    public LayerMask mask;
     public void StopAnim()
     {
         animator.SetBool("Dead", false);
@@ -21,6 +22,7 @@ public class StopDeathAnim : MonoBehaviour
         {
             gameObject.AddComponent<Rigidbody2D>();
             Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
+            rb.excludeLayers = mask;
             rb.mass = 40;
             rb.sharedMaterial = material;
             rb.constraints = RigidbodyConstraints2D.None;

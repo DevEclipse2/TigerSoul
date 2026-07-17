@@ -785,6 +785,7 @@ MonoBehaviour:
   target: {fileID: 4971909741200846007}
   flashtarget: {fileID: 4971909741200846007}
   DeathAnimator: {fileID: 4801805800037871852}
+  Followpathobj: {fileID: 0}
   toDisable:
   - {fileID: 1950418478918013947}
   - {fileID: 3212073085540735618}
@@ -1609,6 +1610,10 @@ PrefabInstance:
       propertyPath: rb
       value: 
       objectReference: {fileID: 6611403720476147481}
+    - target: {fileID: 1953903766633660787, guid: 01ac6177c87c11d42a41750f2ec00062, type: 3}
+      propertyPath: mask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 1953903766633660787, guid: 01ac6177c87c11d42a41750f2ec00062, type: 3}
       propertyPath: turretobject.Array.size
       value: 1

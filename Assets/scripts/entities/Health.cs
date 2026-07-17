@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ public class Health : MonoBehaviour
     public GameObject flashtarget;
 
     public GameObject DeathAnimator;
+    public GameObject Followpathobj;
     public GameObject[] toDisable;
     public GameObject[] toEnable;
     void Start()
@@ -44,7 +46,15 @@ public class Health : MonoBehaviour
                 if (!isBoss)
                 {
                     DeathAnimator.GetComponent<Animator>().SetBool("Dead", true);
-                    DeathAnimator.GetComponent<StopDeathAnim>().turretToss = true;
+                    try
+                    {
+                        Followpathobj.GetComponent<FollowPath>().enabled = false;
+                        Followpathobj.GetComponent<autoFlip>().disable = true;
+                    }
+                    catch(Exception e)
+                    {
+
+                    }
                     if(health < -1)
                     {
                         DeathAnimator.GetComponent<StopDeathAnim>().forceMult = -health * 0.35f + 1;
