@@ -2354,6 +2354,7 @@ MonoBehaviour:
   flashtarget: {fileID: 0}
   DeathAnimator: {fileID: 0}
   toDisable: []
+  toEnable: []
 --- !u!1 &1354751996
 GameObject:
   m_ObjectHideFlags: 0
@@ -2823,6 +2824,7 @@ MonoBehaviour:
   flashtarget: {fileID: 0}
   DeathAnimator: {fileID: 0}
   toDisable: []
+  toEnable: []
 --- !u!1 &1472317587
 GameObject:
   m_ObjectHideFlags: 0
@@ -3269,6 +3271,7 @@ MonoBehaviour:
   flashtarget: {fileID: 0}
   DeathAnimator: {fileID: 0}
   toDisable: []
+  toEnable: []
 --- !u!61 &1732828553
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3516,6 +3519,7 @@ MonoBehaviour:
   flashtarget: {fileID: 0}
   DeathAnimator: {fileID: 0}
   toDisable: []
+  toEnable: []
 --- !u!61 &1819866313
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -128,5 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StopDeathAnim
   animator: {fileID: 6580745886498783963}
+  turretobject: []
   turretToss: 0
   forceMult: 1
+  material: {fileID: 6200000, guid: ee0c0011a1b86854d940b5db411d9cc6, type: 2}
