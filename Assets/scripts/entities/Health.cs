@@ -12,8 +12,15 @@ public class Health : MonoBehaviour
     public GameObject target;
     public GameObject flashtarget;
 
+    public GameObject DeathAnimator;
+    public GameObject[] toDisable;
+    public GameObject[] toEnable;
     void Start()
     {
+        if(DeathAnimator == null)
+        {
+            Debug.LogError("missing deathAnimator!");
+        }
         if(target == null)
         {
             target = gameObject;
@@ -36,7 +43,28 @@ public class Health : MonoBehaviour
             if ((health -= damage) <= 0) {
                 if (!isBoss)
                 {
-                    Destroy(target);
+                    DeathAnimator.GetComponent<Animator>().SetBool("Dead", true);
+                    DeathAnimator.GetComponent<StopDeathAnim>().turretToss = true;
+                    if(health < -1)
+                    {
+                        DeathAnimator.GetComponent<StopDeathAnim>().forceMult = -health * 0.35f + 1;
+                    }
+                    else
+                    {
+                        DeathAnimator.GetComponent<StopDeathAnim>().forceMult = 0.35f;
+
+                    }
+                    foreach (GameObject gameObject in toDisable)
+                        {
+                            gameObject.SetActive(false);
+
+                        }
+
+                    foreach (GameObject gameObject in toEnable)
+                    {
+                        gameObject.SetActive(true);
+
+                    }
                 }
             }
             else

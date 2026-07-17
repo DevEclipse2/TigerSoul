@@ -12,6 +12,19 @@ public class Bt7 : BaseEnemy
     GameObject NavArea;
     Vector2 MoveTarget;
 
+    Animator animator;
+
+    enum States
+    {
+        idle,
+        wander,
+        alert,
+        chasing,
+        attack,
+        retreat,
+        returnHome,
+    };
+    private States currentState = States.idle;
 
     /// <summary>
     /// behaviour of the bt7
@@ -47,9 +60,30 @@ public class Bt7 : BaseEnemy
     void Attack()
     {
     }
-
+    void Statemachine()
+    {
+        switch (currentState)
+        {
+            case States.idle:
+                return;
+            case States.wander:
+                return;
+            case States.alert:
+                return;
+            case States.chasing:
+                return;
+            case States.attack: return;
+            case States.retreat: return;
+            default:
+                return;
+        }
+    }
     void Update()
     {
-        
+        if(EnteredView)
+        {
+
+        }
+        Statemachine();
     }
 }
