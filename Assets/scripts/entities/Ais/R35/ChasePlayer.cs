@@ -16,7 +16,11 @@ public class ChasePlayer : MonoBehaviour
     public float stopDist = 0.4f;
     public float turnspeed = 1.3f;
     bool alreadyturning;
-    
+    [SerializeField]
+    Transform groundCheck;
+    [SerializeField]
+    LayerMask groundLayer;
+
     void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
         //Debug.Log("touched collider");
@@ -75,6 +79,18 @@ public class ChasePlayer : MonoBehaviour
 
     // Update is called once per frame
 
+    public bool GroundCheck()
+    {
+        RaycastHit2D collider = Physics2D.Raycast(groundCheck.position,Vector2.down,14f,groundLayer);
+        if(collider.collider != null)
+        {
+            Debug.Log("There is something under me!");
+            return true;
+        }
+        Debug.Log("There is not something under me!");
+        return false;
+    }
+
     void Update()
     {
         if (!Disabled)
@@ -89,7 +105,14 @@ public class ChasePlayer : MonoBehaviour
                         {
                             //Debug.Log("to The left" + rb.linearVelocityX + followPath.disable);
 
-                            rb.linearVelocity = new Vector2(rb.linearVelocityX - turnspeed * Time.deltaTime, rb.linearVelocityY);
+                            if(GroundCheck())
+                            {
+                                rb.linearVelocity = new Vector2(rb.linearVelocityX - turnspeed * Time.deltaTime, rb.linearVelocityY);
+                            }
+                            else
+                            {
+                                rb.linearVelocity = new Vector2(0, rb.linearVelocityY);
+                            }
                         }
 
                     }
@@ -99,8 +122,14 @@ public class ChasePlayer : MonoBehaviour
                         if (rb.linearVelocityX <= 0 || Mathf.Abs(rb.linearVelocityX) <= chaseSpeed)
                         {
                             //Debug.Log("to The right" + rb.linearVelocityX);
-
-                            rb.linearVelocity = new Vector2(rb.linearVelocityX + turnspeed * Time.deltaTime, rb.linearVelocityY);
+                            if (GroundCheck())
+                            {
+                                rb.linearVelocity = new Vector2(rb.linearVelocityX + turnspeed * Time.deltaTime, rb.linearVelocityY);
+                            }
+                            else
+                            {
+                                rb.linearVelocity = new Vector2(0, rb.linearVelocityY);
+                            }
                         }
                     }
                 }
