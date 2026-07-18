@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 79c3112f30c99e244b715c356f4c5ab1
+guid: 1e3f60925e6496142aaeb3db3241df2b
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -109,19 +109,6 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 16384
-    resizeAlgorithm: 1
-    textureFormat: 65
-    textureCompression: 1
-    compressionQuality: 37
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 1
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -129,10 +116,10 @@ TextureImporter:
       name: bt_5-5_0
       rect:
         serializedVersion: 2
-        x: 290
-        y: 267
-        width: 290
-        height: 578
+        x: 245
+        y: 290
+        width: 578
+        height: 290
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
