@@ -5,8 +5,6 @@ using UnityEngine.Rendering;
 public class Bt7 : BaseEnemy
 {
     [SerializeField]
-    GameObject locationChecker;
-    [SerializeField]
     float chaseSpeed;
     [SerializeField]
     float wanderSpeed;
