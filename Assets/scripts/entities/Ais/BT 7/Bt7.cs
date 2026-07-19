@@ -1,9 +1,21 @@
 using NUnit.Framework.Constraints;
 using UnityEngine;
 using UnityEngine.Rendering;
+using static UnityEngine.GraphicsBuffer;
 
 public class Bt7 : BaseEnemy
 {
+    public float timeBetweenTurns = 1f;
+    public float zigzagAngle = 45f;
+    bool isReversing;
+    public float accelerationRate = 1.2f;
+    private float reverseTimer;
+
+    private float currentSpeed;
+    private float turnTimer;
+    private int zigzagDirection = 1; // Alternates between 1 (right) and -1 (left)
+    private Vector3 currentMovementVector;
+
     [SerializeField]
     float chaseSpeed;
     [SerializeField]
@@ -130,6 +142,80 @@ public class Bt7 : BaseEnemy
     void Attack()
     {
     }
+    private void Chase()
+    {
+        turnTimer -= Time.deltaTime;
+        if (turnTimer <= 0f)
+        {
+            PerformSharpTurn();
+        }
+
+        Vector2 directionToPlayer = (Player.position - transform.position).normalized;
+        bool isPlayerInFront = Vector2.Dot(transform.up, directionToPlayer) >= 0f;
+
+        if (isReversing)
+        {
+            HandleReverseState(isPlayerInFront);
+        }
+        else
+        {
+            HandleZigzagState(isPlayerInFront);
+        }
+
+        // Apply movement (works for both forward and reverse based on currentSpeed's sign)
+        transform.position += (Vector3)(currentMovementVector * currentSpeed * Time.deltaTime);
+    }
+
+    private void HandleZigzagState(bool isPlayerInFront)
+    {
+        if (!isPlayerInFront)
+        {
+            isReversing = true;
+            reverseTimer = 0f;
+            return;
+        }
+
+        currentSpeed = Mathf.MoveTowards(currentSpeed, chaseSpeed, accelerationRate * Time.deltaTime);
+
+        turnTimer -= Time.deltaTime;
+        if (turnTimer <= 0f)
+        {
+            PerformSharpTurn();
+        }
+    }
+
+    private void HandleReverseState(bool isPlayerInFront)
+    {
+        reverseTimer += Time.deltaTime;
+
+        float reverseTargetSpeed = -chaseSpeed * 0.75f;
+
+        currentSpeed = Mathf.MoveTowards(currentSpeed, reverseTargetSpeed, accelerationRate * Time.deltaTime);
+
+        if (isPlayerInFront || reverseTimer >= 1.2f)
+        {
+            isReversing = false;
+
+            PerformSharpTurn();
+        }
+    }
+
+    private void PerformSharpTurn()
+    {
+        turnTimer = timeBetweenTurns;
+        zigzagDirection *= -1;
+
+        Vector2 directionToPlayer = (Player.position - transform.position).normalized;
+
+        currentMovementVector = Quaternion.Euler(0, 0, zigzagAngle * zigzagDirection) * directionToPlayer;
+
+        if (directionToPlayer != Vector2.zero)
+        {
+            float angle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg - 90f;
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+        }
+    }
+
     void Statemachine()
     {
         switch (currentState)
@@ -285,11 +371,20 @@ public class Bt7 : BaseEnemy
                 }
                 break;
             case States.chasing:
-                Vector2 direction = Vector2.Normalize((Vector2)Player.position - (Vector2)transform.position);
-                targetRot = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-                transform.rotation = (Quaternion.Euler(0, 0, targetRot));
-                rb.linearVelocity = transform.up * chaseSpeed;
+
+                //moves in zigzags towards the enemy
+
+                Chase();
+
+
+                //Vector2 direction = Vector2.Normalize((Vector2)Player.position - (Vector2)transform.position);
+                //targetRot = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                //transform.rotation = (Quaternion.Euler(0, 0, targetRot));
+                //rb.linearVelocity = transform.up * chaseSpeed;
                 break;
+
+
+
             case States.attack:
                 break;
             case States.prepRetreat:
