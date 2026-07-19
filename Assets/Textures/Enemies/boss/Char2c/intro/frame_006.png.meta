@@ -11,9 +11,6 @@ TextureImporter:
   - first:
       213: 1521400363544377418
     second: frame_006_2
-  - first:
-      213: -8224852349556448255
-    second: frame_006_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -57,7 +54,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -106,7 +103,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WindowsStoreApps
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -119,15 +116,15 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 16384
-    resizeAlgorithm: 1
-    textureFormat: 65
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
     textureCompression: 1
-    compressionQuality: 37
+    compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 1
+    overridden: 0
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
@@ -138,10 +135,10 @@ TextureImporter:
       name: frame_006_0
       rect:
         serializedVersion: 2
-        x: 453
-        y: 1222
-        width: 199
-        height: 106
+        x: 235
+        y: 354
+        width: 985
+        height: 974
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,10 +157,10 @@ TextureImporter:
       name: frame_006_1
       rect:
         serializedVersion: 2
-        x: 673
-        y: 1289
-        width: 58
-        height: 45
+        x: 656
+        y: 1286
+        width: 75
+        height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,10 +179,10 @@ TextureImporter:
       name: frame_006_2
       rect:
         serializedVersion: 2
-        x: 792
-        y: 1285
-        width: 63
-        height: 42
+        x: 781
+        y: 1275
+        width: 75
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,28 +193,6 @@ TextureImporter:
       bones: []
       spriteID: a487636e1991d1510800000000000000
       internalID: 1521400363544377418
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: frame_006_3
-      rect:
-        serializedVersion: 2
-        x: 235
-        y: 354
-        width: 985
-        height: 924
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 104a6ae7d547bdd80800000000000000
-      internalID: -8224852349556448255
       vertices: []
       indices: 
       edges: []
@@ -239,7 +214,6 @@ TextureImporter:
       frame_006_0: -3229540774608315921
       frame_006_1: -1192330990420809312
       frame_006_2: 1521400363544377418
-      frame_006_3: -8224852349556448255
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
