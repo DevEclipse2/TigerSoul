@@ -80,6 +80,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game/catacombs/congregate.unity
     guid: 25220858445f4d7439084dd6baf4a2dc
+  - enabled: 1
+    path: Assets/Scenes/Game/catacombs/Prophet.unity
+    guid: 73afe6d96898c444eabf8dd445e93af4
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 631571f1d2e06324ca07f1e762818260, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: c64ef7a5e7010454c822a21faaca7ea3, type: 3}
