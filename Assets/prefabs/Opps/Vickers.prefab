@@ -173,7 +173,7 @@ MonoBehaviour:
   armour: 1
   isBoss: 0
   spriteflash: {fileID: 0}
-  flashtime: 0.8
+  flashtime: 0.3
   target: {fileID: 3071282530666839225}
   flashtarget: {fileID: 3071282530666839225}
   DeathAnimator: {fileID: 4848983591075981751}

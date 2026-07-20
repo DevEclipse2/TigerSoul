@@ -591,7 +591,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 80
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2858455368412694897, guid: 6af4a686a06101a4bbda44dfbe306c86, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1862,7 +1862,7 @@ MonoBehaviour:
   sceneToLoad:
   - Grand Chamber
   player: {fileID: 2107957648}
-  loadPositions: 03000000
+  loadPositions: 02000000
   fade: {fileID: 2107957649}
   targetpos: 0
 --- !u!1660057539 &9223372036854775807
