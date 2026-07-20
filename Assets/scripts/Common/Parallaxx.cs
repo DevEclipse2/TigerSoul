@@ -53,7 +53,7 @@ public class Parralax : MonoBehaviour
             {
                 vec = new Vector3(0, vec.y, 0);
             }
-            if (LockY[i])
+            else if (LockY[i])
             {
                 vec = new Vector3(vec.x,0, 0);
             }
