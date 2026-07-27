@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 public class TitleScreen : MonoBehaviour
 {
+    public Animator animator;
     public Transform origin;
     Vector3 mousePosition;
     float mouseScreenSpaceX;
@@ -22,6 +23,7 @@ public class TitleScreen : MonoBehaviour
     public float Exittimer;
     public float TimerExitMax;
     public AudioSource audiosource;
+    float Timer = 0.4f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -37,6 +39,7 @@ public class TitleScreen : MonoBehaviour
     }
     public void OnAny()
     {
+        animator.SetInteger("State", 1);
         leave = true;
     }
     // Update is called once per frame
@@ -44,17 +47,21 @@ public class TitleScreen : MonoBehaviour
     {
         if (leave)
         {
-            if(Exittimer == 0)
-            {
-                audiosource.Play();
-                Debug.Log("play");
-            }
-            Exittimer += Time.deltaTime;
-            if(TimerExitMax < Exittimer)
-            {
-                SceneManager.LoadScene(SceneToSwap);
-            }
-            Darken.GetComponent<SpriteRenderer>().color = new Color(initialCol2.r, initialCol2.g, initialCol2.b, Mathf.Clamp01(Exittimer/TimerExitMax));
+            timer-= Time.deltaTime;
+            origin.rotation = Quaternion.Lerp(origin.rotation, Quaternion.Euler(new Vector3(0, 0, -90)), -timer);
+
+
+            //if(Exittimer == 0)
+            //{
+            //    audiosource.Play();
+            //    Debug.Log("play");
+            //}
+            //Exittimer += Time.deltaTime;
+            //if(TimerExitMax < Exittimer)
+            //{
+            //    SceneManager.LoadScene(SceneToSwap);
+            //}
+            //Darken.GetComponent<SpriteRenderer>().color = new Color(initialCol2.r, initialCol2.g, initialCol2.b, Mathf.Clamp01(Exittimer/TimerExitMax));
 
         }
         else
