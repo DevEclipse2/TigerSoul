@@ -1,0 +1,741 @@
+fileFormatVersion: 2
+guid: cf226e918c53e9746a0193e2f6aad037
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5598239109755342943
+    second: pillar_segment_Export-10_0
+  - first:
+      213: -4363848170742798662
+    second: pillar_segment_Export-10_1
+  - first:
+      213: 6786717332815266732
+    second: pillar_segment_Export-10_2
+  - first:
+      213: 117158835787155580
+    second: pillar_segment_Export-10_3
+  - first:
+      213: 1495144612973340480
+    second: pillar_segment_Export-10_4
+  - first:
+      213: 2527734127550468567
+    second: pillar_segment_Export-10_5
+  - first:
+      213: -4579379282337618817
+    second: pillar_segment_Export-10_6
+  - first:
+      213: -3268320776119370292
+    second: pillar_segment_Export-10_7
+  - first:
+      213: -579131345803139047
+    second: pillar_segment_Export-10_8
+  - first:
+      213: -8537293634502265059
+    second: pillar_segment_Export-10_9
+  - first:
+      213: -4214543952659377509
+    second: pillar_segment_Export-10_10
+  - first:
+      213: -4394871182990048077
+    second: pillar_segment_Export-10_11
+  - first:
+      213: -1318097375726379487
+    second: pillar_segment_Export-10_12
+  - first:
+      213: 1502950058445947721
+    second: pillar_segment_Export-10_13
+  - first:
+      213: -995357879907750339
+    second: pillar_segment_Export-10_14
+  - first:
+      213: 4084321381988466368
+    second: pillar_segment_Export-10_15
+  - first:
+      213: -5120066284482390306
+    second: pillar_segment_Export-10_16
+  - first:
+      213: -5809464584600811190
+    second: pillar_segment_Export-10_17
+  - first:
+      213: -4602020923082498574
+    second: pillar_segment_Export-10_18
+  - first:
+      213: -8846323485720479782
+    second: pillar_segment_Export-10_19
+  - first:
+      213: -3131548149028820887
+    second: pillar_segment_Export-10_20
+  - first:
+      213: 9161036302476091942
+    second: pillar_segment_Export-10_21
+  - first:
+      213: -8384814805888507101
+    second: pillar_segment_Export-10_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pillar_segment_Export-10_0
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 1639
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1af655fb03f0f42b0800000000000000
+      internalID: -5598239109755342943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_segment_Export-10_1
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 1621
+        width: 138
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab62329953f7073c0800000000000000
+      internalID: -4363848170742798662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_segment_Export-10_2
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 1618
+        width: 97
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca3c075e4734f2e50800000000000000
+      internalID: 6786717332815266732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_segment_Export-10_3
+      rect:
+        serializedVersion: 2
+        x: 753
+        y: 1558
+        width: 40
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c784465275b30a100800000000000000
+      internalID: 117158835787155580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_segment_Export-10_4
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 1504
+        width: 236
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0476d189a12dfb410800000000000000
+      internalID: 1495144612973340480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_segment_Export-10_5
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 1580
+        width: 25
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d11747ebc0541320800000000000000
+      internalID: 2527734127550468567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_segment_Export-10_6
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1201
+        width: 39
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f74ab782ec6c270c0800000000000000
+      internalID: -4579379282337618817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_segment_Export-10_7
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 1257
+        width: 12
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccd3067029794a2d0800000000000000
+      internalID: -3268320776119370292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_segment_Export-10_8
+      rect:
+        serializedVersion: 2
+        x: 910
+        y: 1194
+        width: 166
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9182c1ffb1386f7f0800000000000000
+      internalID: -579131345803139047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_segment_Export-10_9
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 969
+        width: 11
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d17f9440ca0758980800000000000000
+      internalID: -8537293634502265059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_segment_Export-10_10
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 985
+        width: 212
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b92977bca9ee285c0800000000000000
+      internalID: -4214543952659377509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_segment_Export-10_11
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 926
+        width: 53
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b40740b1f74203c0800000000000000
+      internalID: -4394871182990048077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_segment_Export-10_12
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 919
+        width: 22
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12e547c9b6d25bde0800000000000000
+      internalID: -1318097375726379487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_segment_Export-10_13
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 913
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 943c2dc7d1d8bd410800000000000000
+      internalID: 1502950058445947721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_segment_Export-10_14
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 903
+        width: 110
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3e66b72847cf22f0800000000000000
+      internalID: -995357879907750339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_segment_Export-10_15
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 847
+        width: 194
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ce74f148ac6ea830800000000000000
+      internalID: 4084321381988466368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_segment_Export-10_16
+      rect:
+        serializedVersion: 2
+        x: 757
+        y: 530
+        width: 26
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed619fe67ded1f8b0800000000000000
+      internalID: -5120066284482390306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_segment_Export-10_17
+      rect:
+        serializedVersion: 2
+        x: 763
+        y: 226
+        width: 433
+        height: 364
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4908ab7db2a06fa0800000000000000
+      internalID: -5809464584600811190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_segment_Export-10_18
+      rect:
+        serializedVersion: 2
+        x: 1255
+        y: 389
+        width: 205
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fd90ce5a565220c0800000000000000
+      internalID: -4602020923082498574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_segment_Export-10_19
+      rect:
+        serializedVersion: 2
+        x: 1412
+        y: 136
+        width: 45
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad77f69d8ab8b3580800000000000000
+      internalID: -8846323485720479782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_segment_Export-10_20
+      rect:
+        serializedVersion: 2
+        x: 1266
+        y: 380
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 968ea14dc818a84d0800000000000000
+      internalID: -3131548149028820887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_segment_Export-10_21
+      rect:
+        serializedVersion: 2
+        x: 1288
+        y: 305
+        width: 13
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 622ab87daf9822f70800000000000000
+      internalID: 9161036302476091942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_segment_Export-10_22
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 240
+        width: 203
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3236493db5723ab80800000000000000
+      internalID: -8384814805888507101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      pillar_segment_Export-10_0: -5598239109755342943
+      pillar_segment_Export-10_1: -4363848170742798662
+      pillar_segment_Export-10_10: -4214543952659377509
+      pillar_segment_Export-10_11: -4394871182990048077
+      pillar_segment_Export-10_12: -1318097375726379487
+      pillar_segment_Export-10_13: 1502950058445947721
+      pillar_segment_Export-10_14: -995357879907750339
+      pillar_segment_Export-10_15: 4084321381988466368
+      pillar_segment_Export-10_16: -5120066284482390306
+      pillar_segment_Export-10_17: -5809464584600811190
+      pillar_segment_Export-10_18: -4602020923082498574
+      pillar_segment_Export-10_19: -8846323485720479782
+      pillar_segment_Export-10_2: 6786717332815266732
+      pillar_segment_Export-10_20: -3131548149028820887
+      pillar_segment_Export-10_21: 9161036302476091942
+      pillar_segment_Export-10_22: -8384814805888507101
+      pillar_segment_Export-10_3: 117158835787155580
+      pillar_segment_Export-10_4: 1495144612973340480
+      pillar_segment_Export-10_5: 2527734127550468567
+      pillar_segment_Export-10_6: -4579379282337618817
+      pillar_segment_Export-10_7: -3268320776119370292
+      pillar_segment_Export-10_8: -579131345803139047
+      pillar_segment_Export-10_9: -8537293634502265059
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
